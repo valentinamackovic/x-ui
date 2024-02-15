@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+        * {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+        }
+        body {
+            margin: 0;
+            background-color: #1e293b;
+            color: #cbd5e1;
+        }
+        .title {
+            font-size: 48px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px 0;
+        }
+        .card {
+            min-width: 300px;
+            min-height: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            background-color: red;
+            text-decoration: none;
+            font-size: 18px;
+            color: #cbd5e1;
+        }
+        .card.vue {
+            background: rgba(65, 184, 131, 0.6);
+            /* #41B883; */
+        }
+        .card.react {
+            background: rgba(97, 219, 251, 0.6);
+             /* #61DBFB; */
+        }
+        .card.svelte {
+            background: rgba(170, 30, 30, 0.6);
+        }
+        .card-wrapper + .card-wrapper {
+            margin-left: 30px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 112px;
+        }
+        .divider {
+            min-height: 2px;
+            width: 100vw;
+            background: #334155;
+        }
+        .intro-text {
+            font-size: 18px;
+            padding: 30px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @media only screen and (max-width: 990px) { 
+            .container {
+                flex-direction: column;
+            }
+            .card-wrapper + .card-wrapper {
+                margin-left: 0px;
+                margin-top: 30px;
+            }
+        }
+    </style>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components Library (React, Vue, Svelte)</title>
+  </head>
+  <body>
+    <title class="title">X UI</title>
+    <div class="divider"></div>
+    <p class="intro-text">Completely unstyled UI components made to be used in React, Vue or Svelte.</p>
+    <div class="container">
+        <div class="card-wrapper"><a class="card vue" href="." onclick="javascript:event.target.port=3100">Vue</a></div>
+        <div class="card-wrapper"><a class="card react" href="." onclick="javascript:event.target.port=3200">React</a></div>
+        <div class="card-wrapper"><a class="card svelte" href="." onclick="javascript:event.target.port=3300">Svelte</a></div>
+    </div>
+</body>
+</html>

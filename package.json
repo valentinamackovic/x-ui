@@ -1,0 +1,17 @@
+{
+    "devDependencies": {
+      "vite": "^5.0.12"
+    },
+    "scripts": {
+      "app:react": "cd react && npm start",
+      "app:vue": "cd vue && npm run dev",
+      "app:svelte": "cd svelte && npm run dev -- --open",
+      "start:all": "concurrently \"npm run app:react\" \"npm run app:vue\" \"npm run app:svelte\" ",
+      "build": "vite build --watch && npm run dev",
+      "preview": "vite build --watch & vite preview --open --port 3000 & npm run start:all"
+    },
+    "dependencies": {
+      "concurrently": "^8.2.2"
+    }
+  }
+  
