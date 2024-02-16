@@ -6,9 +6,16 @@ function App() {
     <>
       <title className="title">X UI</title>
       <div className="divider"></div>
-      <div>
-        React docs
-      </div></>
+      <div className='sidebar'>
+        <div className='sidebar-content'>
+          <p className='sidebar-item sidebar-item-active'>Overview</p>
+          <p className='sidebar-item'>Menu</p>
+          <p className='sidebar-item'>Select</p>
+          <p className='sidebar-item'>Accordion</p>
+          <p className='sidebar-item'>Modal</p>
+        </div>
+      </div>
+    </>
   );
 }
 
