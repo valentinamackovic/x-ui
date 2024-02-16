@@ -1,6 +1,6 @@
-import React from 'react';
-import './shared.css';
-import { Sidebar } from './components/Sidebar';
+import React from "react";
+import "./shared.css";
+import { Sidebar } from "./components/Sidebar";
 
 function App() {
   return (
