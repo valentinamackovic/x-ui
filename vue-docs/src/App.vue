@@ -1,12 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Sidebar from "./components/Sidebar.vue";
+</script>
 
 <template>
+  <header class="title">X UI</header>
+  <div className="divider"></div>
   <nav>
-    <div>Hello</div>
+    <Sidebar />
   </nav>
   <RouterView />
 </template>
-
-<style scoped>
-@import "./assets/shared.css";
-</style>
