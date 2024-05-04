@@ -43,10 +43,17 @@ function setActiveItem(item: string) {
       </p>
       <p
         class="sidebar-item"
-        :class="{ 'sidebar-item-active': activeItem === 'sidebar-item' }"
+        :class="{ 'sidebar-item-active': activeItem === 'modal' }"
         @click="setActiveItem('modal')"
       >
         Modal
+      </p>
+      <p
+        class="sidebar-item"
+        :class="{ 'sidebar-item-active': activeItem === 'multiselect' }"
+        @click="setActiveItem('multiselect')"
+      >
+        Multiselect
       </p>
     </div>
   </div>

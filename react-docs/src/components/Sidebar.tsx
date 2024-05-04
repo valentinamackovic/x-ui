@@ -6,6 +6,7 @@ enum ItemsEnum {
   Select,
   Accordion,
   Modal,
+  Multiselect
 }
 
 export const Sidebar = () => {
@@ -43,6 +44,12 @@ export const Sidebar = () => {
           onClick={() => setActiveItem(ItemsEnum.Modal)}
         >
           Modal
+        </p>
+        <p
+          className={`sidebar-item ${activeItem === ItemsEnum.Multiselect && "sidebar-item-active"}`}
+          onClick={() => setActiveItem(ItemsEnum.Multiselect)}
+        >
+          Multiselect
         </p>
       </div>
     </div>
