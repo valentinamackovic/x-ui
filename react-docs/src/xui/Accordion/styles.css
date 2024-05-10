@@ -1,0 +1,38 @@
+.accordion-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: baseline;
+  padding-left: 12px;
+}
+
+.btn-accordion {
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 12px;
+  padding-left: 0;
+  border-radius: 0.5em;
+}
+.btn-accordion:hover {
+  opacity: 80%;
+}
+
+.accordion-icon {
+  margin-right: 6px;
+}
+
+.accordion-content {
+  padding-top: 6px;
+  font-size: 14px;
+  opacity: 70%;
+  overflow: hidden;
+  max-height: 0;
+}
+.accordion-content.open {
+  max-height: 1000px;
+}

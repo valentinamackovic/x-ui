@@ -1,53 +1,72 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 enum ItemsEnum {
-  Overview,
-  Menu,
-  Select,
-  Accordion,
-  Modal,
-  Multiselect
+  Overview = "overview",
+  Menu = "menu",
+  Select = "select",
+  Accordion = "accordion",
+  Modal = "modal",
+  Multiselect = "multiselect",
 }
 
 export const Sidebar = () => {
   const [activeItem, setActiveItem] = useState<ItemsEnum>(ItemsEnum.Overview);
+  const navigate = useNavigate();
+
+  const handleItemClick = (newActiveItem: ItemsEnum) => {
+    setActiveItem(newActiveItem);
+    navigate(`/${newActiveItem}`);
+  };
 
   return (
     <div className="sidebar">
       <div className="sidebar-content">
         <p
-          className={`sidebar-item ${activeItem === ItemsEnum.Overview && "sidebar-item-active"}`}
-          onClick={() => setActiveItem(ItemsEnum.Overview)}
+          className={`sidebar-item ${
+            activeItem === ItemsEnum.Overview && "sidebar-item-active"
+          }`}
+          onClick={() => handleItemClick(ItemsEnum.Overview)}
         >
           Overview
         </p>
         <p
-          className={`sidebar-item ${activeItem === ItemsEnum.Menu && "sidebar-item-active"}`}
-          onClick={() => setActiveItem(ItemsEnum.Menu)}
+          className={`sidebar-item ${
+            activeItem === ItemsEnum.Menu && "sidebar-item-active"
+          }`}
+          onClick={() => handleItemClick(ItemsEnum.Menu)}
         >
           Menu
         </p>
         <p
-          className={`sidebar-item ${activeItem === ItemsEnum.Select && "sidebar-item-active"}`}
-          onClick={() => setActiveItem(ItemsEnum.Select)}
+          className={`sidebar-item ${
+            activeItem === ItemsEnum.Select && "sidebar-item-active"
+          }`}
+          onClick={() => handleItemClick(ItemsEnum.Select)}
         >
           Select
         </p>
         <p
-          className={`sidebar-item ${activeItem === ItemsEnum.Accordion && "sidebar-item-active"}`}
-          onClick={() => setActiveItem(ItemsEnum.Accordion)}
+          className={`sidebar-item ${
+            activeItem === ItemsEnum.Accordion && "sidebar-item-active"
+          }`}
+          onClick={() => handleItemClick(ItemsEnum.Accordion)}
         >
           Accordion
         </p>
         <p
-          className={`sidebar-item ${activeItem === ItemsEnum.Modal && "sidebar-item-active"}`}
-          onClick={() => setActiveItem(ItemsEnum.Modal)}
+          className={`sidebar-item ${
+            activeItem === ItemsEnum.Modal && "sidebar-item-active"
+          }`}
+          onClick={() => handleItemClick(ItemsEnum.Modal)}
         >
           Modal
         </p>
         <p
-          className={`sidebar-item ${activeItem === ItemsEnum.Multiselect && "sidebar-item-active"}`}
-          onClick={() => setActiveItem(ItemsEnum.Multiselect)}
+          className={`sidebar-item ${
+            activeItem === ItemsEnum.Multiselect && "sidebar-item-active"
+          }`}
+          onClick={() => handleItemClick(ItemsEnum.Multiselect)}
         >
           Multiselect
         </p>

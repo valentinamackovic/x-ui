@@ -5,7 +5,7 @@
   "scripts": {
     "app:react": "cd react-docs && npm start",
     "app:vue": "cd vue-docs && npm run dev",
-    "app:svelte": "cd svelte-docs && npm run dev -- --open",
+    "app:svelte": "cd svelte-docs && npm run dev",
     "start:all": "concurrently \"npm run app:react\" \"npm run app:vue\" \"npm run app:svelte\" ",
     "build": "vite build --watch && npm run dev",
     "preview": "cp shared.css react-docs/src/ && cp shared.css vue-docs/src/assets && cp shared.css svelte-docs/src && vite build --watch & vite preview --open --port 3000 & npm run start:all"
