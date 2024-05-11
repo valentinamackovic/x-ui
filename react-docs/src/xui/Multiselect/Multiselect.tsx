@@ -83,6 +83,7 @@ export function Multiselect({
         <div ref={dropdownRef} className="multiselect-dropdown">
           {options.map((option) => (
             <option
+              key={option.id}
               className={`multiselect-option ${
                 value.find((val) => val.id === option.id) !== undefined
                   ? "selected"

@@ -11,7 +11,13 @@ const MenuPage = () => {
       <Example
         exampleContent={
           <div className="center">
-            <Menu items={[{ id: "1", value: "Aciton 1 action 1" }]}>
+            <Menu
+              items={[
+                { id: "1", value: "Aciton 1 action 1" },
+                { id: "2", value: "Aciton 2" },
+                { id: "3", value: "Aciton 3" },
+              ]}
+            >
               Options
             </Menu>
           </div>

@@ -66,6 +66,7 @@ export function Select({
         <div ref={dropdownRef} className="select-dropdown">
           {options.map((option) => (
             <option
+              key={option.id}
               className={`select-option ${
                 value?.id === option.id ? "selected" : ""
               }`}

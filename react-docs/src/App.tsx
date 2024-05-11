@@ -7,6 +7,7 @@ import AccordionPage from "./pages/AccordionPage";
 import { SelectPage } from "./pages/SelectPage";
 import MenuPage from "./pages/MenuPage";
 import { MultiselectPage } from "./pages/MultiselectPage";
+import OverviewPage from "./pages/OverviewPage";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Sidebar />
         <div className="main-page-content">
           <Routes>
-            <Route path="/overview" element={<div>Overview</div>} />
+            <Route path="/overview" element={<OverviewPage />} />
             <Route path="/menu" element={<MenuPage />} />
             <Route path="/select" element={<SelectPage />} />
             <Route path="/modal" element={<ModalPage />} />

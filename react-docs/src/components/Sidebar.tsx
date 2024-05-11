@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-enum ItemsEnum {
+export enum ItemsEnum {
   Overview = "overview",
   Menu = "menu",
   Select = "select",
@@ -13,6 +13,13 @@ enum ItemsEnum {
 export const Sidebar = () => {
   const [activeItem, setActiveItem] = useState<ItemsEnum>(ItemsEnum.Overview);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const currentActiveItem = window.location.href.substring(
+      window.location.href.lastIndexOf("/") + 1
+    );
+    setActiveItem(currentActiveItem as ItemsEnum);
+  }, [window.location.href]);
 
   const handleItemClick = (newActiveItem: ItemsEnum) => {
     setActiveItem(newActiveItem);

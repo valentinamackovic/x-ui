@@ -113,3 +113,36 @@ body {
 .btn-switch:hover {
   opacity: 70%;
 }
+
+/* Overview */
+.overview-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.overview-item {
+  width: 380px;
+  border-radius: 1em;
+  border: 1px solid rgb(1, 22, 39);
+}
+.overview-image {
+  height: 300px;
+  max-width: 100%;
+  object-fit: scale-down;
+}
+.overview-item:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.overview-item div {
+  background-color: rgb(1, 22, 39);
+  border-bottom-right-radius: 1em;
+  border-bottom-left-radius: 1em;
+}
+.overview-item h3 {
+  border-bottom: 1px solid rgb(1, 22, 39);
+  padding: 14px 10px;
+  margin: 0;
+}

@@ -62,7 +62,11 @@ export function Menu({
       {areOptionsVisible && (
         <div ref={dropdownRef} className="menu-dropdown">
           {items.map((item) => (
-            <div className="menu-option" onClick={() => onItemClick?.(item.id)}>
+            <div
+              key={item.id}
+              className="menu-option"
+              onClick={() => onItemClick?.(item.id)}
+            >
               {item.value}
             </div>
           ))}
