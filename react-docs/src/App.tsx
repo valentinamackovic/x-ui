@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ModalPage from "./pages/ModalPage";
 import AccordionPage from "./pages/AccordionPage";
 import { SelectPage } from "./pages/SelectPage";
+import MenuPage from "./pages/MenuPage";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <div className="main-page-content">
           <Routes>
             <Route path="/overview" element={<div>Overview</div>} />
-            <Route path="/menu" element={<div>Menu</div>} />
+            <Route path="/menu" element={<MenuPage />} />
             <Route path="/select" element={<SelectPage />} />
             <Route path="/modal" element={<ModalPage />} />
             <Route path="/accordion" element={<AccordionPage />} />
