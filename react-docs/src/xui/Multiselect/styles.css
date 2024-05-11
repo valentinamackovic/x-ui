@@ -1,0 +1,54 @@
+.multiselect-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.multiselect-input {
+  background-color: transparent;
+  border: 1px solid #334155;
+  border-radius: 0.5em;
+  padding: 6px 14px;
+  cursor: pointer;
+  color: inherit;
+}
+
+.multiselect-input-wrapper {
+  position: relative;
+}
+
+.multiselect-input-wrapper::after {
+  content: "\25BC";
+  position: absolute;
+  color: inherit;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 10px;
+}
+
+.multiselect-dropdown {
+  margin-top: 1px;
+  padding: 4px 0;
+  background-color: #33415530;
+  border-radius: 0.5em;
+  position: absolute;
+  top: 100%; /* Position directly below the input field */
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensures the dropdown overlays other content */
+}
+
+.multiselect-option {
+  padding: 4px 14px;
+  font-size: 14px;
+}
+.multiselect-option + .multiselect-option {
+  margin-top: 2px;
+}
+.multiselect-option:hover,
+.multiselect-option.selected {
+  background-color: #33415540;
+}

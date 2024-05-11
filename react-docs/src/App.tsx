@@ -6,6 +6,7 @@ import ModalPage from "./pages/ModalPage";
 import AccordionPage from "./pages/AccordionPage";
 import { SelectPage } from "./pages/SelectPage";
 import MenuPage from "./pages/MenuPage";
+import { MultiselectPage } from "./pages/MultiselectPage";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
             <Route path="/select" element={<SelectPage />} />
             <Route path="/modal" element={<ModalPage />} />
             <Route path="/accordion" element={<AccordionPage />} />
-            <Route path="/multiselect" element={<div>Multiselect</div>} />
+            <Route path="/multiselect" element={<MultiselectPage />} />
           </Routes>
         </div>
       </div>
