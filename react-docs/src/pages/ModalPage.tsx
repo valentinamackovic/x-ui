@@ -20,6 +20,28 @@ const ModalComponent = () => {
   );
 };
 
+const ModalStatic = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  return (
+    <>
+      <Modal
+        component
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        isStatic
+      >
+        Example modal content.
+      </Modal>
+      <div className="center">
+        <button className="btn" onClick={() => setModalOpen(true)}>
+          Open modal
+        </button>
+      </div>
+    </>
+  );
+};
+
 const ModalComposable = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -74,6 +96,35 @@ const ModalPage = () => {
             );
         };
           `}
+      />
+      <p>
+        With static prop set to true. This ignores all internal logic for
+        opening/closing the modal. Notice how the modal does not close on
+        pressign ESC and clicking outside of the modal component.
+      </p>
+      <Example
+        exampleContent={<ModalStatic />}
+        codeContent={`
+        const [modalOpen, setModalOpen] = useState(false);
+
+        return (
+          <>
+            <Modal
+              component
+              isOpen={modalOpen}
+              onClose={() => setModalOpen(false)}
+              isStatic
+            >
+              Example modal content.
+            </Modal>
+            <div className="center">
+              <button className="btn" onClick={() => setModalOpen(true)}>
+                Open modal
+              </button>
+            </div>
+          </>
+        );
+      `}
       />
       <h3>Use as a composable</h3>
       <p>

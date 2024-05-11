@@ -9,6 +9,7 @@ export interface ModalProps extends ReactChildren {
   isOpen?: boolean;
   onClose?: () => void;
   component?: boolean;
+  isStatic?: boolean;
 }
 export interface ButtonProps extends ReactChildren {
   onClick: () => void;
@@ -32,7 +33,13 @@ Modal.Button = ({ children, onClick: onButtonClick }: ButtonProps) => {
   );
 };
 
-export function Modal({ isOpen, onClose, children, component }: ModalProps) {
+export function Modal({
+  isOpen,
+  onClose,
+  children,
+  component,
+  isStatic,
+}: ModalProps) {
   const [open, setOpen] = useState<boolean>(isOpen ?? false);
 
   useEffect(() => {
@@ -40,7 +47,7 @@ export function Modal({ isOpen, onClose, children, component }: ModalProps) {
   }, [isOpen]);
 
   const close = () => {
-    setOpen(false);
+    !isStatic && setOpen(false);
     onClose?.();
   };
 
@@ -53,7 +60,7 @@ export function Modal({ isOpen, onClose, children, component }: ModalProps) {
       if ((event.target as HTMLElement).id === "modal-backdrop") close();
     };
 
-    if (open) {
+    if (open && !isStatic) {
       document.addEventListener("keydown", handleKeyDown);
       document.addEventListener("mousedown", handleClickOutside);
     }
@@ -64,6 +71,7 @@ export function Modal({ isOpen, onClose, children, component }: ModalProps) {
     };
   }, [open, onClose]);
 
+  console.log({ open });
   if (!open) return null;
 
   return ReactDOM.createPortal(
