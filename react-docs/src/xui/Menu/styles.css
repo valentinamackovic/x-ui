@@ -32,6 +32,8 @@
   padding: 4px 14px;
   font-size: 14px;
   width: fit-content;
+  cursor: default;
+  width: auto;
 }
 .menu-option + .menu-option {
   margin-top: 2px;
@@ -39,4 +41,10 @@
 .menu-option:hover,
 .menu-option.selected {
   background-color: #33415540;
+}
+.menu-option.disabled {
+  opacity: 80%;
+}
+.menu-option.disabled:hover {
+  background-color: transparent;
 }
