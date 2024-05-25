@@ -25,6 +25,43 @@ const StaticMenuExample = () => {
   );
 };
 
+const ComposableMenuExample = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<string | number>();
+
+  return (
+    <div className="center">
+      <Menu
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        items={[
+          { id: "1", value: "Action 1 Action 1" },
+          { id: "2", value: "Action 2" },
+          { id: "3", value: "Action 3" },
+        ]}
+        onItemClick={(item) => window.alert("item was clciked: " + item)}
+        onButtonClick={() => setIsOpen(true)}
+        component={true}
+      >
+        <Menu.Button onMenuButtonClick={() => setIsOpen(!isOpen)}>
+          Composable
+        </Menu.Button>
+        <Menu.Dropdown open={isOpen}>
+          <Menu.Item
+            onClick={(item) => {
+              setSelectedItem(item);
+              setIsOpen(false);
+            }}
+            item={{ id: "1", value: "Action 1" }}
+          >
+            First Action
+          </Menu.Item>
+        </Menu.Dropdown>
+      </Menu>
+    </div>
+  );
+};
+
 const MenuPage = () => {
   return (
     <>
@@ -38,9 +75,9 @@ const MenuPage = () => {
           <div className="center">
             <Menu
               items={[
-                { id: "1", value: "Aciton 1 action 1" },
-                { id: "2", value: "Aciton 2" },
-                { id: "3", value: "Aciton 3" },
+                { id: "1", value: "Action 1 action 1" },
+                { id: "2", value: "Action 2" },
+                { id: "3", value: "Action 3" },
               ]}
               onItemClick={(item) => window.alert("item was clciked: " + item)}
             >
@@ -48,7 +85,18 @@ const MenuPage = () => {
             </Menu>
           </div>
         }
-        codeContent="a"
+        codeContent={`
+        <Menu
+          items={[
+            { id: "1", value: "Action 1 action 1" },
+            { id: "2", value: "Action 2" },
+            { id: "3", value: "Action 3" },
+          ]}
+          onItemClick={(item) => window.alert("item was clciked: " + item)}
+        >
+          Options
+        </Menu>
+        `}
       />
       <p>Disabled items</p>
       <Example
@@ -57,9 +105,9 @@ const MenuPage = () => {
             <Menu
               disabledItems={["1", "2"]}
               items={[
-                { id: "1", value: "Aciton 1 action 1" },
-                { id: "2", value: "Aciton 2" },
-                { id: "3", value: "Aciton 3" },
+                { id: "1", value: "Action 1 action 1" },
+                { id: "2", value: "Action 2" },
+                { id: "3", value: "Action 3" },
               ]}
               onItemClick={(item) => window.alert("item was clciked: " + item)}
             >
@@ -67,7 +115,19 @@ const MenuPage = () => {
             </Menu>
           </div>
         }
-        codeContent="a"
+        codeContent={`
+        <Menu
+          disabledItems={["1", "2"]}
+          items={[
+            { id: "1", value: "Action 1 action 1" },
+            { id: "2", value: "Action 2" },
+            { id: "3", value: "Action 3" },
+          ]}
+          onItemClick={(item) => window.alert("item was clciked: " + item)}
+        >
+          Options
+        </Menu>
+        `}
       />
       <p>Open set to true</p>
       <Example
@@ -76,9 +136,9 @@ const MenuPage = () => {
             <Menu
               open
               items={[
-                { id: "1", value: "Aciton 1 action 1" },
-                { id: "2", value: "Aciton 2" },
-                { id: "3", value: "Aciton 3" },
+                { id: "1", value: "Action 1 action 1" },
+                { id: "2", value: "Action 2" },
+                { id: "3", value: "Action 3" },
               ]}
               onItemClick={(item) => window.alert("item was clciked: " + item)}
             >
@@ -86,7 +146,19 @@ const MenuPage = () => {
             </Menu>
           </div>
         }
-        codeContent="a"
+        codeContent={`
+        <Menu
+          open
+          items={[
+            { id: "1", value: "Action 1 action 1" },
+            { id: "2", value: "Action 2" },
+            { id: "3", value: "Action 3" },
+          ]}
+          onItemClick={(item) => window.alert("item was clciked: " + item)}
+        >
+          Options
+        </Menu>
+        `}
       />
       <p>Trigger a function when the menu popup is closed</p>
       <Example
@@ -95,9 +167,9 @@ const MenuPage = () => {
             <Menu
               onClose={() => window.alert("Closed menu popup.")}
               items={[
-                { id: "1", value: "Aciton 1 action 1" },
-                { id: "2", value: "Aciton 2" },
-                { id: "3", value: "Aciton 3" },
+                { id: "1", value: "Action 1 action 1" },
+                { id: "2", value: "Action 2" },
+                { id: "3", value: "Action 3" },
               ]}
               onItemClick={(item) => window.alert("item was clciked: " + item)}
             >
@@ -105,10 +177,85 @@ const MenuPage = () => {
             </Menu>
           </div>
         }
-        codeContent="a"
+        codeContent={`
+        <Menu
+            onClose={() => window.alert("Closed menu popup.")}
+            items={[
+              { id: "1", value: "Action 1 action 1" },
+              { id: "2", value: "Action 2" },
+              { id: "3", value: "Action 3" },
+            ]}
+            onItemClick={(item) => window.alert("item was clciked: " + item)}
+          >
+            Options
+        </Menu>`}
       />
       <p>Ignore the internal logic with static property</p>
-      <Example exampleContent={<StaticMenuExample />} codeContent="a" />
+      <Example
+        exampleContent={<StaticMenuExample />}
+        codeContent={`
+        const [isOpen, setIsOpen] = useState(false);
+
+        return (
+          <div className="center">
+            <Menu
+              isStatic
+              open={isOpen}
+              onClose={() => setIsOpen(false)}
+              items={[
+                { id: "1", value: "Aciton 1 action 1" },
+                { id: "2", value: "Aciton 2" },
+                { id: "3", value: "Aciton 3" },
+              ]}
+              onItemClick={(item) => window.alert("item was clciked: " + item)}
+              onButtonClick={() => setIsOpen(true)}
+            >
+              Options
+            </Menu>
+          </div>
+        );
+      
+      `}
+      />
+      <h3>Use as a composable</h3>
+      <Example
+        exampleContent={<ComposableMenuExample />}
+        codeContent={`
+      const [isOpen, setIsOpen] = useState(false);
+      const [selectedItem, setSelectedItem] = useState<string | number>();
+    
+      return (
+        <div className="center">
+          <Menu
+            open={isOpen}
+            onClose={() => setIsOpen(false)}
+            items={[
+              { id: "1", value: "Action 1 Action 1" },
+              { id: "2", value: "Action 2" },
+              { id: "3", value: "Action 3" },
+            ]}
+            onItemClick={(item) => window.alert("item was clciked: " + item)}
+            onButtonClick={() => setIsOpen(true)}
+            component={true}
+          >
+            <Menu.Button onMenuButtonClick={() => setIsOpen(!isOpen)}>
+              Composable
+            </Menu.Button>
+            <Menu.Dropdown open={isOpen}>
+              <Menu.Item
+                onClick={(item) => {
+                  setSelectedItem(item);
+                  setIsOpen(false);
+                }}
+                item={{ id: "1", value: "Action 1" }}
+              >
+                First Action
+              </Menu.Item>
+            </Menu.Dropdown>
+          </Menu>
+        </div>
+      `}
+      />
     </>
   );
 };

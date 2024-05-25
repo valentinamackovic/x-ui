@@ -71,7 +71,6 @@ export function Modal({
     };
   }, [open, onClose]);
 
-  console.log({ open });
   if (!open) return null;
 
   return ReactDOM.createPortal(

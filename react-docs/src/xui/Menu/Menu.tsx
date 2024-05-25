@@ -1,12 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import { LegacyRef, useEffect, useRef, useState } from "react";
 import "./styles.css";
 
-interface Item {
+export interface ReactChildren {
+  children: React.ReactNode;
+}
+
+export interface Item {
   id: string | number;
   value: string | number;
 }
 
-interface MenuProps {
+export interface MenuProps {
   open?: boolean;
   onClose?: () => void;
   disabledItems?: string[] | number[];
@@ -15,8 +19,49 @@ interface MenuProps {
   onButtonClick?: () => void;
   children: React.ReactNode;
   isStatic?: boolean;
+  component?: boolean;
   // selectedItem???
 }
+
+export interface MenuButtonProps extends ReactChildren {
+  onMenuButtonClick: () => void;
+}
+
+export interface MenuDropdownProps extends ReactChildren {
+  open: boolean;
+}
+
+export interface MenuItemProps extends ReactChildren {
+  item: Item;
+  isDisabled?: boolean;
+  onClick: (id: string | number) => void;
+}
+
+Menu.Button = ({ onMenuButtonClick, children }: MenuButtonProps) => {
+  return (
+    <button className="menu-button" onClick={onMenuButtonClick}>
+      {children}
+    </button>
+  );
+};
+
+Menu.Dropdown = ({ open, children }: MenuDropdownProps) => {
+  if (!open) return <></>;
+
+  return <div className="menu-dropdown">{children}</div>;
+};
+
+Menu.Item = ({ item, isDisabled, onClick, children }: MenuItemProps) => {
+  return (
+    <div
+      key={item.id}
+      className={`menu-option ${isDisabled ? "disabled" : ""}`}
+      onClick={() => !isDisabled && onClick?.(item.id)}
+    >
+      {children}
+    </div>
+  );
+};
 
 export function Menu({
   disabledItems,
@@ -27,6 +72,7 @@ export function Menu({
   open,
   onClose,
   isStatic,
+  component,
 }: MenuProps) {
   const [areOptionsVisible, setAreOptionsVisible] = useState(open ?? false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -72,31 +118,36 @@ export function Menu({
 
   return (
     <div className="menu-wrapper">
-      <button className="menu-button" onClick={onMenuButtonClick}>
-        {children}
-      </button>
-      {areOptionsVisible && (
-        <div ref={dropdownRef} className="menu-dropdown">
-          {items.map((item) => {
-            const disabledIndex = disabledItems?.findIndex(
-              (disabledItem: string | number) => item.id === disabledItem
-            );
-            console.log({ item, disabledItems, disabledIndex });
+      {!component ? (
+        <>
+          <button className="menu-button" onClick={onMenuButtonClick}>
+            {children}
+          </button>
+          {areOptionsVisible && (
+            <div ref={dropdownRef} className="menu-dropdown">
+              {items.map((item) => {
+                const disabledIndex = disabledItems?.findIndex(
+                  (disabledItem: string | number) => item.id === disabledItem
+                );
 
-            const isDisabled =
-              disabledIndex !== undefined ? disabledIndex > -1 : false;
+                const isDisabled =
+                  disabledIndex !== undefined ? disabledIndex > -1 : false;
 
-            return (
-              <div
-                key={item.id}
-                className={`menu-option ${isDisabled ? "disabled" : ""}`}
-                onClick={() => !isDisabled && onItemClick?.(item.id)}
-              >
-                {item.value}
-              </div>
-            );
-          })}
-        </div>
+                return (
+                  <div
+                    key={item.id}
+                    className={`menu-option ${isDisabled ? "disabled" : ""}`}
+                    onClick={() => !isDisabled && onItemClick?.(item.id)}
+                  >
+                    {item.value}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </>
+      ) : (
+        children
       )}
     </div>
   );
