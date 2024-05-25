@@ -1,5 +1,28 @@
+import { useState } from "react";
 import Example from "../components/Example";
 import { Select } from "../xui";
+
+const SelectComposableExample = () => {
+  const [areOptionsVisible, setAreOptionsVisible] = useState(false);
+  const [value, setValue] = useState<any>("aajjsk");
+
+  return (
+    <Select component>
+      <Select.Input
+        onClick={() => setAreOptionsVisible(!areOptionsVisible)}
+        value={value}
+      />
+      <Select.Dropdown visible={areOptionsVisible}>
+        <Select.Option
+          key="1"
+          onClick={() => setValue({ value: "Option 1", id: "1" })}
+        >
+          Option 1
+        </Select.Option>
+      </Select.Dropdown>
+    </Select>
+  );
+};
 
 export const SelectPage = () => {
   return (
@@ -135,6 +158,35 @@ export const SelectPage = () => {
             ]}
           />
         </div>
+        `}
+      />
+      <h3>Use as a composable</h3>
+      <Example
+        exampleContent={
+          <div className="center">
+            <SelectComposableExample />
+          </div>
+        }
+        codeContent={`
+        const [areOptionsVisible, setAreOptionsVisible] = useState(false);
+        const [value, setValue] = useState<any>("aajjsk");
+      
+        return (
+          <Select component>
+            <Select.Input
+              onClick={() => setAreOptionsVisible(!areOptionsVisible)}
+              value={value}
+            />
+            <Select.Dropdown visible={areOptionsVisible}>
+              <Select.Option
+                key="1"
+                onClick={() => setValue({ value: "Option 1", id: "1" })}
+              >
+                Option 1
+              </Select.Option>
+            </Select.Dropdown>
+          </Select>
+        );
         `}
       />
     </>
