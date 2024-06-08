@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./styles.css";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 
@@ -9,6 +9,8 @@ export interface AccordionProps extends ReactChildren {
   expanded?: boolean;
   title?: string;
   component?: boolean;
+  isStatic?: boolean;
+  onTitleClick?: () => void;
 }
 export interface AccordionButtonProps extends ReactChildren {
   onClick: () => void;
@@ -40,15 +42,24 @@ export function Accordion({
   title,
   children,
   component,
+  isStatic,
+  onTitleClick,
 }: AccordionProps) {
   const [expanded, setExpanded] = useState(expandedProp ?? false);
+
+  useEffect(() => {
+    expandedProp !== undefined && setExpanded(expandedProp);
+  }, [expandedProp]);
 
   if (component) {
     return (
       <div className="accordion-wrapper">
         <button
           className="btn-accordion"
-          onClick={() => setExpanded(!expanded)}
+          onClick={() => {
+            !isStatic && setExpanded(!expanded);
+            onTitleClick?.();
+          }}
         >
           {!expanded ? (
             <FaAngleDown className="accordion-icon" />

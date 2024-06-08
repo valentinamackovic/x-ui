@@ -22,6 +22,24 @@ const AccordionComposable = () => {
   );
 };
 
+const AccordionStatic = () => {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <Accordion
+      expanded={expanded}
+      onTitleClick={() => setExpanded(!expanded)}
+      title="Lorem ipsum dolor sit amet consectetur"
+      isStatic
+      component
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quos unde
+      suscipit quisquam tenetur, autem dolore labore sapiente explicabo omnis
+      iusto amet repudiandae dignissimos dolores ex tempora fugit eum maiores.
+    </Accordion>
+  );
+};
+
 const AccordionPage = () => {
   return (
     <>
@@ -97,6 +115,33 @@ const AccordionPage = () => {
             <Accordion component>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Accordion>
         </div>
       `}
+      />
+      <p>Ignore the internal logic with static property</p>
+      <Example
+        exampleContent={
+          <div className="center column">
+            <AccordionStatic />
+          </div>
+        }
+        codeContent={`
+        const AccordionStatic = () => {
+          const [expanded, setExpanded] = useState(false);
+        
+          return (
+            <Accordion
+              expanded={expanded}
+              onTitleClick={() => setExpanded(!expanded)}
+              title="Lorem ipsum dolor sit amet consectetur"
+              isStatic
+              component
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quos unde
+              suscipit quisquam tenetur, autem dolore labore sapiente explicabo omnis
+              iusto amet repudiandae dignissimos dolores ex tempora fugit eum maiores.
+            </Accordion>
+          );
+        };
+        `}
       />
       <h3>Use as a composable</h3>
       <Example

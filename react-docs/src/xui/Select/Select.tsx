@@ -90,8 +90,6 @@ export function Select({
   const [areOptionsVisible, setAreOptionsVisible] = useState(open ?? false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  console.log("select value: ", value);
-
   useEffect(() => {
     open !== undefined && setAreOptionsVisible(open);
   }, [open]);
