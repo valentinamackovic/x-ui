@@ -17,7 +17,9 @@ export interface OptionsProps extends ReactChildren {
   value?: Option;
   defaultValue?: Option;
   onChange?: (value: Option) => void;
+  onInputClick?: () => void;
   component?: boolean;
+  isStatic?: boolean;
 }
 
 export interface SelectInputProps {
@@ -75,19 +77,33 @@ Select.Option = ({
 export function Select({
   options,
   defaultValue,
+  value: valueProp,
   open,
   disabled,
   onChange,
+  onInputClick,
   component,
   children,
+  isStatic,
 }: OptionsProps) {
   const [value, setValue] = useState<Option | undefined>(defaultValue);
   const [areOptionsVisible, setAreOptionsVisible] = useState(open ?? false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+  console.log("select value: ", value);
+
+  useEffect(() => {
+    open !== undefined && setAreOptionsVisible(open);
+  }, [open]);
+
+  useEffect(() => {
+    valueProp !== undefined && setValue(valueProp);
+  }, [valueProp]);
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
+        !isStatic &&
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
       ) {
@@ -96,7 +112,7 @@ export function Select({
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.keyCode === 27) setAreOptionsVisible(false); // ESC key
+      if (!isStatic && event.keyCode === 27) setAreOptionsVisible(false); // ESC key
     };
 
     // Add when the component mounts
@@ -120,7 +136,10 @@ export function Select({
               type="text"
               value={value?.value ?? ""}
               onChange={() => {}}
-              onClick={() => setAreOptionsVisible(!areOptionsVisible)}
+              onClick={() => {
+                !isStatic && setAreOptionsVisible(!areOptionsVisible);
+                onInputClick?.();
+              }}
               disabled={Boolean(disabled)}
             />
           </div>
@@ -133,8 +152,8 @@ export function Select({
                     value?.id === option.id ? "selected" : ""
                   }`}
                   onClick={() => {
-                    setValue(option);
-                    setAreOptionsVisible(false);
+                    !isStatic && setValue(option);
+                    !isStatic && setAreOptionsVisible(false);
                     onChange?.(option);
                   }}
                 >

@@ -24,6 +24,30 @@ const SelectComposableExample = () => {
   );
 };
 
+const SelectStaticExample = () => {
+  const [areOptionsVisible, setAreOptionsVisible] = useState(false);
+  const [value, setValue] = useState<any>();
+
+  console.log({ value });
+
+  return (
+    <Select
+      isStatic
+      onInputClick={() => setAreOptionsVisible(true)}
+      onChange={(option) => {
+        setValue(option);
+        setAreOptionsVisible(false);
+      }}
+      open={areOptionsVisible}
+      value={value}
+      options={[
+        { id: "1", value: "Option 1" },
+        { id: "2", value: "Option 2" },
+      ]}
+    />
+  );
+};
+
 export const SelectPage = () => {
   return (
     <>
@@ -158,6 +182,39 @@ export const SelectPage = () => {
             ]}
           />
         </div>
+        `}
+      />
+      <p>Ignore the internal logic with static property</p>
+      <Example
+        exampleContent={
+          <div className="center">
+            <SelectStaticExample />
+          </div>
+        }
+        codeContent={`
+        const SelectStaticExample = () => {
+          const [areOptionsVisible, setAreOptionsVisible] = useState(false);
+          const [value, setValue] = useState<any>();
+        
+          console.log({ value });
+        
+          return (
+            <Select
+              isStatic
+              onInputClick={() => setAreOptionsVisible(true)}
+              onChange={(option) => {
+                setValue(option);
+                setAreOptionsVisible(false);
+              }}
+              open={areOptionsVisible}
+              value={value}
+              options={[
+                { id: "1", value: "Option 1" },
+                { id: "2", value: "Option 2" },
+              ]}
+            />
+          );
+        };
         `}
       />
       <h3>Use as a composable</h3>
