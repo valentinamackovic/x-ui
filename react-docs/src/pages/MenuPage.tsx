@@ -18,6 +18,7 @@ const StaticMenuExample = () => {
         ]}
         onItemClick={(item) => window.alert("item was clciked: " + item)}
         onButtonClick={() => setIsOpen(true)}
+        component
       >
         Options
       </Menu>
@@ -41,7 +42,6 @@ const ComposableMenuExample = () => {
         ]}
         onItemClick={(item) => window.alert("item was clciked: " + item)}
         onButtonClick={() => setIsOpen(true)}
-        component={true}
       >
         <Menu.Button onMenuButtonClick={() => setIsOpen(!isOpen)}>
           Composable
@@ -80,6 +80,7 @@ const MenuPage = () => {
                 { id: "3", value: "Action 3" },
               ]}
               onItemClick={(item) => window.alert("item was clciked: " + item)}
+              component
             >
               Options
             </Menu>
@@ -93,6 +94,7 @@ const MenuPage = () => {
             { id: "3", value: "Action 3" },
           ]}
           onItemClick={(item) => window.alert("item was clciked: " + item)}
+          component
         >
           Options
         </Menu>
@@ -110,6 +112,7 @@ const MenuPage = () => {
                 { id: "3", value: "Action 3" },
               ]}
               onItemClick={(item) => window.alert("item was clciked: " + item)}
+              component
             >
               Options
             </Menu>
@@ -124,6 +127,7 @@ const MenuPage = () => {
             { id: "3", value: "Action 3" },
           ]}
           onItemClick={(item) => window.alert("item was clciked: " + item)}
+          component
         >
           Options
         </Menu>
@@ -141,6 +145,7 @@ const MenuPage = () => {
                 { id: "3", value: "Action 3" },
               ]}
               onItemClick={(item) => window.alert("item was clciked: " + item)}
+              component
             >
               Options
             </Menu>
@@ -155,6 +160,7 @@ const MenuPage = () => {
             { id: "3", value: "Action 3" },
           ]}
           onItemClick={(item) => window.alert("item was clciked: " + item)}
+          component
         >
           Options
         </Menu>
@@ -172,6 +178,7 @@ const MenuPage = () => {
                 { id: "3", value: "Action 3" },
               ]}
               onItemClick={(item) => window.alert("item was clciked: " + item)}
+              component
             >
               Options
             </Menu>
@@ -186,6 +193,7 @@ const MenuPage = () => {
               { id: "3", value: "Action 3" },
             ]}
             onItemClick={(item) => window.alert("item was clciked: " + item)}
+            component
           >
             Options
         </Menu>`}
@@ -209,6 +217,7 @@ const MenuPage = () => {
               ]}
               onItemClick={(item) => window.alert("item was clciked: " + item)}
               onButtonClick={() => setIsOpen(true)}
+              component
             >
               Options
             </Menu>

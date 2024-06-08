@@ -7,7 +7,7 @@ const SelectComposableExample = () => {
   const [value, setValue] = useState<any>("aajjsk");
 
   return (
-    <Select component>
+    <Select>
       <Select.Input
         onClick={() => setAreOptionsVisible(!areOptionsVisible)}
         value={value}
@@ -28,8 +28,6 @@ const SelectStaticExample = () => {
   const [areOptionsVisible, setAreOptionsVisible] = useState(false);
   const [value, setValue] = useState<any>();
 
-  console.log({ value });
-
   return (
     <Select
       isStatic
@@ -44,6 +42,7 @@ const SelectStaticExample = () => {
         { id: "1", value: "Option 1" },
         { id: "2", value: "Option 2" },
       ]}
+      component
     />
   );
 };
@@ -64,6 +63,7 @@ export const SelectPage = () => {
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
               ]}
+              component
             />
           </div>
         }
@@ -74,6 +74,7 @@ export const SelectPage = () => {
               { id: "1", value: "Option 1" },
               { id: "2", value: "Option 2" },
             ]}
+            component
           />
         </div>
         `}
@@ -88,6 +89,7 @@ export const SelectPage = () => {
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
               ]}
+              component
             />
           </div>
         }
@@ -99,6 +101,7 @@ export const SelectPage = () => {
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
               ]}
+              component
             />
           </div>
         `}
@@ -113,6 +116,7 @@ export const SelectPage = () => {
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
               ]}
+              component
             />
           </div>
         }
@@ -124,6 +128,7 @@ export const SelectPage = () => {
               { id: "1", value: "Option 1" },
               { id: "2", value: "Option 2" },
             ]}
+            component
           />
         </div>
         `}
@@ -139,6 +144,7 @@ export const SelectPage = () => {
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
               ]}
+              component
             />
           </div>
         }
@@ -151,6 +157,7 @@ export const SelectPage = () => {
               { id: "1", value: "Option 1" },
               { id: "2", value: "Option 2" },
             ]}
+            component
           />
         </div>
         `}
@@ -167,6 +174,7 @@ export const SelectPage = () => {
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
               ]}
+              component
             />
           </div>
         }
@@ -180,6 +188,7 @@ export const SelectPage = () => {
               { id: "1", value: "Option 1" },
               { id: "2", value: "Option 2" },
             ]}
+            component
           />
         </div>
         `}
@@ -212,6 +221,7 @@ export const SelectPage = () => {
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
               ]}
+              component
             />
           );
         };

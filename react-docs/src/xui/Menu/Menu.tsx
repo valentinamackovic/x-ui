@@ -118,7 +118,7 @@ export function Menu({
 
   return (
     <div className="menu-wrapper">
-      {!component ? (
+      {component ? (
         <>
           <button className="menu-button" onClick={onMenuButtonClick}>
             {children}

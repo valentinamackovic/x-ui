@@ -126,7 +126,7 @@ export function Select({
 
   return (
     <div className="select-wrapper">
-      {!component ? (
+      {component ? (
         <>
           <div className="select-input-wrapper">
             <input
