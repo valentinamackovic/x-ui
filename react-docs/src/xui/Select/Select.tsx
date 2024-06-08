@@ -38,7 +38,6 @@ export interface SelectOptionProps extends ReactChildren {
 Select.Input = ({ value, onClick, disabled }: SelectInputProps) => {
   return (
     <div className="select-input-wrapper">
-      jjj
       <input
         className="select-input"
         type="text"
