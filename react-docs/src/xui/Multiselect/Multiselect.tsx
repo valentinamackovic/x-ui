@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import { MdClose } from "react-icons/md";
+import { IoCloseCircle } from "react-icons/io5";
 
 interface Option {
   id: string | number;
@@ -31,6 +32,7 @@ export function Multiselect({
   isStatic,
   value: valueProp,
   enableSearch,
+  clearAll,
 }: MultiselectProps) {
   const [searchValue, setSearchValue] = useState("");
   const [value, setValue] = useState<Option[]>(defaultValue ?? []);
@@ -96,6 +98,11 @@ export function Multiselect({
     setSearchValue(searchValue);
   };
 
+  const clearAllSelectedOptions = (e: any) => {
+    e.stopPropagation();
+    setValue([]);
+  };
+
   const inputValue = value.reduce(
     (accumulator, item, i) =>
       i >= 1 ? (accumulator += `, ${item.value}`) : (accumulator += item.value),
@@ -111,25 +118,33 @@ export function Multiselect({
 
   return (
     <div className="multiselect-wrapper">
-      <div className="multiselect-input-wrapper">
+      <div
+        className={`multiselect-input-wrapper ${
+          clearAll && "clear-all-enabled"
+        }`}
+      >
         <section
-          className="multiselect-input-section"
+          className={`multiselect-input-section ${
+            clearAll && "clear-all-enabled"
+          }`}
           onClick={() => {
             !disabled && !isStatic && setAreOptionsVisible(!areOptionsVisible);
             !disabled && onInputClick?.();
           }}
         >
-          {value.map((v) => (
-            <section className="multiselect-input-item">
-              {v.value}
-              <button
-                className="multiselect-input-item-x-btn"
-                onClick={() => !disabled && unselectOption(v)}
-              >
-                <MdClose colorProfile={1} />
-              </button>
-            </section>
-          ))}
+          <section className="multiselect-input-items">
+            {value.map((v) => (
+              <section className="multiselect-input-item">
+                {v.value}
+                <button
+                  className="multiselect-input-item-x-btn"
+                  onClick={() => !disabled && unselectOption(v)}
+                >
+                  <MdClose />
+                </button>
+              </section>
+            ))}
+          </section>
           {enableSearch && (
             <input
               size={searchValue?.length > 0 ? searchValue.length : 1}
@@ -138,6 +153,11 @@ export function Multiselect({
               value={searchValue}
               onChange={(e) => onSearch(e.target.value)}
             />
+          )}
+          {clearAll && (
+            <button className="multiselect-input-item-x-btn clear-all-enabled">
+              <IoCloseCircle onClick={clearAllSelectedOptions} />
+            </button>
           )}
         </section>
       </div>

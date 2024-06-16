@@ -144,6 +144,24 @@ export const MultiselectPage = () => {
         codeContent={`as
         `}
       />
+      <p>Enable clearing all of the selected options with clear all button</p>
+      <Example
+        exampleContent={
+          <div className="center">
+            <Multiselect
+              clearAll
+              options={[
+                { id: "1", value: "Option 1" },
+                { id: "2", value: "Option 2" },
+                { id: "3", value: "Option 3" },
+                { id: "4", value: "Option 4" },
+              ]}
+            />
+          </div>
+        }
+        codeContent={`as
+        `}
+      />
       <p>Ignore the internal logic with static property</p>
       <Example
         exampleContent={
