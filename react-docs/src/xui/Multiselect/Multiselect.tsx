@@ -33,11 +33,15 @@ export function Multiselect({
   value: valueProp,
   enableSearch,
   clearAll,
+  maxSelectedItems,
 }: MultiselectProps) {
   const [searchValue, setSearchValue] = useState("");
   const [value, setValue] = useState<Option[]>(defaultValue ?? []);
   const [areOptionsVisible, setAreOptionsVisible] = useState(open ?? false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const maxSelectionReached =
+    maxSelectedItems && value?.length >= maxSelectedItems;
 
   useEffect(() => {
     open !== undefined && setAreOptionsVisible(open);
@@ -80,12 +84,14 @@ export function Multiselect({
         ? [...value, option]
         : value.filter((val) => val.id !== alreadySelected.id);
 
-    if (!isStatic) {
-      setValue(newValue);
-      setAreOptionsVisible(false);
+    if (!maxSelectionReached || (alreadySelected && maxSelectionReached)) {
+      if (!isStatic) {
+        setValue(newValue);
+        setAreOptionsVisible(false);
+      }
+      setSearchValue("");
+      onChange?.(newValue, option);
     }
-    setSearchValue("");
-    onChange?.(newValue, option);
   };
 
   const unselectOption = (option: Option) => {
@@ -102,12 +108,6 @@ export function Multiselect({
     e.stopPropagation();
     setValue([]);
   };
-
-  const inputValue = value.reduce(
-    (accumulator, item, i) =>
-      i >= 1 ? (accumulator += `, ${item.value}`) : (accumulator += item.value),
-    ""
-  );
 
   const visibleOptions =
     enableSearch && searchValue !== undefined && searchValue !== ""
@@ -166,7 +166,9 @@ export function Multiselect({
           {visibleOptions.map((option) => (
             <option
               key={option.id}
-              className={`multiselect-option ${
+              className={`${
+                maxSelectionReached ? "disabled" : ""
+              } multiselect-option ${
                 value.find((val) => val.id === option.id) !== undefined
                   ? "selected"
                   : ""

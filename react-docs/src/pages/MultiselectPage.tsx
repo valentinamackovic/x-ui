@@ -162,6 +162,24 @@ export const MultiselectPage = () => {
         codeContent={`as
         `}
       />
+      <p>Set the maximum number of selected items</p>
+      <Example
+        exampleContent={
+          <div className="center">
+            <Multiselect
+              maxSelectedItems={2}
+              options={[
+                { id: "1", value: "Option 1" },
+                { id: "2", value: "Option 2" },
+                { id: "3", value: "Option 3" },
+                { id: "4", value: "Option 4" },
+              ]}
+            />
+          </div>
+        }
+        codeContent={`as
+        `}
+      />
       <p>Ignore the internal logic with static property</p>
       <Example
         exampleContent={

@@ -111,3 +111,11 @@
 .multiselect-option.selected {
   background-color: #33415540;
 }
+
+.multiselect-option.disabled {
+  cursor: initial;
+  opacity: 80%;
+}
+.multiselect-option:hover:hover.disabled {
+  background-color: transparent;
+}
