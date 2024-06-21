@@ -9,6 +9,7 @@ const MultiselectStaticExample = () => {
   return (
     <Multiselect
       isStatic
+      component
       onChange={(newValue) => setValue(newValue)}
       onInputClick={() => setOpen(!open)}
       value={value}
@@ -22,6 +23,50 @@ const MultiselectStaticExample = () => {
   );
 };
 
+const MultiselectComposableExample = () => {
+  console.log('test')
+  const [open, setOpen] = useState(false);
+  const [values, setValues] = useState<any[]>([]);
+
+  const options = [
+    { value: "Option 1", id: '1' },
+    { value: "Option 2", id: '2' },
+  ]
+
+  const onOptionClick = (option: any) => {
+    const alreadySelected = values.find((val) => val.id === option.id);
+    const newValue =
+      alreadySelected === undefined
+        ? [...values, option]
+        : values.filter((val) => val.id !== alreadySelected.id);
+
+    setValues(newValue);
+    setOpen(false);
+  };
+
+  return (
+    <Multiselect> 
+      <Multiselect.Input onInputClick={() => setOpen(!open)} areOptionsVisible={open}>
+        {
+          values.map(v => (
+            <Multiselect.Item onClick={() => onOptionClick(v)} key={v.id}>{v.value}</Multiselect.Item>
+          ))
+        }
+      
+      </Multiselect.Input>
+      <Multiselect.Dropdown areOptionsVisible={open}>
+        {
+          options.map(o => (
+            <Multiselect.Option onClick={() => onOptionClick(o)} key={o.id}>
+              {o.value}
+            </Multiselect.Option>
+          ))
+        }
+      </Multiselect.Dropdown>
+    </Multiselect>
+  )
+}
+
 export const MultiselectPage = () => {
   return (
     <>
@@ -34,6 +79,7 @@ export const MultiselectPage = () => {
         exampleContent={
           <div className="center">
             <Multiselect
+              component
               options={[
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
@@ -46,6 +92,7 @@ export const MultiselectPage = () => {
         codeContent={`
         <div className="center">
           <Multiselect
+            component
             options={[
               { id: "1", value: "Option 1" },
               { id: "2", value: "Option 2" },
@@ -61,6 +108,7 @@ export const MultiselectPage = () => {
         exampleContent={
           <div className="center">
             <Multiselect
+              component
               open
               options={[
                 { id: "1", value: "Option 1" },
@@ -74,6 +122,7 @@ export const MultiselectPage = () => {
         <div className="center">
             <Multiselect
               open
+              component
               options={[
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
@@ -88,6 +137,7 @@ export const MultiselectPage = () => {
         exampleContent={
           <div className="center">
             <Multiselect
+              component
               options={[
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
@@ -104,6 +154,7 @@ export const MultiselectPage = () => {
         codeContent={`
         <div className="center">
             <Multiselect
+              component
               options={[
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
@@ -124,6 +175,7 @@ export const MultiselectPage = () => {
           <div className="center">
             <Multiselect
               disabled
+              component
               options={[
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
@@ -137,6 +189,7 @@ export const MultiselectPage = () => {
         <div className="center">
             <Multiselect
               disabled
+              component
               options={[
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
@@ -152,6 +205,7 @@ export const MultiselectPage = () => {
         exampleContent={
           <div className="center">
             <Multiselect
+              component
               onChange={(value) =>
                 window.alert(
                   `New value: ${value.map(
@@ -171,6 +225,7 @@ export const MultiselectPage = () => {
         codeContent={`
         <div className="center">
             <Multiselect
+              component
               onChange={(value) =>
                 window.alert(
                   \`New value: \${value.map(
@@ -194,6 +249,7 @@ export const MultiselectPage = () => {
           <div className="center">
             <Multiselect
               enableSearch
+              component
               options={[
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
@@ -207,6 +263,7 @@ export const MultiselectPage = () => {
         <div className="center">
             <Multiselect
               enableSearch
+              component
               options={[
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
@@ -223,6 +280,7 @@ export const MultiselectPage = () => {
           <div className="center">
             <Multiselect
               clearAll
+              component
               options={[
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
@@ -236,6 +294,7 @@ export const MultiselectPage = () => {
         <div className="center">
             <Multiselect
               clearAll
+              component
               options={[
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
@@ -251,6 +310,7 @@ export const MultiselectPage = () => {
         exampleContent={
           <div className="center">
             <Multiselect
+              component
               maxSelectedItems={2}
               options={[
                 { id: "1", value: "Option 1" },
@@ -264,6 +324,7 @@ export const MultiselectPage = () => {
         codeContent={`
         <div className="center">
             <Multiselect
+              component
               maxSelectedItems={2}
               options={[
                 { id: "1", value: "Option 1" },
@@ -285,6 +346,7 @@ export const MultiselectPage = () => {
         codeContent={`
         <Multiselect
           isStatic
+          component
           onChange={(newValue) => setValue(newValue)}
           onInputClick={() => setOpen(!open)}
           value={value}
@@ -298,7 +360,7 @@ export const MultiselectPage = () => {
         `}
       />
       <h3>Use as a composable</h3>
-      TBD
+      <Example exampleContent={<div className="center"><MultiselectComposableExample /></div>} codeContent={`as`} />
     </>
   );
 };

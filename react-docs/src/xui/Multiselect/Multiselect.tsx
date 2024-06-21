@@ -1,14 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import { Children, useEffect, useRef, useState } from "react";
 import "./styles.css";
 import { MdClose } from "react-icons/md";
 import { IoCloseCircle } from "react-icons/io5";
+import { BooleanLiteral } from "typescript";
 
+export interface ReactChildren {
+  children?: React.ReactNode;
+}
 interface Option {
   id: string | number;
   value: string;
 }
-interface MultiselectProps {
-  options: Option[];
+interface MultiselectProps extends ReactChildren {
+  options?: Option[];
   open?: boolean;
   disabled?: boolean;
   value?: Option[];
@@ -20,10 +24,112 @@ interface MultiselectProps {
   onSearch?: (value: string) => boolean;
   clearAll?: boolean;
   maxSelectedItems?: number;
+  component?: boolean;
+}
+
+interface MultiselectInputProps extends ReactChildren {
+  areOptionsVisible: boolean;
+  onInputClick: () => void
+  onClearAllClick?: () => void
+  enableSearch?: boolean;
+  onSearch?: (value: string) => boolean;
+  clearAll?: boolean;
+  disabled?: boolean;
+  searchValue?: string
+}
+
+Multiselect.Input = ({clearAll, disabled, onInputClick, enableSearch, onSearch, searchValue, children, onClearAllClick }: MultiselectInputProps) => {
+  return (
+    <div
+        className={`multiselect-input-wrapper ${
+          clearAll && "clear-all-enabled"
+        }`}
+      >
+        <section
+          className={`multiselect-input-section ${
+            clearAll && "clear-all-enabled"
+          }`}
+          onClick={() => {
+            !disabled && onInputClick?.();
+          }}
+        >
+          <section className="multiselect-input-items">
+            {children}
+          </section>
+          {enableSearch && (
+            <input
+              size={searchValue && searchValue?.length > 0 ? searchValue.length : 1}
+              className="multiselect-input"
+              type="text"
+              value={searchValue}
+              onChange={(e) => onSearch?.(e.target.value)}
+            />
+          )}
+          {clearAll && (
+            <button className="multiselect-input-item-x-btn clear-all-enabled">
+              <IoCloseCircle onClick={onClearAllClick} />
+            </button>
+          )}
+        </section>
+      </div>
+  )
+}
+
+interface MultiselectItemProps extends ReactChildren {
+  onClick: () => void
+}
+Multiselect.Item = ({onClick, children }: MultiselectItemProps) => {
+  return (
+    <section className="multiselect-input-item">
+      {children}
+      <button
+        className="multiselect-input-item-x-btn"
+        onClick={onClick}
+      >
+        <MdClose />
+      </button>
+    </section>
+  )
+}
+
+interface MultiselectDropdownProps extends ReactChildren {
+  areOptionsVisible: boolean;
+}
+Multiselect.Dropdown = ({areOptionsVisible, children}: MultiselectDropdownProps) => {
+  if(areOptionsVisible) {
+    return <div className="multiselect-dropdown">
+      {children}
+    </div>
+  }
+
+  return <></>
+
+}
+
+interface MultiselectOptionProps extends ReactChildren {
+  disabled?: boolean;
+  selected?: boolean;
+  onClick: () => void
+}
+Multiselect.Option = ({disabled, selected, onClick, children }: MultiselectOptionProps) => {
+  return (
+    <option
+      className={`${
+        disabled ? "disabled" : ""
+      } multiselect-option ${
+        selected
+          ? "selected"
+          : ""
+      }`}
+      onClick={() => onClick()}
+    >
+      {children}
+    </option>
+  )
 }
 
 export function Multiselect({
-  options,
+  options = [],
   defaultValue,
   open,
   disabled,
@@ -34,6 +140,8 @@ export function Multiselect({
   enableSearch,
   clearAll,
   maxSelectedItems,
+  component,
+  children
 }: MultiselectProps) {
   const [searchValue, setSearchValue] = useState("");
   const [value, setValue] = useState<Option[]>(defaultValue ?? []);
@@ -116,70 +224,78 @@ export function Multiselect({
         )
       : options;
 
+  console.log({component})
   return (
     <div className="multiselect-wrapper">
-      <div
-        className={`multiselect-input-wrapper ${
-          clearAll && "clear-all-enabled"
-        }`}
-      >
-        <section
-          className={`multiselect-input-section ${
-            clearAll && "clear-all-enabled"
-          }`}
-          onClick={() => {
-            !disabled && !isStatic && setAreOptionsVisible(!areOptionsVisible);
-            !disabled && onInputClick?.();
-          }}
-        >
-          <section className="multiselect-input-items">
-            {value.map((v) => (
-              <section className="multiselect-input-item">
-                {v.value}
-                <button
-                  className="multiselect-input-item-x-btn"
-                  onClick={() => !disabled && unselectOption(v)}
-                >
-                  <MdClose />
-                </button>
-              </section>
-            ))}
-          </section>
-          {enableSearch && (
-            <input
-              size={searchValue?.length > 0 ? searchValue.length : 1}
-              className="multiselect-input"
-              type="text"
-              value={searchValue}
-              onChange={(e) => onSearch(e.target.value)}
-            />
-          )}
-          {clearAll && (
-            <button className="multiselect-input-item-x-btn clear-all-enabled">
-              <IoCloseCircle onClick={clearAllSelectedOptions} />
-            </button>
-          )}
-        </section>
-      </div>
-      {areOptionsVisible && (
-        <div ref={dropdownRef} className="multiselect-dropdown">
-          {visibleOptions.map((option) => (
-            <option
-              key={option.id}
-              className={`${
-                maxSelectionReached ? "disabled" : ""
-              } multiselect-option ${
-                value.find((val) => val.id === option.id) !== undefined
-                  ? "selected"
-                  : ""
+      {component ? (
+          <>
+            <div
+              className={`multiselect-input-wrapper ${
+                clearAll && "clear-all-enabled"
               }`}
-              onClick={() => onOptionClick(option)}
             >
-              {option.value}
-            </option>
-          ))}
-        </div>
-      )}
+              <section
+                className={`multiselect-input-section ${
+                  clearAll && "clear-all-enabled"
+                }`}
+                onClick={() => {
+                  !disabled && !isStatic && setAreOptionsVisible(!areOptionsVisible);
+                  !disabled && onInputClick?.();
+                }}
+              >
+                <section className="multiselect-input-items">
+                  {value.map((v) => (
+                    <section className="multiselect-input-item">
+                      {v.value}
+                      <button
+                        className="multiselect-input-item-x-btn"
+                        onClick={() => !disabled && unselectOption(v)}
+                      >
+                        <MdClose />
+                      </button>
+                    </section>
+                  ))}
+                </section>
+                {enableSearch && (
+                  <input
+                    size={searchValue?.length > 0 ? searchValue.length : 1}
+                    className="multiselect-input"
+                    type="text"
+                    value={searchValue}
+                    onChange={(e) => onSearch(e.target.value)}
+                  />
+                )}
+                {clearAll && (
+                  <button className="multiselect-input-item-x-btn clear-all-enabled">
+                    <IoCloseCircle onClick={clearAllSelectedOptions} />
+                  </button>
+                )}
+              </section>
+            </div>
+            {areOptionsVisible && (
+              <div ref={dropdownRef} className="multiselect-dropdown">
+                {visibleOptions.map((option) => (
+                  <option
+                    key={option.id}
+                    className={`${
+                      maxSelectionReached ? "disabled" : ""
+                    } multiselect-option ${
+                      value.find((val) => val.id === option.id) !== undefined
+                        ? "selected"
+                        : ""
+                    }`}
+                    onClick={() => onOptionClick(option)}
+                  >
+                    {option.value}
+                  </option>
+                ))}
+              </div>
+            )}
+          </>
+      ) : (
+        children
+      )
+    }
     </div>
   );
 }
