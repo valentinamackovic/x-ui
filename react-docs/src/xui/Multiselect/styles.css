@@ -17,6 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
 }
 .multiselect-input-items {
   display: flex;
@@ -28,6 +29,7 @@
   display: flex;
   align-items: center;
   cursor: initial;
+  flex-shrink: 0;
 }
 .multiselect-input-item + .multiselect-input-item {
   margin-left: 2px;
@@ -63,7 +65,7 @@
   color: inherit;
   margin-left: 4px;
   font-size: inherit;
-  width: 100%;
+  flex-grow: 1;
 }
 .multiselect-input:focus-visible {
   border: none;

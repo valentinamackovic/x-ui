@@ -24,14 +24,13 @@ const MultiselectStaticExample = () => {
 };
 
 const MultiselectComposableExample = () => {
-  console.log('test')
   const [open, setOpen] = useState(false);
   const [values, setValues] = useState<any[]>([]);
 
   const options = [
-    { value: "Option 1", id: '1' },
-    { value: "Option 2", id: '2' },
-  ]
+    { value: "Option 1", id: "1" },
+    { value: "Option 2", id: "2" },
+  ];
 
   const onOptionClick = (option: any) => {
     const alreadySelected = values.find((val) => val.id === option.id);
@@ -45,27 +44,27 @@ const MultiselectComposableExample = () => {
   };
 
   return (
-    <Multiselect> 
-      <Multiselect.Input onInputClick={() => setOpen(!open)} areOptionsVisible={open}>
-        {
-          values.map(v => (
-            <Multiselect.Item onClick={() => onOptionClick(v)} key={v.id}>{v.value}</Multiselect.Item>
-          ))
-        }
-      
+    <Multiselect>
+      <Multiselect.Input
+        onInputClick={() => setOpen(!open)}
+        areOptionsVisible={open}
+      >
+        {values.map((v) => (
+          <Multiselect.Item onClick={() => onOptionClick(v)} key={v.id}>
+            {v.value}
+          </Multiselect.Item>
+        ))}
       </Multiselect.Input>
       <Multiselect.Dropdown areOptionsVisible={open}>
-        {
-          options.map(o => (
-            <Multiselect.Option onClick={() => onOptionClick(o)} key={o.id}>
-              {o.value}
-            </Multiselect.Option>
-          ))
-        }
+        {options.map((o) => (
+          <Multiselect.Option onClick={() => onOptionClick(o)} key={o.id}>
+            {o.value}
+          </Multiselect.Option>
+        ))}
       </Multiselect.Dropdown>
     </Multiselect>
-  )
-}
+  );
+};
 
 export const MultiselectPage = () => {
   return (
@@ -360,7 +359,14 @@ export const MultiselectPage = () => {
         `}
       />
       <h3>Use as a composable</h3>
-      <Example exampleContent={<div className="center"><MultiselectComposableExample /></div>} codeContent={`as`} />
+      <Example
+        exampleContent={
+          <div className="center">
+            <MultiselectComposableExample />
+          </div>
+        }
+        codeContent={`as`}
+      />
     </>
   );
 };
