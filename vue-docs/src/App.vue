@@ -5,8 +5,10 @@ import Sidebar from "./components/Sidebar.vue";
 <template>
   <header class="title">X UI</header>
   <div className="divider"></div>
-  <nav>
+  <div className="main-page-wrapper">
     <Sidebar />
-  </nav>
-  <RouterView />
+    <div className="main-page-content">
+      <RouterView />
+    </div>
+  </div>
 </template>

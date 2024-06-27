@@ -1,60 +1,63 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-const activeItem = ref("overview");
-
-function setActiveItem(item: string) {
-  // Access/mutate the value of a ref via
-  // its .value property.
-  activeItem.value = item;
-}
+const currentPath = ref(window.location.pathname);
+const activeItem = currentPath.value || "/";
 </script>
 
 <template>
   <div className="sidebar">
     <div className="sidebar-content">
-      <p
+      <a
         class="sidebar-item"
-        :class="{ 'sidebar-item-active': activeItem === 'overview' }"
-        @click="setActiveItem('overview')"
+        :class="{ 'sidebar-item-active': activeItem === '/overview' }"
+        href="/overview"
       >
         Overview
-      </p>
-      <p
+      </a>
+      <a
         class="sidebar-item"
-        :class="{ 'sidebar-item-active': activeItem === 'menu' }"
-        @click="setActiveItem('menu')"
+        :class="{ 'sidebar-item-active': activeItem === '/menu' }"
+        href="/menu"
       >
         Menu
-      </p>
-      <p
+      </a>
+      <a
         class="sidebar-item"
-        :class="{ 'sidebar-item-active': activeItem === 'select' }"
-        @click="setActiveItem('select')"
+        :class="{ 'sidebar-item-active': activeItem === '/select' }"
+        href="/select"
       >
         Select
-      </p>
-      <p
+      </a>
+      <a
         class="sidebar-item"
-        :class="{ 'sidebar-item-active': activeItem === 'accordion' }"
-        @click="setActiveItem('accordion')"
+        :class="{ 'sidebar-item-active': activeItem === '/accordion' }"
+        href="/accordion"
       >
         Accordion
-      </p>
-      <p
+      </a>
+      <a
         class="sidebar-item"
-        :class="{ 'sidebar-item-active': activeItem === 'modal' }"
-        @click="setActiveItem('modal')"
+        :class="{ 'sidebar-item-active': activeItem === '/modal' }"
+        href="/modal"
       >
         Modal
-      </p>
-      <p
+      </a>
+      <a
         class="sidebar-item"
-        :class="{ 'sidebar-item-active': activeItem === 'multiselect' }"
-        @click="setActiveItem('multiselect')"
+        :class="{ 'sidebar-item-active': activeItem === '/multiselect' }"
+        href="/multiselect"
       >
         Multiselect
-      </p>
+      </a>
     </div>
   </div>
 </template>
+
+<style scoped>
+a {
+  text-decoration: none;
+  color: #cbd5e1;
+  display: flex;
+}
+</style>
