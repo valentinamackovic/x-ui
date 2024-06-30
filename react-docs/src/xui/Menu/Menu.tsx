@@ -14,13 +14,12 @@ export interface MenuProps {
   open?: boolean;
   onClose?: () => void;
   disabledItems?: string[] | number[];
-  items: Item[];
+  items?: Item[];
   onItemClick?: (id: string | number) => void;
   onButtonClick?: () => void;
   children: React.ReactNode;
   isStatic?: boolean;
   component?: boolean;
-  // selectedItem???
 }
 
 export interface MenuButtonProps extends ReactChildren {
@@ -125,7 +124,7 @@ export function Menu({
           </button>
           {areOptionsVisible && (
             <div ref={dropdownRef} className="menu-dropdown">
-              {items.map((item) => {
+              {items?.map((item) => {
                 const disabledIndex = disabledItems?.findIndex(
                   (disabledItem: string | number) => item.id === disabledItem
                 );

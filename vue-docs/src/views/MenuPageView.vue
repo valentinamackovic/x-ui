@@ -1,5 +1,6 @@
 <script setup>
 import Example from "../components/Example.vue";
+import ComposableMenuExample from "./ComposableMenu.vue";
 import Menu from "../xui/Menu/Menu.vue";
 import { ref } from "vue";
 
@@ -16,10 +17,34 @@ const onClose = () => {
 
 const handleItemClick = () => window.alert("Clicked");
 
-const sampleCode = `
-    <Menu :items="items" :onItemClick="handleItemClick" component>
+const basicExampleCode = `
+<Menu :items="items" :onItemClick="handleItemClick" component>
+    <template v-slot:default> Click me to open menu </template>
+</Menu>
+`;
+const disabledItemsExampleCode = `
+<div class="center">
+    <Menu
+        :items="items"
+        :onItemClick="handleItemClick"
+        :disabledItems="disabledItems"
+        component
+    >
         <template v-slot:default> Click me to open menu </template>
     </Menu>
+</div>
+`;
+const defaultOpenExampleCode = `
+<div class="center">
+    <Menu
+        :items="items"
+        :onItemClick="handleItemClick"
+        :open="true"
+        component
+    >
+        <template v-slot:default> Click me to open menu </template>
+    </Menu>
+</div>
 `;
 </script>
 
@@ -30,7 +55,7 @@ const sampleCode = `
     <h2>Examples</h2>
     <h3>Use as a component</h3>
     <p>Basic example</p>
-    <Example :codeContent="sampleCode">
+    <Example :codeContent="basicExampleCode">
       <template v-slot:exampleContent>
         <div class="center">
           <Menu :items="items" :onItemClick="handleItemClick" component>
@@ -38,13 +63,9 @@ const sampleCode = `
           </Menu>
         </div>
       </template>
-      <template v-slot:default>
-        <!-- This could be additional information or controls related to the Example -->
-        Explore the code to see how it works!
-      </template>
     </Example>
     <p>Disabled items</p>
-    <Example :codeContent="sampleCode">
+    <Example :codeContent="disabledItemsExampleCode">
       <template v-slot:exampleContent>
         <div class="center">
           <Menu
@@ -57,13 +78,9 @@ const sampleCode = `
           </Menu>
         </div>
       </template>
-      <template v-slot:default>
-        <!-- This could be additional information or controls related to the Example -->
-        Explore the code to see how it works!
-      </template>
     </Example>
     <p>Open set to true</p>
-    <Example :codeContent="sampleCode">
+    <Example :codeContent="defaultOpenExampleCode">
       <template v-slot:exampleContent>
         <div class="center">
           <Menu
@@ -82,7 +99,7 @@ const sampleCode = `
       </template>
     </Example>
     <p>Trigger a function when the menu popup is closed</p>
-    <Example :codeContent="sampleCode">
+    <Example :codeContent="basicExampleCode">
       <template v-slot:exampleContent>
         <div class="center">
           <Menu
@@ -101,9 +118,26 @@ const sampleCode = `
       </template>
     </Example>
     <p>Ignore the internal logic with static property</p>
-    TBD
+    <Example :codeContent="basicExampleCode">
+      <template v-slot:exampleContent>
+        <div class="center">
+          <Menu
+            :isStatic="true"
+            :items="items"
+            :onItemClick="handleItemClick"
+            component
+          >
+            <template v-slot:default> Click me to open menu </template>
+          </Menu>
+        </div>
+      </template>
+      <template v-slot:default>
+        <!-- This could be additional information or controls related to the Example -->
+        Explore the code to see how it works!
+      </template>
+    </Example>
     <h3>Use as a composable</h3>
-    TBD
+    <ComposableMenuExample />
   </div>
 </template>
 

@@ -28,28 +28,16 @@ const StaticMenuExample = () => {
 
 const ComposableMenuExample = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState<string | number>();
 
   return (
     <div className="center">
-      <Menu
-        open={isOpen}
-        onClose={() => setIsOpen(false)}
-        items={[
-          { id: "1", value: "Action 1 Action 1" },
-          { id: "2", value: "Action 2" },
-          { id: "3", value: "Action 3" },
-        ]}
-        onItemClick={(item) => window.alert("item was clciked: " + item)}
-        onButtonClick={() => setIsOpen(true)}
-      >
+      <Menu>
         <Menu.Button onMenuButtonClick={() => setIsOpen(!isOpen)}>
           Composable
         </Menu.Button>
         <Menu.Dropdown open={isOpen}>
           <Menu.Item
             onClick={(item) => {
-              setSelectedItem(item);
               setIsOpen(false);
             }}
             item={{ id: "1", value: "Action 1" }}
