@@ -1,7 +1,7 @@
 <script setup>
-import Example from "../components/Example.vue";
+import Example from "../../components/Example.vue";
 import ComposableMenuExample from "./ComposableMenu.vue";
-import Menu from "../xui/Menu/Menu.vue";
+import Menu from "../../xui/Menu/Menu.vue";
 import { ref } from "vue";
 
 const items = [

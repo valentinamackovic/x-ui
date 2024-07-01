@@ -31,5 +31,11 @@ function setViewMode(v) {
 </script>
 
 <style>
-/* Add your CSS for .btn-switch and other elements here */
+.example-box {
+  background: hsl(0, 0%, 8%);
+}
+pre[class*="language-jsx"] {
+  border: none;
+  box-shadow: none;
+}
 </style>

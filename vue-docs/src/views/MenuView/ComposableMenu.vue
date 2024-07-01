@@ -29,11 +29,11 @@
 
 <script setup>
 import { ref } from "vue";
-import Example from "../components/Example.vue";
-import Menu from "../xui/Menu/Menu.vue";
-import MenuButton from "../xui/Menu/MenuButton.vue";
-import MenuItem from "../xui/Menu/MenuItem.vue";
-import MenuDropdown from "../xui/Menu/MenuDropdown.vue";
+import Example from "../../components/Example.vue";
+import Menu from "../../xui/Menu/Menu.vue";
+import MenuButton from "../../xui/Menu/MenuButton.vue";
+import MenuItem from "../../xui/Menu/MenuItem.vue";
+import MenuDropdown from "../../xui/Menu/MenuDropdown.vue";
 
 const isOpen = ref(false);
 const selectedItem = ref(null);
