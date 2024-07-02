@@ -8,7 +8,12 @@ const ModalComponent = () => {
 
   return (
     <>
-      <Modal component isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+      <Modal
+        component
+        title="Title"
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+      >
         Example modal content.
       </Modal>
       <div className="center">
@@ -27,6 +32,7 @@ const ModalStatic = () => {
     <>
       <Modal
         component
+        title="Title"
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         isStatic
@@ -82,6 +88,7 @@ const ModalPage = () => {
             <>
                 <Modal
                     component
+                    title="Title"
                     isOpen={componentModalOpen}
                     onClose={() => setComponentModalOpen(false)}
                 >
@@ -111,6 +118,7 @@ const ModalPage = () => {
           <>
             <Modal
               component
+              title="Title"
               isOpen={modalOpen}
               onClose={() => setModalOpen(false)}
               isStatic

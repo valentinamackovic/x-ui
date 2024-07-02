@@ -10,6 +10,7 @@ export interface ModalProps extends ReactChildren {
   onClose?: () => void;
   component?: boolean;
   isStatic?: boolean;
+  title?: string;
 }
 export interface ButtonProps extends ReactChildren {
   onClick: () => void;
@@ -36,6 +37,7 @@ Modal.Button = ({ children, onClick: onButtonClick }: ButtonProps) => {
 export function Modal({
   isOpen,
   onClose,
+  title,
   children,
   component,
   isStatic,
@@ -77,7 +79,7 @@ export function Modal({
     <div id="modal-backdrop" className="modal-backdrop">
       {component ? (
         <Modal.Content>
-          <Modal.Title>Title</Modal.Title>
+          <Modal.Title>{title}</Modal.Title>
           {children}
           <div className="modal-footer">
             <Modal.Button onClick={close}>OK</Modal.Button>
