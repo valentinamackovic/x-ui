@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed } from "vue";
+import { useRoute } from "vue-router";
 
-const currentPath = ref(window.location.pathname);
-const activeItem = currentPath.value || "/";
+const route = useRoute();
+
+const activeItem = computed(() => {
+  return route.path || "/";
+});
 </script>
 
 <template>

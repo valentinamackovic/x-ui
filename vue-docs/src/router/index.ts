@@ -4,13 +4,18 @@ import MenuPageView from "../views/MenuView/MenuPageView.vue";
 import AccordionPageView from "../views/AccordionView/AccordionPageView.vue";
 import ModalPageView from "../views/ModalView/ModalPageView.vue";
 import SelectPageView from "../views/SelectView/SelectPageView.vue";
+import MultiselectPageView from "../views/MultiselectView/MultiselectPageView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
-      name: "home",
+      redirect: "/overview",
+    },
+    {
+      path: "/overview",
+      name: "Overview",
       component: HomeView,
     },
     {
@@ -32,6 +37,11 @@ const router = createRouter({
       path: "/select",
       name: "select",
       component: SelectPageView,
+    },
+    {
+      path: "/multiselect",
+      name: "multiselect",
+      component: MultiselectPageView,
     },
   ],
 });
