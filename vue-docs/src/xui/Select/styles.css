@@ -11,6 +11,7 @@
   padding: 6px 14px;
   cursor: pointer;
   color: inherit;
+  min-height: 24px;
 }
 
 .select-input-wrapper {
