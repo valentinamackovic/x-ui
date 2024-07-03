@@ -94,7 +94,6 @@ const defaultOpenExampleCode = `
         </div>
       </template>
       <template v-slot:default>
-        <!-- This could be additional information or controls related to the Example -->
         Explore the code to see how it works!
       </template>
     </Example>
@@ -113,7 +112,6 @@ const defaultOpenExampleCode = `
         </div>
       </template>
       <template v-slot:default>
-        <!-- This could be additional information or controls related to the Example -->
         Explore the code to see how it works!
       </template>
     </Example>
@@ -132,7 +130,6 @@ const defaultOpenExampleCode = `
         </div>
       </template>
       <template v-slot:default>
-        <!-- This could be additional information or controls related to the Example -->
         Explore the code to see how it works!
       </template>
     </Example>

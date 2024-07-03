@@ -53,17 +53,9 @@ const basicExample = `
         </div>
       </template>
     </Example>
-    <p>
-      With static prop set to true. This ignores all internal logic for
-      opening/closing the modal. Notice how the modal does not close on pressign
-      ESC and clicking outside of the modal component.
-    </p>
+    <p>Ignore the internal logic with static property</p>
     <StaticModal />
     <h3>Use as a composable</h3>
-    <p>
-      Using Button, Content and Title components that are a part of Modal
-      provides more customisable experience.
-    </p>
     <ComposableModal />
   </div>
 </template>

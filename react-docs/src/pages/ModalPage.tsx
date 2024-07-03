@@ -104,11 +104,7 @@ const ModalPage = () => {
         };
           `}
       />
-      <p>
-        With static prop set to true. This ignores all internal logic for
-        opening/closing the modal. Notice how the modal does not close on
-        pressign ESC and clicking outside of the modal component.
-      </p>
+      <p>Ignore the internal logic with static property</p>
       <Example
         exampleContent={<ModalStatic />}
         codeContent={`
@@ -135,10 +131,6 @@ const ModalPage = () => {
       `}
       />
       <h3>Use as a composable</h3>
-      <p>
-        Using Button, Content and Title components that are a part of Modal
-        provides more customisable experience.
-      </p>
       <Example
         exampleContent={<ModalComposable />}
         codeContent={`
