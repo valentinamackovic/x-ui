@@ -8,11 +8,24 @@ import { SelectPage } from "./pages/SelectPage";
 import MenuPage from "./pages/MenuPage";
 import { MultiselectPage } from "./pages/MultiselectPage";
 import OverviewPage from "./pages/OverviewPage";
+import { FaArrowLeft } from "react-icons/fa";
 
 function App() {
+  // function goBack(event: React.MouseEvent<HTMLAnchorElement>) {
+  //   event.target.port = 3000; // Attempting to set the 'port' property directly on the DOM node
+  // }
+
   return (
     <BrowserRouter>
-      <title className="title">X UI</title>
+      <title className="title">
+        <a
+          href="http://localhost:3000"
+          style={{ position: "absolute", left: "14px", color: "inherit" }}
+        >
+          <FaArrowLeft size={30} />
+        </a>
+        <div>X UI</div>
+      </title>
       <div className="main-page-wrapper">
         <Sidebar />
         <div className="main-page-content">

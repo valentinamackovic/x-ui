@@ -9,10 +9,11 @@ import {
   faAngleDown,
   faTimes,
   faCircleXmark,
+  faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add([faAngleUp, faAngleDown, faTimes, faCircleXmark]);
+library.add([faAngleUp, faAngleDown, faTimes, faCircleXmark, faArrowLeft]);
 
 const app = createApp(App);
 
