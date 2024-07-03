@@ -1,36 +1,3 @@
-<template>
-  <Example codeContent="j">
-    <template v-slot:exampleContent>
-      <div class="center">
-        <Multiselect>
-          <MultiselectInput
-            :onInputClick="handleInputClick"
-            :areOptionsVisible="areOptionsVisible"
-          >
-            <MultiselectItem
-              v-for="item in value"
-              :key="item.id"
-              :onClick="() => unselectOption(item)"
-            >
-              {{ item.value }}
-            </MultiselectItem>
-          </MultiselectInput>
-          <MultiselectDropdown :areOptionsVisible="areOptionsVisible">
-            <MultiselectOption
-              v-for="option in options"
-              :key="option.id"
-              @click="() => onOptionClick(option)"
-              :class="['multiselect-option', { selected: isSelected(option) }]"
-            >
-              {{ option.value }}
-            </MultiselectOption>
-          </MultiselectDropdown>
-        </Multiselect>
-      </div>
-    </template>
-  </Example>
-</template>
-
 <script setup>
 import Example from "../../components/Example.vue";
 import Multiselect from "../../xui/Multiselect/Multiselect.vue";
@@ -70,3 +37,36 @@ const unselectOption = (option) => {
   value.value = value.value.filter((v) => v.id !== option.id);
 };
 </script>
+
+<template>
+  <Example codeContent="j">
+    <template v-slot:exampleContent>
+      <div class="center">
+        <Multiselect>
+          <MultiselectInput
+            :onInputClick="handleInputClick"
+            :areOptionsVisible="areOptionsVisible"
+          >
+            <MultiselectItem
+              v-for="item in value"
+              :key="item.id"
+              :onClick="() => unselectOption(item)"
+            >
+              {{ item.value }}
+            </MultiselectItem>
+          </MultiselectInput>
+          <MultiselectDropdown :areOptionsVisible="areOptionsVisible">
+            <MultiselectOption
+              v-for="option in options"
+              :key="option.id"
+              @click="() => onOptionClick(option)"
+              :class="['multiselect-option', { selected: isSelected(option) }]"
+            >
+              {{ option.value }}
+            </MultiselectOption>
+          </MultiselectDropdown>
+        </Multiselect>
+      </div>
+    </template>
+  </Example>
+</template>

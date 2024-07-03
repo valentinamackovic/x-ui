@@ -1,3 +1,25 @@
+<script setup>
+import Example from "../../components/Example.vue";
+import Multiselect from "../../xui/Multiselect/Multiselect.vue";
+import StaticMultiselect from "./StaticMultiselect.vue";
+import ComposableMultiselect from "./ComposableMultiselect.vue";
+
+const options = [
+  { id: "1", value: "Option 1" },
+  { id: "2", value: "Option 2" },
+  { id: "3", value: "Option 3" },
+];
+
+const initialValue = [
+  { id: "1", value: "Option 1" },
+  { id: "2", value: "Option 2" },
+];
+
+const onChange = (v) => {
+  window.alert("Changed: ", v.value);
+};
+</script>
+
 <template>
   <div id="app">
     <h1 className="main-page-content-title">Menu</h1>
@@ -76,25 +98,3 @@
     <ComposableMultiselect />
   </div>
 </template>
-
-<script setup>
-import Example from "../../components/Example.vue";
-import Multiselect from "../../xui/Multiselect/Multiselect.vue";
-import StaticMultiselect from "./StaticMultiselect.vue";
-import ComposableMultiselect from "./ComposableMultiselect.vue";
-
-const options = [
-  { id: "1", value: "Option 1" },
-  { id: "2", value: "Option 2" },
-  { id: "3", value: "Option 3" },
-];
-
-const initialValue = [
-  { id: "1", value: "Option 1" },
-  { id: "2", value: "Option 2" },
-];
-
-const onChange = (v) => {
-  window.alert("Changed: ", v.value);
-};
-</script>

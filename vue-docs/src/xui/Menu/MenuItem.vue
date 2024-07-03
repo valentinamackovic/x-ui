@@ -1,13 +1,3 @@
-<template>
-  <div
-    :key="item.id"
-    :class="['menu-option', { disabled: isDisabled }]"
-    @click="handleClick"
-  >
-    <slot></slot>
-  </div>
-</template>
-
 <script setup>
 import { defineProps, withModifiers } from "vue";
 
@@ -27,6 +17,16 @@ function handleClick() {
   }
 }
 </script>
+
+<template>
+  <div
+    :key="item.id"
+    :class="['menu-option', { disabled: isDisabled }]"
+    @click="handleClick"
+  >
+    <slot></slot>
+  </div>
+</template>
 
 <style scoped>
 @import "./styles.css";

@@ -1,32 +1,3 @@
-<template>
-  <Example :codeContent="exampleCode">
-    <template v-slot:exampleContent>
-      <div class="center">
-        <Menu>
-          <MenuButton :onMenuButtonClick="toggleMenu">
-            <template v-slot:default> Click me to open menu </template>
-          </MenuButton>
-
-          <MenuDropdown :open="isOpen">
-            <MenuItem
-              :item="{ id: '1', value: 'Action 1' }"
-              @click="handleItemClick"
-            >
-              First Action
-            </MenuItem>
-            <MenuItem
-              :item="{ id: '2', value: 'Action 2' }"
-              @click="handleItemClick"
-            >
-              Second Action
-            </MenuItem>
-          </MenuDropdown>
-        </Menu>
-      </div>
-    </template>
-  </Example>
-</template>
-
 <script setup>
 import { ref } from "vue";
 import Example from "../../components/Example.vue";
@@ -71,3 +42,32 @@ const exampleCode = `
 </div>
 `;
 </script>
+
+<template>
+  <Example :codeContent="exampleCode">
+    <template v-slot:exampleContent>
+      <div class="center">
+        <Menu>
+          <MenuButton :onMenuButtonClick="toggleMenu">
+            <template v-slot:default> Click me to open menu </template>
+          </MenuButton>
+
+          <MenuDropdown :open="isOpen">
+            <MenuItem
+              :item="{ id: '1', value: 'Action 1' }"
+              @click="handleItemClick"
+            >
+              First Action
+            </MenuItem>
+            <MenuItem
+              :item="{ id: '2', value: 'Action 2' }"
+              @click="handleItemClick"
+            >
+              Second Action
+            </MenuItem>
+          </MenuDropdown>
+        </Menu>
+      </div>
+    </template>
+  </Example>
+</template>

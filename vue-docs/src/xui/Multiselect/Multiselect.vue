@@ -1,64 +1,3 @@
-<template>
-  <div class="multiselect-wrapper">
-    <div
-      v-if="component"
-      class="multiselect-input-wrapper"
-      :class="{ 'clear-all-enabled': clearAll }"
-    >
-      <section
-        class="multiselect-input-section"
-        :class="{ 'clear-all-enabled': clearAll }"
-        @click="handleInputClick"
-      >
-        <section class="multiselect-input-items">
-          <div v-for="v in value" :key="v.id" class="multiselect-input-item">
-            {{ v.value }}
-            <button
-              class="multiselect-input-item-x-btn"
-              @click="unselectOption(v)"
-            >
-              <font-awesome-icon class="accordion-icon" icon="times" />
-            </button>
-          </div>
-        </section>
-        <input
-          v-if="enableSearch"
-          :size="searchValue.length > 0 ? searchValue.length : 1"
-          class="multiselect-input"
-          type="text"
-          v-model="searchValue"
-          @input="onSearch"
-        />
-        <button
-          v-if="clearAll"
-          class="multiselect-input-item-x-btn clear-all-enabled"
-          @click="clearAllSelectedOptions"
-        >
-          <font-awesome-icon icon="circle-xmark" />
-        </button>
-      </section>
-    </div>
-    <div
-      v-if="areOptionsVisible"
-      class="multiselect-dropdown"
-      ref="dropdownRef"
-    >
-      <div
-        v-for="option in visibleOptions"
-        :key="option.id"
-        :class="[
-          'multiselect-option',
-          { disabled: maxSelectionReached, selected: isSelected(option) },
-        ]"
-        @click="onOptionClick(option)"
-      >
-        {{ option.value }}
-      </div>
-    </div>
-    <slot v-else></slot>
-  </div>
-</template>
-
 <script setup>
 import { ref, watch, onMounted, onUnmounted, computed } from "vue";
 
@@ -160,6 +99,67 @@ const isSelected = (option) => {
   return value.value.some((v) => v.id === option.id);
 };
 </script>
+
+<template>
+  <div class="multiselect-wrapper">
+    <div
+      v-if="component"
+      class="multiselect-input-wrapper"
+      :class="{ 'clear-all-enabled': clearAll }"
+    >
+      <section
+        class="multiselect-input-section"
+        :class="{ 'clear-all-enabled': clearAll }"
+        @click="handleInputClick"
+      >
+        <section class="multiselect-input-items">
+          <div v-for="v in value" :key="v.id" class="multiselect-input-item">
+            {{ v.value }}
+            <button
+              class="multiselect-input-item-x-btn"
+              @click="unselectOption(v)"
+            >
+              <font-awesome-icon class="accordion-icon" icon="times" />
+            </button>
+          </div>
+        </section>
+        <input
+          v-if="enableSearch"
+          :size="searchValue.length > 0 ? searchValue.length : 1"
+          class="multiselect-input"
+          type="text"
+          v-model="searchValue"
+          @input="onSearch"
+        />
+        <button
+          v-if="clearAll"
+          class="multiselect-input-item-x-btn clear-all-enabled"
+          @click="clearAllSelectedOptions"
+        >
+          <font-awesome-icon icon="circle-xmark" />
+        </button>
+      </section>
+    </div>
+    <div
+      v-if="areOptionsVisible"
+      class="multiselect-dropdown"
+      ref="dropdownRef"
+    >
+      <div
+        v-for="option in visibleOptions"
+        :key="option.id"
+        :class="[
+          'multiselect-option',
+          { disabled: maxSelectionReached, selected: isSelected(option) },
+        ]"
+        @click="onOptionClick(option)"
+      >
+        {{ option.value }}
+      </div>
+    </div>
+    <slot v-else></slot>
+  </div>
+</template>
 
 <style scoped>
 @import "./styles.css";

@@ -1,33 +1,3 @@
-<template>
-  <div
-    :class="['multiselect-input-wrapper', { 'clear-all-enabled': clearAll }]"
-  >
-    <section
-      :class="['multiselect-input-section', { 'clear-all-enabled': clearAll }]"
-      @click="handleInputClick"
-    >
-      <section class="multiselect-input-items">
-        <slot></slot>
-      </section>
-      <input
-        v-if="enableSearch"
-        :size="inputSize"
-        class="multiselect-input"
-        type="text"
-        v-bind="searchValue"
-        @input="handleSearch"
-      />
-      <button
-        v-if="clearAll"
-        class="multiselect-input-item-x-btn clear-all-enabled"
-        @click="onClearAllClick"
-      >
-        <font-awesome-icon icon="circle-xmark" />
-      </button>
-    </section>
-  </div>
-</template>
-
 <script setup>
 import { computed } from "vue";
 
@@ -66,6 +36,36 @@ const onClearAllClick = () => {
   emits("clearAllClick");
 };
 </script>
+
+<template>
+  <div
+    :class="['multiselect-input-wrapper', { 'clear-all-enabled': clearAll }]"
+  >
+    <section
+      :class="['multiselect-input-section', { 'clear-all-enabled': clearAll }]"
+      @click="handleInputClick"
+    >
+      <section class="multiselect-input-items">
+        <slot></slot>
+      </section>
+      <input
+        v-if="enableSearch"
+        :size="inputSize"
+        class="multiselect-input"
+        type="text"
+        v-bind="searchValue"
+        @input="handleSearch"
+      />
+      <button
+        v-if="clearAll"
+        class="multiselect-input-item-x-btn clear-all-enabled"
+        @click="onClearAllClick"
+      >
+        <font-awesome-icon icon="circle-xmark" />
+      </button>
+    </section>
+  </div>
+</template>
 
 <style scoped>
 @import "./styles.css";

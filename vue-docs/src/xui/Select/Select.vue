@@ -1,33 +1,3 @@
-<template>
-  <div class="select-wrapper">
-    <div v-if="component">
-      <div class="select-input-wrapper">
-        <input
-          class="select-input"
-          type="text"
-          :value="displayValue"
-          @click="handleInputClick"
-          :disabled="disabled"
-          readonly
-        />
-      </div>
-      <div v-show="areOptionsVisible" ref="dropdownRef" class="select-dropdown">
-        <div
-          v-for="option in options"
-          :key="option.id"
-          :class="['select-option', { selected: inputValue?.id === option.id }]"
-          @click="handleOptionClick(option)"
-        >
-          {{ option.value }}
-        </div>
-      </div>
-    </div>
-    <template v-else>
-      <slot></slot>
-    </template>
-  </div>
-</template>
-
 <script setup>
 import { ref, watch, onMounted, onUnmounted, reactive, computed } from "vue";
 
@@ -105,6 +75,36 @@ onUnmounted(() => {
 
 const displayValue = computed(() => inputValue.value?.value ?? "");
 </script>
+
+<template>
+  <div class="select-wrapper">
+    <div v-if="component">
+      <div class="select-input-wrapper">
+        <input
+          class="select-input"
+          type="text"
+          :value="displayValue"
+          @click="handleInputClick"
+          :disabled="disabled"
+          readonly
+        />
+      </div>
+      <div v-show="areOptionsVisible" ref="dropdownRef" class="select-dropdown">
+        <div
+          v-for="option in options"
+          :key="option.id"
+          :class="['select-option', { selected: inputValue?.id === option.id }]"
+          @click="handleOptionClick(option)"
+        >
+          {{ option.value }}
+        </div>
+      </div>
+    </div>
+    <template v-else>
+      <slot></slot>
+    </template>
+  </div>
+</template>
 
 <style scoped>
 @import "./styles.css";

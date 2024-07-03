@@ -1,13 +1,3 @@
-<template>
-  <div
-    :class="['multiselect-option', { disabled: disabled, selected: selected }]"
-    @click="handleClick"
-    v-if="!disabled"
-  >
-    <slot></slot>
-  </div>
-</template>
-
 <script setup>
 import { defineProps, defineEmits } from "vue";
 
@@ -24,6 +14,16 @@ const handleClick = () => {
   }
 };
 </script>
+
+<template>
+  <div
+    :class="['multiselect-option', { disabled: disabled, selected: selected }]"
+    @click="handleClick"
+    v-if="!disabled"
+  >
+    <slot></slot>
+  </div>
+</template>
 
 <style scoped>
 @import "./styles.css";

@@ -1,24 +1,3 @@
-<template>
-  <Example :codeContent="example">
-    <template v-slot:exampleContent>
-      <div class="center">
-        <Select>
-          <SelectInput :onClick="onInputClick" :value="selected" />
-          <SelectDropdown :visible="optionsVisible">
-            <SelectOption
-              v-for="option in options"
-              :key="option.id"
-              :onClick="() => onChange(option)"
-            >
-              {{ option.value }}
-            </SelectOption>
-          </SelectDropdown>
-        </Select>
-      </div>
-    </template>
-  </Example>
-</template>
-
 <script setup>
 import Example from "../../components/Example.vue";
 import Select from "../../xui/Select/Select.vue";
@@ -62,3 +41,24 @@ const example = `
 </div>
 `;
 </script>
+
+<template>
+  <Example :codeContent="example">
+    <template v-slot:exampleContent>
+      <div class="center">
+        <Select>
+          <SelectInput :onClick="onInputClick" :value="selected" />
+          <SelectDropdown :visible="optionsVisible">
+            <SelectOption
+              v-for="option in options"
+              :key="option.id"
+              :onClick="() => onChange(option)"
+            >
+              {{ option.value }}
+            </SelectOption>
+          </SelectDropdown>
+        </Select>
+      </div>
+    </template>
+  </Example>
+</template>

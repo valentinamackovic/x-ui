@@ -1,17 +1,3 @@
-<template>
-  <div class="select-input-wrapper">
-    <input
-      class="select-input"
-      type="text"
-      :value="displayValue"
-      @input="() => {}"
-      @click="handleClick"
-      :disabled="disabled"
-      readonly
-    />
-  </div>
-</template>
-
 <script setup>
 import { defineProps, computed, watch } from "vue";
 
@@ -27,6 +13,20 @@ const handleClick = () => {
 
 const displayValue = computed(() => props?.value?.value ?? "");
 </script>
+
+<template>
+  <div class="select-input-wrapper">
+    <input
+      class="select-input"
+      type="text"
+      :value="displayValue"
+      @input="() => {}"
+      @click="handleClick"
+      :disabled="disabled"
+      readonly
+    />
+  </div>
+</template>
 
 <style scoped>
 @import "./styles.css";

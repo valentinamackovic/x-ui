@@ -1,25 +1,3 @@
-<template>
-  <div class="accordion-wrapper">
-    <template v-if="component">
-      <button class="btn-accordion" @click="handleClick">
-        <template v-if="expanded">
-          <font-awesome-icon class="accordion-icon" icon="angle-up" />
-        </template>
-        <template v-else>
-          <font-awesome-icon class="accordion-icon" icon="angle-down" />
-        </template>
-        {{ title }}
-      </button>
-      <div v-show="expanded">
-        <slot></slot>
-      </div>
-    </template>
-    <template v-else>
-      <slot></slot>
-    </template>
-  </div>
-</template>
-
 <script setup>
 import { ref, watch, defineProps } from "vue";
 
@@ -49,6 +27,28 @@ const handleClick = () => {
   props.onTitleClick?.();
 };
 </script>
+
+<template>
+  <div class="accordion-wrapper">
+    <template v-if="component">
+      <button class="btn-accordion" @click="handleClick">
+        <template v-if="expanded">
+          <font-awesome-icon class="accordion-icon" icon="angle-up" />
+        </template>
+        <template v-else>
+          <font-awesome-icon class="accordion-icon" icon="angle-down" />
+        </template>
+        {{ title }}
+      </button>
+      <div v-show="expanded">
+        <slot></slot>
+      </div>
+    </template>
+    <template v-else>
+      <slot></slot>
+    </template>
+  </div>
+</template>
 
 <style scoped>
 @import "./styles.css";

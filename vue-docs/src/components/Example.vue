@@ -1,3 +1,16 @@
+<script setup>
+import CodeBlock from "./CodeBlock.vue";
+import { ref } from "vue";
+
+defineProps(["codeContent", "exampleContent"]);
+
+const viewMode = ref("example");
+
+function setViewMode(v) {
+  viewMode.value = v;
+}
+</script>
+
 <template>
   <div class="example-box">
     <div class="example-box-buttons" style="margin-bottom: 10px">
@@ -16,19 +29,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import CodeBlock from "./CodeBlock.vue";
-import { ref } from "vue";
-
-defineProps(["codeContent", "exampleContent"]);
-
-const viewMode = ref("example");
-
-function setViewMode(v) {
-  viewMode.value = v;
-}
-</script>
 
 <style>
 .example-box {

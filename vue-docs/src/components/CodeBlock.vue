@@ -1,7 +1,3 @@
-<template>
-  <prism language="jsx" :code="code">{{ code }}</prism>
-</template>
-
 <script setup>
 import "prismjs";
 import "prismjs/components/prism-jsx.min"; // Ensure JSX syntax is supported
@@ -10,3 +6,7 @@ import "prismjs/themes/prism-twilight.css";
 
 defineProps(["code"]);
 </script>
+
+<template>
+  <prism language="jsx" :code="code">{{ code }}</prism>
+</template>

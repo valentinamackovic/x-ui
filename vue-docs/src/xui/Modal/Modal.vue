@@ -1,24 +1,3 @@
-<template>
-  <Teleport to="body" v-if="open">
-    <div
-      id="modal-backdrop"
-      class="modal-backdrop"
-      @mousedown="handleClickOutside"
-    >
-      <div v-if="component" class="modal-content" @click.stop>
-        <div class="modal-title">{{ title }}</div>
-        <slot></slot>
-        <div class="modal-footer">
-          <button class="modal-button" @click="close">OK</button>
-        </div>
-      </div>
-      <template v-else>
-        <slot></slot>
-      </template>
-    </div>
-  </Teleport>
-</template>
-
 <script setup>
 import { ref, watch, onMounted, onUnmounted } from "vue";
 
@@ -66,6 +45,27 @@ onUnmounted(() => {
   document.removeEventListener("mousedown", handleClickOutside);
 });
 </script>
+
+<template>
+  <Teleport to="body" v-if="open">
+    <div
+      id="modal-backdrop"
+      class="modal-backdrop"
+      @mousedown="handleClickOutside"
+    >
+      <div v-if="component" class="modal-content" @click.stop>
+        <div class="modal-title">{{ title }}</div>
+        <slot></slot>
+        <div class="modal-footer">
+          <button class="modal-button" @click="close">OK</button>
+        </div>
+      </div>
+      <template v-else>
+        <slot></slot>
+      </template>
+    </div>
+  </Teleport>
+</template>
 
 <style scoped>
 @import "./styles.css";

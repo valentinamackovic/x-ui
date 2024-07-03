@@ -4,8 +4,6 @@
   </div>
 </template>
 
-<script setup></script>
-
 <style scoped>
 @import "./styles.css";
 </style>
