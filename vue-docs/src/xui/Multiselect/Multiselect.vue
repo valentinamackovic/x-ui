@@ -32,6 +32,7 @@
         <button
           v-if="clearAll"
           class="multiselect-input-item-x-btn clear-all-enabled"
+          @click="clearAllSelectedOptions"
         >
           <font-awesome-icon icon="circle-xmark" />
         </button>
@@ -77,6 +78,7 @@ const props = defineProps({
 });
 
 const searchValue = ref("");
+const dropdownRef = ref(null);
 const value = ref(props.defaultValue || []);
 const areOptionsVisible = ref(props.open || false);
 
@@ -99,27 +101,27 @@ watch(
   }
 );
 
-// onMounted(() => {
-//   const handleClickOutside = (event) => {
-//     if (
-//       !props.isStatic &&
-//       dropdownRef.value &&
-//       !dropdownRef.value.contains(event.target)
-//     ) {
-//       areOptionsVisible.value = false;
-//     }
-//   };
-//   const handleKeyDown = (event) => {
-//     if (!props.isStatic && event.key === "Escape")
-//       areOptionsVisible.value = false;
-//   };
-//   document.addEventListener("mousedown", handleClickOutside);
-//   document.addEventListener("keydown", handleKeyDown);
-//   onUnmounted(() => {
-//     document.removeEventListener("mousedown", handleClickOutside);
-//     document.removeEventListener("keydown", handleKeyDown);
-//   });
-// });
+onMounted(() => {
+  const handleClickOutside = (event) => {
+    if (
+      !props.isStatic &&
+      dropdownRef.value &&
+      !dropdownRef.value.contains(event.target)
+    ) {
+      areOptionsVisible.value = false;
+    }
+  };
+  const handleKeyDown = (event) => {
+    if (!props.isStatic && event.key === "Escape")
+      areOptionsVisible.value = false;
+  };
+  document.addEventListener("mousedown", handleClickOutside);
+  document.addEventListener("keydown", handleKeyDown);
+  onUnmounted(() => {
+    document.removeEventListener("mousedown", handleClickOutside);
+    document.removeEventListener("keydown", handleKeyDown);
+  });
+});
 
 const onOptionClick = (option) => {
   if (maxSelectionReached.value && !value.value.find((v) => v.id === option.id))
