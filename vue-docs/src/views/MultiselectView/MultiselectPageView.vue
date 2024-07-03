@@ -10,10 +10,7 @@ const options = [
   { id: "3", value: "Option 3" },
 ];
 
-const initialValue = [
-  { id: "1", value: "Option 1" },
-  { id: "2", value: "Option 2" },
-];
+const initialValue = ["1", "2"];
 
 const onChange = (v) => {
   window.alert("Changed: ", v.value);

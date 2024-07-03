@@ -143,10 +143,7 @@ export const MultiselectPage = () => {
                 { id: "3", value: "Option 3" },
                 { id: "4", value: "Option 4" },
               ]}
-              defaultValue={[
-                { id: "1", value: "Option 1" },
-                { id: "2", value: "Option 2" },
-              ]}
+              defaultValue={["1", "2"]}
             />
           </div>
         }
@@ -180,7 +177,7 @@ export const MultiselectPage = () => {
                 { id: "2", value: "Option 2" },
                 { id: "3", value: "Option 3" },
               ]}
-              defaultValue={[{ id: "1", value: "Option 1" }]}
+              defaultValue={["1"]}
             />
           </div>
         }

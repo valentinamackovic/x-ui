@@ -111,7 +111,7 @@ export const SelectPage = () => {
         exampleContent={
           <div className="center">
             <Select
-              defaultValue={{ id: "1", value: "Option 1" }} // sta ako ne postoji opcija u listi opcija?
+              defaultValue={"1"} // sta ako ne postoji opcija u listi opcija?
               options={[
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },
@@ -139,7 +139,7 @@ export const SelectPage = () => {
           <div className="center">
             <Select
               disabled
-              defaultValue={{ id: "1", value: "Option 1" }}
+              defaultValue={"1"}
               options={[
                 { id: "1", value: "Option 1" },
                 { id: "2", value: "Option 2" },

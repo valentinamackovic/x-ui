@@ -16,7 +16,7 @@ interface MultiselectProps extends ReactChildren {
   open?: boolean;
   disabled?: boolean;
   value?: Option[];
-  defaultValue?: Option[];
+  defaultValue?: string[] | number[];
   onChange?: (value: Option[], newlyAdded: Option) => void;
   onInputClick?: () => void;
   isStatic?: boolean;
@@ -149,7 +149,13 @@ export function Multiselect({
   children,
 }: MultiselectProps) {
   const [searchValue, setSearchValue] = useState("");
-  const [value, setValue] = useState<Option[]>(defaultValue ?? []);
+  const initialValue = options.filter((option) =>
+    defaultValue != undefined
+      ? // @ts-ignore
+        defaultValue.includes(option.id)
+      : false
+  );
+  const [value, setValue] = useState<Option[]>(initialValue);
   const [areOptionsVisible, setAreOptionsVisible] = useState(open ?? false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 

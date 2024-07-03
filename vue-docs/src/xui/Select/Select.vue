@@ -14,7 +14,10 @@ const props = defineProps({
   children: Array,
 });
 
-const inputValue = ref(props.defaultValue);
+const initialValue = props.options.find(
+  (option) => option.id === props.defaultValue
+);
+const inputValue = ref(initialValue);
 const areOptionsVisible = ref(props.open ?? false);
 const dropdownRef = ref(null);
 

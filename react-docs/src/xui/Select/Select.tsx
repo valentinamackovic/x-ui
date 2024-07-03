@@ -15,7 +15,7 @@ export interface OptionsProps extends ReactChildren {
   open?: boolean;
   disabled?: boolean;
   value?: Option;
-  defaultValue?: Option;
+  defaultValue?: string | number;
   onChange?: (value: Option) => void;
   onInputClick?: () => void;
   component?: boolean;
@@ -86,7 +86,8 @@ export function Select({
   children,
   isStatic,
 }: OptionsProps) {
-  const [value, setValue] = useState<Option | undefined>(defaultValue);
+  const initialValue = options?.find((option) => option.id === defaultValue);
+  const [value, setValue] = useState<Option | undefined>(initialValue);
   const [areOptionsVisible, setAreOptionsVisible] = useState(open ?? false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 

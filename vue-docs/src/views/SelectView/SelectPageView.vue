@@ -39,11 +39,7 @@ const onChange = (option) => {
   <Example codeContent="s">
     <template v-slot:exampleContent>
       <div class="center">
-        <Select
-          :options="options"
-          :defaultValue="{ id: '1', value: 'Option 1' }"
-          component
-        />
+        <Select :options="options" defaultValue="1" component />
       </div>
     </template>
   </Example>
@@ -51,12 +47,7 @@ const onChange = (option) => {
   <Example codeContent="s">
     <template v-slot:exampleContent>
       <div class="center">
-        <Select
-          :options="options"
-          :defaultValue="{ id: '1', value: 'Option 1' }"
-          disabled
-          component
-        />
+        <Select :options="options" defaultValue="1" disabled component />
       </div>
     </template>
   </Example>

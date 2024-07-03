@@ -18,7 +18,10 @@ const props = defineProps({
 
 const searchValue = ref("");
 const dropdownRef = ref(null);
-const value = ref(props.defaultValue || []);
+const initialValue = props.options?.filter((option) =>
+  props.defaultValue?.includes(option.id)
+);
+const value = ref(initialValue);
 const areOptionsVisible = ref(props.open || false);
 
 const visibleOptions = computed(() => {
