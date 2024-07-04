@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Example from "../components/Example";
-import { Select } from "../xui";
+import { Select } from "x-ui-components";
 
 const SelectComposableExample = () => {
   const [areOptionsVisible, setAreOptionsVisible] = useState(false);

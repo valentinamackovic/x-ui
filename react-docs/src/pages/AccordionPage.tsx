@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Example from "../components/Example";
-import { Accordion } from "../xui";
+import { Accordion } from "x-ui-components";
 
 const AccordionComposable = () => {
   const [expanded, setExpanded] = useState(false);

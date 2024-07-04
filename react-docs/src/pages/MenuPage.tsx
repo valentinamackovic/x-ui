@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Example from "../components/Example";
-import { Menu } from "../xui";
+import { Menu } from "x-ui-components";
 
 const StaticMenuExample = () => {
   const [isOpen, setIsOpen] = useState(false);

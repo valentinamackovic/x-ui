@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Example from "../components/Example";
-import { Multiselect } from "../xui";
+import { Multiselect } from "x-ui-components";
 
 const MultiselectStaticExample = () => {
   const [open, setOpen] = useState(false);

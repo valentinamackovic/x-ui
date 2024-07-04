@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Modal } from "../xui";
-import "../xui/Modal/Modal";
 import Example from "../components/Example";
+import { Modal } from "x-ui-components";
 
 const ModalComponent = () => {
   const [modalOpen, setModalOpen] = useState(false);
