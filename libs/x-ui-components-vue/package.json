@@ -1,0 +1,30 @@
+{
+  "name": "x-ui-components-vue",
+  "version": "0.0.20",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/x-ui-components-vue.umd.cjs",
+  "module": "./dist/x-ui-components-vue.es.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vue-tsc --emitDeclarationOnly",
+    "types": "vue-tsc ",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.29"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
+    "vite": "^5.3.1"
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "postcss-import": "^16.1.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2"
+  }
+}
