@@ -1,6 +1,6 @@
 <script setup>
 import Example from "../../components/Example.vue";
-import Modal from "../../xui/Modal/Modal.vue";
+import { Modal } from "x-ui-components-vue";
 
 import { ref } from "vue";
 

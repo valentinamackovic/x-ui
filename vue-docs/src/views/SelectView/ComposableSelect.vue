@@ -1,9 +1,11 @@
 <script setup>
 import Example from "../../components/Example.vue";
-import Select from "../../xui/Select/Select.vue";
-import SelectInput from "../../xui/Select/SelectInput.vue";
-import SelectDropdown from "../../xui/Select/SelectDropdown.vue";
-import SelectOption from "../../xui/Select/SelectOption.vue";
+import {
+  Select,
+  SelectDropdown,
+  SelectInput,
+  SelectOption,
+} from "x-ui-components-vue";
 
 import { ref, watch } from "vue";
 

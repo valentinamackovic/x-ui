@@ -1,6 +1,6 @@
 <script setup>
 import Example from "../../components/Example.vue";
-import Multiselect from "../../xui/Multiselect/Multiselect.vue";
+import { Multiselect } from "x-ui-components-vue";
 import StaticMultiselect from "./StaticMultiselect.vue";
 import ComposableMultiselect from "./ComposableMultiselect.vue";
 

@@ -12,8 +12,9 @@ import {
   faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import "x-ui-components-vue/dist/x-ui-components-vue.es.css";
 
-library.add([faAngleUp, faAngleDown, faTimes, faCircleXmark, faArrowLeft]);
+library.add([faArrowLeft]);
 
 const app = createApp(App);
 

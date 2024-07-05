@@ -1,14 +1,14 @@
 <script setup>
 import Example from "../../components/Example.vue";
 import ComposableMenuExample from "./ComposableMenu.vue";
-import Menu from "../../xui/Menu/Menu.vue";
-import { ref } from "vue";
+import { Menu } from "x-ui-components-vue";
 
 const items = [
   { id: 1, value: "Option 1" },
   { id: 2, value: "Option 2" },
   { id: 3, value: "Option 3" },
 ];
+
 const disabledItems = [1, 2];
 
 const onClose = () => {

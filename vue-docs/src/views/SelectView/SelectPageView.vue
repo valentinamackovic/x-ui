@@ -1,6 +1,6 @@
 <script setup>
 import Example from "../../components/Example.vue";
-import Select from "../../xui/Select/Select.vue";
+import { Select } from "x-ui-components-vue";
 import StaticSelect from "./StaticSelect.vue";
 import ComposableSelect from "./ComposableSelect.vue";
 

@@ -1,10 +1,12 @@
 <script setup>
 import Example from "../../components/Example.vue";
-import Multiselect from "../../xui/Multiselect/Multiselect.vue";
-import MultiselectInput from "../../xui/Multiselect/MultiselectInput.vue";
-import MultiselectDropdown from "../../xui/Multiselect/MultiselectDropdown.vue";
-import MultiselectItem from "../../xui/Multiselect/MultiselectItem.vue";
-import MultiselectOption from "../../xui/Multiselect/MultiselectOption.vue";
+import {
+  Multiselect,
+  MultiselectDropdown,
+  MultiselectInput,
+  MultiselectItem,
+  MultiselectOption,
+} from "x-ui-components-vue";
 
 import { ref } from "vue";
 

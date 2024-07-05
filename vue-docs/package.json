@@ -17,7 +17,8 @@
     "prismjs": "^1.29.0",
     "vue": "^3.4.15",
     "vue-prism-component": "^2.0.0",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "x-ui-components-vue": "^0.0.20"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.2",

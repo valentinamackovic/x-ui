@@ -1,8 +1,10 @@
 <script setup>
 import Example from "../../components/Example.vue";
-import Accordion from "../../xui/Accordion/Accordion.vue";
-import AccordionButton from "../../xui/Accordion/AccordionButton.vue";
-import AccordionContent from "../../xui/Accordion/AccordionContent.vue";
+import {
+  Accordion,
+  AccordionButton,
+  AccordionContent,
+} from "x-ui-components-vue";
 
 import { ref } from "vue";
 

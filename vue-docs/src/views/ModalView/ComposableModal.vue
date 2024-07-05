@@ -1,9 +1,11 @@
 <script setup>
 import Example from "../../components/Example.vue";
-import Modal from "../../xui/Modal/Modal.vue";
-import ModalContent from "../../xui/Modal/ModalContent.vue";
-import ModalTitle from "../../xui/Modal/ModalTitle.vue";
-import ModalButton from "../../xui/Modal/ModalButton.vue";
+import {
+  Modal,
+  ModalButton,
+  ModalContent,
+  ModalTitle,
+} from "x-ui-components-vue";
 
 import { ref } from "vue";
 
