@@ -7,9 +7,8 @@
     "app:vue": "cd vue-docs && npm run dev",
     "app:svelte": "cd svelte-docs && npm run dev",
     "start:all": "concurrently \"npm run app:react\" \"npm run app:vue\" \"npm run app:svelte\" ",
-    "build": "vite build --watch && npm run dev",
     "preview": "cp shared.css react-docs/src/ && cp shared.css vue-docs/src/assets && cp shared.css svelte-docs/src && vite build --watch & vite preview --open --port 3000 & npm run start:all",
-    "build:prod": "cd react-docs && npm run build && cd ../vue-docs && npm run build && cd ../svelte-docs && npm run build && cd .. && mkdir -p dist/react dist/vue dist/svelte && cp -r react-docs/build/* dist/react/ && cp -r vue-docs/dist/* dist/vue/ && cp -r svelte-docs/.svelte-kit/output/client/* dist/svelte/"
+    "build": "cd react-docs && npm run build && cd ../vue-docs && npm run build && cd ../svelte-docs && npm run build && cd .. && mkdir -p dist/react dist/vue dist/svelte && cp -r react-docs/build/* dist/react/ && cp -r vue-docs/dist/* dist/vue/ && cp -r svelte-docs/.svelte-kit/output/client/* dist/svelte/"
   },
   "dependencies": {
     "concurrently": "^8.2.2"
