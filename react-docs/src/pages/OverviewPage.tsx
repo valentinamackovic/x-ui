@@ -27,7 +27,7 @@ const OverviewPage = () => {
         >
           <h3>Menu</h3>
           <div>
-            <img src={menuImg} className="overview-image" />
+            <img alt="menu-img" src={menuImg} className="overview-image" />
           </div>
         </div>
         <div
@@ -36,7 +36,11 @@ const OverviewPage = () => {
         >
           <h3>Select</h3>
           <div>
-            <img src={selectImg} className="overview-image" />
+            <img
+              alt="overview-img"
+              src={selectImg}
+              className="overview-image"
+            />
           </div>
         </div>
         <div
@@ -45,7 +49,11 @@ const OverviewPage = () => {
         >
           <h3>Accordion</h3>
           <div>
-            <img src={accordionImg} className="overview-image" />
+            <img
+              alt="accordion-img"
+              src={accordionImg}
+              className="overview-image"
+            />
           </div>
         </div>
         <div
@@ -54,7 +62,7 @@ const OverviewPage = () => {
         >
           <h3>Modal</h3>
           <div>
-            <img src={modalImg} className="overview-image" />
+            <img alt="modal-img" src={modalImg} className="overview-image" />
           </div>
         </div>
         <div
@@ -63,7 +71,11 @@ const OverviewPage = () => {
         >
           <h3>Multiselect</h3>
           <div>
-            <img src={multiselectImg} className="overview-image" />
+            <img
+              alt="multiselect-img"
+              src={multiselectImg}
+              className="overview-image"
+            />
           </div>
         </div>
       </div>

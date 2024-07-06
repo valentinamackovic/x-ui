@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export enum ItemsEnum {
   Overview = "overview",
@@ -19,7 +19,7 @@ export const Sidebar = () => {
       window.location.href.lastIndexOf("/") + 1
     );
     setActiveItem(currentActiveItem as ItemsEnum);
-  }, [window.location.href]);
+  }, []);
 
   const handleItemClick = (newActiveItem: ItemsEnum) => {
     setActiveItem(newActiveItem);
