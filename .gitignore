@@ -8,7 +8,7 @@
 /.vscode/
 /docs/.vitepress/cache
 /packages/vite/LICENSE
-/libs/x-ui-components/dist
+dist
 dist-ssr
 explorations
 node_modules
