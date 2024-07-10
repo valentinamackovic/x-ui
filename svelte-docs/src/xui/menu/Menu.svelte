@@ -7,7 +7,6 @@
   export let items: Item[] = [];
   export let onItemClick: (id: string | number) => void = (id) => {};
   export let onButtonClick: () => void = () => {};
-  export let children: any = null;
   export let open: boolean = false;
   export let onClose: () => void = () => {};
   export let isStatic: boolean = false;

@@ -17,6 +17,7 @@ export interface ButtonProps extends ReactChildren {
 }
 
 Modal.Content = ({ children }: ReactChildren) => {
+  // todo: is this stopPropagation needed?
   return (
     <div className="modal-content" onClick={(e) => e.stopPropagation()}>
       {children}
