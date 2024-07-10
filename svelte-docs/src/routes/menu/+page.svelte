@@ -2,6 +2,8 @@
 import Menu from '../../xui/menu/Menu.svelte';
 import Example from '../../components/Example.svelte'
 
+let areOptionsVisible = false
+
 let items = [
     { id: 1, value: 'Item 1' },
     { id: 2, value: 'Item 2' },
@@ -15,7 +17,7 @@ function onItemClick(id: number | string) {
 }
 
 function onMenuButtonClick() {
-    console.log('Menu button clicked');
+    areOptionsVisible = !areOptionsVisible
 }
 
 function onClose() {
@@ -81,6 +83,21 @@ function onClose() {
     </div>
 </Example>
 <p>Ignore the internal logic with static property</p>
+<Example codeContent="g">
+    <div slot="exampleContent">  
+        <Menu 
+            items={items} 
+            component={true}
+            onItemClick={onItemClick}
+            onButtonClick={onMenuButtonClick}
+            open={areOptionsVisible}
+            isStatic={true}
+            let:children
+            >
+            Menu Options
+        </Menu>
+    </div>
+</Example>
 <h3>Use as a composable</h3>
   
 
