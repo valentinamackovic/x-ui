@@ -1,6 +1,7 @@
 <script lang="ts">
 import Modal from '../../xui/modal/Modal.svelte';
 import Example from '../../components/Example.svelte'
+import ComposableModal from './ComposableModal.svelte';
 
 let modalOpen = false
 
@@ -29,4 +30,29 @@ let modalOpen = false
     </div>
 </Example>
 <p>Ignore the internal logic with static property</p>
+<Example codeContent="g">
+    <div slot="exampleContent">
+        <div class="center">
+            <button class="btn" on:click={() => modalOpen=true}>
+                Open modal
+            </button>
+            <Modal 
+                title="Modal title"
+                isOpen={modalOpen}
+                onClose={() => modalOpen = false}
+                component={true}
+                isStatic={true}
+            >
+                Modal
+            </Modal>
+        </div>
+    </div>
+</Example>
 <h3>Use as a composable</h3>
+<Example codeContent="g">
+    <div slot="exampleContent">
+        <div class="center">
+            <ComposableModal />
+        </div>
+    </div>
+</Example>

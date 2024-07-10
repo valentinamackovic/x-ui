@@ -24,7 +24,7 @@ function close() {
     }
     onClose?.();
 }
-
+// todo: fix it, it does not work
 function handleClickOutside(event: MouseEvent) {
     const backdrop = document.getElementById('modal-backdrop');
     if (event.target === backdrop && !isStatic && component) close();
@@ -48,7 +48,7 @@ onMount(() => {
     tabindex="0" 
     on:keydown={handleKeyDown}
     on:mousedown={handleClickOutside} 
-    style:display={$open ? 'flex' : 'none'}>
+    style:display={$open ? 'flex' : 'none'}
 >
 {#if component}
     <div class="modal-content" >
