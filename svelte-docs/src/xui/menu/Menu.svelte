@@ -4,14 +4,14 @@
   import type { Item } from './types';
 
   export let disabledItems: number[] | string[] = [];
-  export let items: Item[]| undefined;
+  export let items: Item[] = [];
   export let onItemClick: (id: string | number) => void = (id) => {};
   export let onButtonClick: () => void = () => {};
   export let children: any = null;
   export let open: boolean = false;
   export let onClose: () => void = () => {};
   export let isStatic: boolean = false;
-  export let component: boolean = true;
+  export let component: boolean = false;
 
   let areOptionsVisible = open ?? false;
   let dropdownRef: HTMLDivElement;

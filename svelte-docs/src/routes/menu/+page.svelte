@@ -1,6 +1,7 @@
 <script lang="ts">
 import Menu from '../../xui/menu/Menu.svelte';
-import Example from '../../components/Example.svelte'
+import Example from '../../components/Example.svelte';
+import ComposableMenu from './ComposableMenu.svelte';
 
 let areOptionsVisible = false
 
@@ -13,7 +14,7 @@ let items = [
 let disabledItems = [2]; // Assume Item 2 is disabled
 
 function onItemClick(id: number | string) {
-    window.alert('Item clicked:', id)
+    window.alert('Item clicked:' + id)
 }
 
 function onMenuButtonClick() {
@@ -26,7 +27,7 @@ function onClose() {
 </script>
   
 
-<h1 className="main-page-content-title">Menu</h1>
+<h1 class="main-page-content-title">Menu</h1>
 <p>A versatile menu for navigation.</p>
 <h2>Examples</h2>
 <h3>Use as a component</h3>
@@ -37,7 +38,6 @@ function onClose() {
             items={items} 
             component={true}
             onItemClick={onItemClick}
-            let:children
             >
             Menu Options
         </Menu>
@@ -50,7 +50,6 @@ function onClose() {
             items={items} 
             component={true}
             disabledItems={disabledItems}
-            let:children
             >
             Menu Options
         </Menu>
@@ -63,7 +62,6 @@ function onClose() {
             items={items} 
             component={true}
             open={true}
-            let:children
             >
             Menu Options
         </Menu>
@@ -76,7 +74,6 @@ function onClose() {
             items={items} 
             component={true}
             onClose={onClose}
-            let:children
             >
             Menu Options
         </Menu>
@@ -92,13 +89,16 @@ function onClose() {
             onButtonClick={onMenuButtonClick}
             open={areOptionsVisible}
             isStatic={true}
-            let:children
             >
             Menu Options
         </Menu>
     </div>
 </Example>
 <h3>Use as a composable</h3>
-  
+<Example codeContent="g">
+    <div slot="exampleContent">  
+        <ComposableMenu />
+    </div>
+</Example>
 
   

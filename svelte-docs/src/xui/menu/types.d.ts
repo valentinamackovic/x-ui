@@ -18,3 +18,12 @@ export interface MenuProps {
   isStatic?: boolean;
   component?: boolean;
 }
+
+export interface Item {
+  id: string | number;
+  value: string | number;
+}
+
+export interface MenuButtonProps {
+  onMenuButtonClick: () => void;
+}
