@@ -27,28 +27,28 @@ $: if (valueProp !== undefined) {
 
 function toggleDropdownVisibility() {
     if (!isStatic) {
-    areOptionsVisible = !areOptionsVisible;
-    onInputClick?.();
+        areOptionsVisible = !areOptionsVisible;
     }
+    onInputClick?.();
 }
 
 function selectOption(option: Option) {
     if (!isStatic) {
-    value = option;
-    areOptionsVisible = false;
-    onChange?.(option);
+        value = option;
+        areOptionsVisible = false;
     }
+    onChange?.(option);
 }
 
 function handleClickOutside(event: MouseEvent) {
     if (!isStatic && dropdownRef && !dropdownRef.contains(event.target as Node)) {
-    areOptionsVisible = false;
+        areOptionsVisible = false;
     }
 }
 
 function handleKeyDown(event: KeyboardEvent) {
     if (!isStatic && event.key === 'Escape') {
-    areOptionsVisible = false;
+        areOptionsVisible = false;
     }
 }
 
@@ -56,8 +56,8 @@ onMount(() => {
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('keydown', handleKeyDown);
     return () => {
-    document.removeEventListener('mousedown', handleClickOutside);
-    document.removeEventListener('keydown', handleKeyDown);
+        document.removeEventListener('mousedown', handleClickOutside);
+        document.removeEventListener('keydown', handleKeyDown);
     };
 });
 </script>
@@ -65,28 +65,29 @@ onMount(() => {
 <div class="select-wrapper">
 {#if component}
     <div class="select-input-wrapper">
-    <input
-        class="select-input"
-        type="text"
-        value={value?.value ?? ""}
-        on:click={toggleDropdownVisibility}
-        disabled={disabled}
-    />
-    {#if areOptionsVisible}
-        <div bind:this={dropdownRef} class="select-dropdown">
-        {#each options as option}
-            <div
-            class="select-option {option.id === value?.id ? 'selected' : ''}"
-            on:click={() => selectOption(option)}
-            on:keydown={event => event.key === 'Enter' || event.key === 'Space' && selectOption(option)}
-            tabindex="0"
-            role="button"
-            >
-            {option.value}
+        <input
+            class="select-input"
+            type="text"
+            value={value?.value ?? ""}
+            on:click={toggleDropdownVisibility}
+            disabled={disabled}
+            readonly
+        />
+        {#if areOptionsVisible}
+            <div bind:this={dropdownRef} class="select-dropdown">
+                {#each options as option}
+                    <div
+                        class="select-option {option.id === value?.id ? 'selected' : ''}"
+                        on:click={() => selectOption(option)}
+                        on:keydown={event => event.key === 'Enter' || event.key === 'Space' && selectOption(option)}
+                        tabindex="0"
+                        role="button"
+                    >
+                        {option.value}
+                    </div>
+                {/each}
             </div>
-        {/each}
-        </div>
-    {/if}
+        {/if}
     </div>
 {:else}
     <slot></slot>

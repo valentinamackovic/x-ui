@@ -14,3 +14,9 @@ export interface OptionsProps extends ReactChildren {
   component?: boolean;
   isStatic?: boolean;
 }
+
+export interface SelectInputProps {
+  onClick: () => void;
+  value: Option;
+  disabled?: boolean;
+}

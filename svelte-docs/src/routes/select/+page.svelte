@@ -1,12 +1,23 @@
 <script lang="ts">
 import Example from '../../components/Example.svelte'
 import Select from '../../xui/select/Select.svelte'
+  import type { Option } from '../../xui/select/types';
+  import ComposableSelect from './ComposableSelect.svelte';
 
-let items = [
+let open = false
+let selectedOption: Option | undefined = undefined
+
+const items = [
     { id: 1, value: 'Item 1' },
     { id: 2, value: 'Item 2' },
     { id: 3, value: 'Item 3' }
 ];
+
+const onInputClick = () => { open =! open }
+const onOptionClick = (option: Option) => { 
+        selectedOption = option 
+        open = false
+    } 
 </script>
 
 <h1 class="main-page-content-title">Select</h1>
@@ -54,4 +65,26 @@ let items = [
     </div>
 </Example>
 <p>Ignore the internal logic with static property</p>
+<Example codeContent="g">
+    <div slot="exampleContent">
+        <div class="center">
+            <Select 
+                open={open}
+                onInputClick={onInputClick}
+                options={items} 
+                valueProp={selectedOption}
+                onChange={onOptionClick} 
+                component={true} 
+                isStatic={true}
+            />
+        </div>
+    </div>
+</Example>
 <h3>Use as a composable</h3>
+<Example codeContent="g">
+    <div slot="exampleContent">
+        <div class="center">
+            <ComposableSelect />
+        </div>
+    </div>
+</Example>
