@@ -1,7 +1,8 @@
 <script lang="ts">
 import Example from "../../components/Example.svelte";
 import Multiselect from "../../xui/multiselect/Multiselect.svelte";
-  import type { Option } from "../../xui/multiselect/types";
+import type { Option } from "../../xui/multiselect/types";
+  import ComposableMultiselect from "./ComposableMultiselect.svelte";
 
 let expanded = false
 let values: Option[] = []
@@ -140,3 +141,10 @@ const onOptionClick = (option: Option) => {
     </div>
 </Example>
 <h3>Use as a composable</h3>
+<Example codeContent="g">
+    <div slot="exampleContent">
+        <div class="center">
+            <ComposableMultiselect />
+        </div>
+    </div>
+</Example>
