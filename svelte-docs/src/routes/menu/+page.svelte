@@ -1,5 +1,5 @@
 <script lang="ts">
-import Menu from '../../xui/menu/Menu.svelte';
+import { Menu } from 'x-ui-components-svelte'
 import Example from '../../components/Example.svelte';
 import ComposableMenu from './ComposableMenu.svelte';
 

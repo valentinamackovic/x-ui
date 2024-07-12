@@ -1,7 +1,5 @@
 <script lang="ts">
-import Modal from '../../xui/modal/Modal.svelte';
-import ModalContent from '../../xui/modal/ModalContent.svelte';
-import ModalButton from '../../xui/modal/ModalButton.svelte';
+import { Modal, ModalButton, ModalContent } from "x-ui-components-svelte";
 
 let modalOpen = false;
 

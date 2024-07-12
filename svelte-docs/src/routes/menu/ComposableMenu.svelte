@@ -1,8 +1,5 @@
 <script lang="ts">
-    import Menu from '../../xui/menu/Menu.svelte';
-    import MenuItem from '../../xui/menu/MenuItem.svelte';
-    import MenuButton from '../../xui/menu/MenuButton.svelte';
-    import MenuDropdown from '../../xui/menu/MenuDropdown.svelte';
+  import { Menu, MenuButton, MenuDropdown, MenuItem } from 'x-ui-components-svelte'
   import type { Item } from '../../xui/menu/types';
   
     let isOpen = false;

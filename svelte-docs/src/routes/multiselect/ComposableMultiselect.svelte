@@ -1,9 +1,5 @@
 <script lang="ts">
-import Multiselect from '../../xui/multiselect/Multiselect.svelte';
-import MultiselectInput from '../../xui/multiselect/MultiselectInput.svelte';
-import MultiselectDropdown from '../../xui/multiselect/MultiselectDropdown.svelte';
-import MultiselectOption from '../../xui/multiselect/MultiselectOption.svelte';
-import MultiselectItem from '../../xui/multiselect/MultiselectItem.svelte';
+import { Multiselect, MultiselectDropdown, MultiselectInput, MultiselectItem, MultiselectOption } from "x-ui-components-svelte";
 import type { Option } from "../../xui/multiselect/types";
 
 let open: boolean = false;

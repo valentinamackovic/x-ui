@@ -1,7 +1,7 @@
 <script lang="ts">
 import Example from "../../components/Example.svelte";
-import Accordion from "../../xui/accordion/Accordion.svelte";
-  import ComposableAccordion from "./ComposableAccordion.svelte";
+import { Accordion } from "x-ui-components-svelte";
+import ComposableAccordion from "./ComposableAccordion.svelte";
 
 let expanded = false
 

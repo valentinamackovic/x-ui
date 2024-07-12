@@ -1,8 +1,5 @@
 <script lang="ts">
-import Select from '../../xui/select/Select.svelte';
-import SelectInput from '../../xui/select/SelectInput.svelte';
-import SelectDropdown from '../../xui/select/SelectDropdown.svelte';
-import SelectOption from '../../xui/select/SelectOption.svelte';
+import { Select, SelectDropdown, SelectInput, SelectOption } from "x-ui-components-svelte"
   import type { Option } from '../../xui/select/types';
 
 let areOptionsVisible = false;

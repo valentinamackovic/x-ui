@@ -1,7 +1,5 @@
 <script lang="ts">
-import Accordion from '../../xui/accordion/Accordion.svelte';
-import AccordionButton from '../../xui/accordion/AccordionButton.svelte';
-import AccordionContent from '../../xui/accordion/AccordionContent.svelte';
+import { Accordion, AccordionButton, AccordionContent } from "x-ui-components-svelte";
 
 let expanded = false;
 

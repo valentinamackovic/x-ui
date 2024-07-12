@@ -1,5 +1,5 @@
 <script lang="ts">
-import Modal from '../../xui/modal/Modal.svelte';
+import { Modal } from "x-ui-components-svelte";
 import Example from '../../components/Example.svelte'
 import ComposableModal from './ComposableModal.svelte';
 

@@ -1,8 +1,8 @@
 <script lang="ts">
 import Example from "../../components/Example.svelte";
-import Multiselect from "../../xui/multiselect/Multiselect.svelte";
+import { Multiselect, SelectOption } from "x-ui-components-svelte"
 import type { Option } from "../../xui/multiselect/types";
-  import ComposableMultiselect from "./ComposableMultiselect.svelte";
+import ComposableMultiselect from "./ComposableMultiselect.svelte";
 
 let expanded = false
 let values: Option[] = []

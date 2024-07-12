@@ -1,8 +1,8 @@
 <script lang="ts">
 import Example from '../../components/Example.svelte'
-import Select from '../../xui/select/Select.svelte'
-  import type { Option } from '../../xui/select/types';
-  import ComposableSelect from './ComposableSelect.svelte';
+import { Select } from "x-ui-components-svelte"
+import type { Option } from '../../xui/select/types';
+import ComposableSelect from './ComposableSelect.svelte';
 
 let open = false
 let selectedOption: Option | undefined = undefined
