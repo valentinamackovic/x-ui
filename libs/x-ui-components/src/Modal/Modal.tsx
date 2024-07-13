@@ -16,20 +16,32 @@ export interface ButtonProps extends ReactChildren {
   onClick: () => void;
 }
 
-Modal.Content = ({ children }: ReactChildren) => {
+Modal.Content = ({ children, ...props }: ReactChildren) => {
   // todo: is this stopPropagation needed?
   return (
-    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+    <div
+      className="modal-content"
+      onClick={(e) => e.stopPropagation()}
+      {...props}
+    >
       {children}
     </div>
   );
 };
-Modal.Title = ({ children }: ReactChildren) => {
-  return <div className="modal-title">{children}</div>;
-};
-Modal.Button = ({ children, onClick: onButtonClick }: ButtonProps) => {
+Modal.Title = ({ children, ...props }: ReactChildren) => {
   return (
-    <button className="modal-button" onClick={() => onButtonClick()}>
+    <div className="modal-title" {...props}>
+      {children}
+    </div>
+  );
+};
+Modal.Button = ({
+  children,
+  onClick: onButtonClick,
+  ...props
+}: ButtonProps) => {
+  return (
+    <button className="modal-button" onClick={() => onButtonClick()} {...props}>
       {children}
     </button>
   );
@@ -42,6 +54,7 @@ export function Modal({
   children,
   component,
   isStatic,
+  ...props
 }: ModalProps) {
   const [open, setOpen] = useState<boolean>(isOpen ?? false);
 
@@ -77,7 +90,7 @@ export function Modal({
   if (!open) return null;
 
   return ReactDOM.createPortal(
-    <div id="modal-backdrop" className="modal-backdrop">
+    <div id="modal-backdrop" className="modal-backdrop" {...props}>
       {component ? (
         <Modal.Content>
           <Modal.Title>{title}</Modal.Title>

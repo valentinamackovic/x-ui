@@ -36,26 +36,37 @@ export interface MenuItemProps extends ReactChildren {
   onClick: (id: string | number) => void;
 }
 
-Menu.Button = ({ onMenuButtonClick, children }: MenuButtonProps) => {
+Menu.Button = ({ onMenuButtonClick, children, ...props }: MenuButtonProps) => {
   return (
-    <button className="menu-button" onClick={onMenuButtonClick}>
+    <button className="menu-button" onClick={onMenuButtonClick} {...props}>
       {children}
     </button>
   );
 };
 
-Menu.Dropdown = ({ open, children }: MenuDropdownProps) => {
+Menu.Dropdown = ({ open, children, ...props }: MenuDropdownProps) => {
   if (!open) return <></>;
 
-  return <div className="menu-dropdown">{children}</div>;
+  return (
+    <div className="menu-dropdown" {...props}>
+      {children}
+    </div>
+  );
 };
 
-Menu.Item = ({ item, isDisabled, onClick, children }: MenuItemProps) => {
+Menu.Item = ({
+  item,
+  isDisabled,
+  onClick,
+  children,
+  ...props
+}: MenuItemProps) => {
   return (
     <div
       key={item.id}
       className={`menu-option ${isDisabled ? "disabled" : ""}`}
       onClick={() => !isDisabled && onClick?.(item.id)}
+      {...props}
     >
       {children}
     </div>
@@ -72,6 +83,7 @@ export function Menu({
   onClose,
   isStatic,
   component,
+  ...props
 }: MenuProps) {
   const [areOptionsVisible, setAreOptionsVisible] = useState(open ?? false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -116,7 +128,7 @@ export function Menu({
   }, []);
 
   return (
-    <div className="menu-wrapper">
+    <div className="menu-wrapper" {...props}>
       {component ? (
         <>
           <button className="menu-button" onClick={onMenuButtonClick}>

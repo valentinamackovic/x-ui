@@ -46,10 +46,12 @@ Multiselect.Input = ({
   searchValue,
   children,
   onClearAllClick,
+  ...props
 }: MultiselectInputProps) => {
   return (
     <div
       className={`multiselect-input-wrapper ${clearAll && "clear-all-enabled"}`}
+      {...props}
     >
       <section
         className={`multiselect-input-section ${
@@ -84,9 +86,9 @@ Multiselect.Input = ({
 export interface MultiselectItemProps extends ReactChildren {
   onClick: () => void;
 }
-Multiselect.Item = ({ onClick, children }: MultiselectItemProps) => {
+Multiselect.Item = ({ onClick, children, ...props }: MultiselectItemProps) => {
   return (
-    <section className="multiselect-input-item">
+    <section className="multiselect-input-item" {...props}>
       {children}
       <button className="multiselect-input-item-x-btn" onClick={onClick}>
         <MdClose />
@@ -101,9 +103,14 @@ export interface MultiselectDropdownProps extends ReactChildren {
 Multiselect.Dropdown = ({
   areOptionsVisible,
   children,
+  ...props
 }: MultiselectDropdownProps) => {
   if (areOptionsVisible) {
-    return <div className="multiselect-dropdown">{children}</div>;
+    return (
+      <div className="multiselect-dropdown" {...props}>
+        {children}
+      </div>
+    );
   }
 
   return <></>;
@@ -119,6 +126,7 @@ Multiselect.Option = ({
   selected,
   onClick,
   children,
+  ...props
 }: MultiselectOptionProps) => {
   return (
     <option
@@ -126,6 +134,7 @@ Multiselect.Option = ({
         selected ? "selected" : ""
       }`}
       onClick={() => onClick()}
+      {...props}
     >
       {children}
     </option>
@@ -146,6 +155,7 @@ export function Multiselect({
   maxSelectedItems,
   component,
   children,
+  ...props
 }: MultiselectProps) {
   const [searchValue, setSearchValue] = useState("");
   const initialValue = options.filter((option) =>
@@ -239,7 +249,7 @@ export function Multiselect({
       : options;
 
   return (
-    <div className="multiselect-wrapper">
+    <div className="multiselect-wrapper" {...props}>
       {component ? (
         <>
           <div

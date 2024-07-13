@@ -37,9 +37,9 @@ export interface SelectOptionProps extends ReactChildren {
   selected?: boolean;
 }
 
-Select.Input = ({ value, onClick, disabled }: SelectInputProps) => {
+Select.Input = ({ value, onClick, disabled, ...props }: SelectInputProps) => {
   return (
-    <div className="select-input-wrapper">
+    <div className="select-input-wrapper" {...props}>
       <input
         className="select-input"
         type="text"
@@ -52,9 +52,13 @@ Select.Input = ({ value, onClick, disabled }: SelectInputProps) => {
   );
 };
 
-Select.Dropdown = ({ children, visible }: SelectDropdownProps) => {
+Select.Dropdown = ({ children, visible, ...props }: SelectDropdownProps) => {
   if (!visible) return <></>;
-  return <div className="select-dropdown">{children}</div>;
+  return (
+    <div className="select-dropdown" {...props}>
+      {children}
+    </div>
+  );
 };
 
 Select.Option = ({
@@ -85,6 +89,7 @@ export function Select({
   component,
   children,
   isStatic,
+  ...props
 }: OptionsProps) {
   const initialValue = options?.find((option) => option.id === defaultValue);
   const [value, setValue] = useState<Option | undefined>(initialValue);
@@ -126,7 +131,7 @@ export function Select({
   }, []);
 
   return (
-    <div className="select-wrapper">
+    <div className="select-wrapper" {...props}>
       {component ? (
         <>
           <div className="select-input-wrapper">

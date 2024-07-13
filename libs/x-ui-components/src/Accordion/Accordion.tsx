@@ -22,16 +22,21 @@ export interface AccordionContentProps extends ReactChildren {
 Accordion.Button = ({
   onClick: btnOnClick,
   children,
+  ...props
 }: AccordionButtonProps) => {
   return (
-    <button className="btn-accordion" onClick={btnOnClick}>
+    <button className="btn-accordion" onClick={btnOnClick} {...props}>
       {children}
     </button>
   );
 };
-Accordion.Content = ({ visible, children }: AccordionContentProps) => {
+Accordion.Content = ({
+  visible,
+  children,
+  ...props
+}: AccordionContentProps) => {
   return (
-    <div className={`accordion-content ${visible ? "open" : ""}`}>
+    <div className={`accordion-content ${visible ? "open" : ""}`} {...props}>
       {children}
     </div>
   );
@@ -44,6 +49,7 @@ export function Accordion({
   component,
   isStatic,
   onTitleClick,
+  ...props
 }: AccordionProps) {
   const [expanded, setExpanded] = useState(expandedProp ?? false);
 
@@ -53,7 +59,7 @@ export function Accordion({
 
   if (component) {
     return (
-      <div className="accordion-wrapper">
+      <div className="accordion-wrapper" {...props}>
         <button
           className="btn-accordion"
           onClick={() => {
