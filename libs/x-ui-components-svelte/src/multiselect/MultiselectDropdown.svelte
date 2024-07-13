@@ -10,7 +10,7 @@ console.log(expanded)
 </script>
 
 {#if expanded}
-    <div class="multiselect-dropdown">
+    <div class="multiselect-dropdown" {...$$props}>
         <slot></slot> 
     </div>
 {/if}

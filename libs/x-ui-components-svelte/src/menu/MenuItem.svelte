@@ -16,6 +16,9 @@ function handleClick() {
 <div
     class="menu-option {isDisabled ? 'disabled' : ''}"
     on:click={handleClick}
+    role="button"
+    tabindex="0"
+    {...$$props}
     >
     <slot></slot>
 </div>

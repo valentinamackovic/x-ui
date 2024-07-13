@@ -4,7 +4,7 @@ export let open: boolean;
 </script>
 
 {#if open}
-<div class="menu-dropdown">
+<div class="menu-dropdown" {...$$props}>
     <slot></slot>
 </div>
 {/if}

@@ -6,7 +6,7 @@ function handleClick() {
 }
 </script>
 
-<section class="multiselect-input-item">
+<section class="multiselect-input-item" {...$$props}>
     <slot></slot>
     <button class="multiselect-input-item-x-btn" on:click={handleClick}>
         <svg class="multiselect-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">

@@ -17,7 +17,7 @@ function handleClick() {
 }
 </script>
 
-<div class="accordion-wrapper">
+<div class="accordion-wrapper" {...$$props}>
     {#if component}
         <button class="btn-accordion" on:click={handleClick}>
             {#if expandedState}

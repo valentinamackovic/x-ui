@@ -8,7 +8,7 @@ export let onClick: () => void = () => {};
 
 </script>
 
-<div class="select-input-wrapper">
+<div class="select-input-wrapper" {...$$props}>
     <input
         class="select-input"
         type="text"

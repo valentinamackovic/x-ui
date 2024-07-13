@@ -2,7 +2,7 @@
 import './styles.css'
 </script>
 
-<div class="modal-title">
+<div class="modal-title" {...$$props}>
     <slot></slot> 
 </div>
 

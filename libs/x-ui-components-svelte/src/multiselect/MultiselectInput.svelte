@@ -19,7 +19,7 @@ const dispatch = createEventDispatcher();
 // on:click attr is the proper way to forward events in svelte (found in docs)
 </script>
 
-<div class={['multiselect-input-wrapper', clearAll ? 'clear-all-enabled' : ''].join(' ')}>
+<div class={['multiselect-input-wrapper', clearAll ? 'clear-all-enabled' : ''].join(' ')} {...$$props}>
     <section
         class={['multiselect-input-section', clearAll ? 'clear-all-enabled' : ''].join(' ')}
         on:click

@@ -11,6 +11,7 @@ export let onClick: () => void = () => {}
     on:keydown={event => event.key === 'Enter' || event.key === 'Space' && onClick()}
     tabindex="0"
     role="button"
+    {...$$props}
 >
     <slot></slot>
 </div>

@@ -62,7 +62,7 @@ onMount(() => {
 });
 </script>
 
-<div class="select-wrapper">
+<div class="select-wrapper" {...$$props}>
 {#if component}
     <div class="select-input-wrapper">
         <input

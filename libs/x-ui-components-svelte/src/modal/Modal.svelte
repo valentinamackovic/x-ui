@@ -49,6 +49,7 @@ onMount(() => {
     on:keydown={handleKeyDown}
     on:mousedown={handleClickOutside} 
     style:display={$open ? 'flex' : 'none'}
+    {...$$props}
 >
 {#if component}
     <div class="modal-content" >

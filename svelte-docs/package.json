@@ -27,6 +27,6 @@
 		"@fortawesome/free-solid-svg-icons": "^6.5.2",
 		"prismjs": "^1.29.0",
 		"svelte-routing": "^2.13.0",
-		"x-ui-components-svelte": "^0.0.2"
+		"x-ui-components-svelte": "^0.0.4"
 	}
 }

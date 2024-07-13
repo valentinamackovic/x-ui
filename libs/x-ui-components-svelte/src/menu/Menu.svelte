@@ -61,7 +61,7 @@
   }
 </script>
 
-<div class="menu-wrapper">
+<div class="menu-wrapper" {...$$props}>
   {#if component}
     <button class="menu-button" on:click={onMenuButtonClick}>
       <slot />
@@ -74,8 +74,14 @@
               {item.value}
             </div>
           {:else}
-            <div class="menu-option" on:click={() => onItemClick?.(item.id)}>
-              {item.value}
+            <div 
+              class="menu-option" 
+              on:click={() => onItemClick?.(item.id)}
+              on:keydown={event => event.key === 'Enter' || event.key === 'Space' && onItemClick?.(item.id)}
+              role="button"
+              tabindex="0"
+              >
+                {item.value}
             </div>
           {/if}
         {/each}

@@ -4,7 +4,7 @@ export let expanded: boolean = false;
 </script>
 
 {#if expanded}
-    <div>
+    <div {...$$props}>
         <slot></slot>
     </div>
 {/if}

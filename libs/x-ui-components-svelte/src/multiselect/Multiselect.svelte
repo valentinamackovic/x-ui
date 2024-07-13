@@ -92,7 +92,7 @@ const unselectOption = (option: Option) => {
 };
 </script>
 
-<div class="multiselect-wrapper">
+<div class="multiselect-wrapper" {...$$props}>
     {#if component}
         <div class="multiselect-input-wrapper" class:clear-all-enabled={clearAll}>
             <section 

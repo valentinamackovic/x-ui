@@ -20,6 +20,7 @@ function handleClick() {
         tabindex="0"
         on:keydown={event => event.key === 'Enter' || event.key === 'Space' && handleClick()}
         on:click={handleClick}
+        {...$$props}
     >
         <slot></slot>
     </div>
