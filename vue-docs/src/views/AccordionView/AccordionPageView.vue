@@ -38,8 +38,8 @@ const withoutTitleExample = `
 
 <template>
   <div id="app">
-    <h1 className="main-page-content-title">Menu</h1>
-    <p>A versatile menu for navigation.</p>
+    <h1 className="main-page-content-title">Accordion</h1>
+    <p>A content area which can be collapsed and expanded.</p>
     <h2>Examples</h2>
     <h3>Use as a component</h3>
     <p>Basic example</p>

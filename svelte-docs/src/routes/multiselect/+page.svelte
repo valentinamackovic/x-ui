@@ -25,7 +25,7 @@ const onOptionClick = (option: Option) => {
 
 </script>
 
-<h1 class="main-page-content-title">Select</h1>
+<h1 className="main-page-content-title">Select</h1>
 <p>A dropdown for displaying choices.</p>
 <h2>Examples</h2>
 <h3>Use as a component</h3>
