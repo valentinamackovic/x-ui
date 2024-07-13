@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": ["dom", "es2017"],
+    "allowJs": true,
+    "checkJs": true,
+    "jsx": "preserve",
+    "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "sourceMap": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "build", "dist", "example", "rollup.config.js"]
+}
