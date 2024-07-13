@@ -1,4 +1,4 @@
-import React, { Children, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import { MdClose } from "react-icons/md";
 import { IoCloseCircle } from "react-icons/io5";
@@ -212,7 +212,11 @@ export function Multiselect({
     }
   };
 
-  const unselectOption = (option: Option) => {
+  const unselectOption = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    option: Option
+  ) => {
+    event.stopPropagation();
     const newValue = value.filter((val) => val.id !== option.id);
     setValue(newValue);
   };
@@ -260,7 +264,7 @@ export function Multiselect({
                     {v.value}
                     <button
                       className="multiselect-input-item-x-btn"
-                      onClick={() => !disabled && unselectOption(v)}
+                      onClick={(e) => !disabled && unselectOption(e, v)}
                     >
                       <MdClose />
                     </button>
