@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { afterNavigate } from '$app/navigation';
 	import SidebarItem from './SidebarItem.svelte';
 
     const ItemsEnum = {
@@ -13,9 +14,30 @@
 
     let activeItem: ItemEnumType = ItemsEnum.Overview;
 
-    function setActiveItem(item: ItemEnumType) {
-        activeItem = item;
-    }
+    function getCurrentRoute() {
+		const path = window.location.pathname;
+		switch (path) {
+			case '/overview':
+				return ItemsEnum.Overview;
+			case '/modal':
+				return ItemsEnum.Modal;
+			case '/menu':
+				return ItemsEnum.Menu;
+			case '/select':
+				return ItemsEnum.Select;
+			case '/accordion':
+				return ItemsEnum.Accordion;
+			case '/multiselect':
+				return ItemsEnum.Multiselect;
+			default:
+				return ItemsEnum.Overview;
+		}
+	}
+
+	afterNavigate(() => {
+		const currentRoute = getCurrentRoute();
+		activeItem = currentRoute;
+	});
 </script>
 
 <div class="sidebar">

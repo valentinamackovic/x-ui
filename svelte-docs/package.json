@@ -25,6 +25,7 @@
 		"@fortawesome/fontawesome-common-types": "^6.5.2",
 		"@fortawesome/fontawesome-svg-core": "^6.5.2",
 		"@fortawesome/free-solid-svg-icons": "^6.5.2",
+		"@types/node": "^20.14.10",
 		"prismjs": "^1.29.0",
 		"svelte-routing": "^2.13.0",
 		"x-ui-components-svelte": "^0.0.4"
