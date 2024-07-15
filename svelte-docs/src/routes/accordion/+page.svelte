@@ -2,6 +2,8 @@
 import Example from "../../components/Example.svelte";
 import { Accordion } from "x-ui-components-svelte";
 import ComposableAccordion from "./ComposableAccordion.svelte";
+  import ComponentApiTable from "../../components/ComponentApiTable.svelte";
+  import { api, buttonApi, contentApi } from "./api";
 
 let expanded = false
 
@@ -75,3 +77,12 @@ const onClick = () => {
         <ComposableAccordion />
     </div>
 </Example>
+<div class="component-api">
+    <h2>Component API</h2>
+    <h3>Accordion</h3>
+    <ComponentApiTable values={api} />
+    <h3>Accordion Button</h3>
+    <ComponentApiTable values={buttonApi} />
+    <h3>Accordion Content</h3>
+    <ComponentApiTable values={contentApi} />
+</div>

@@ -2,6 +2,8 @@
 import { Menu } from 'x-ui-components-svelte'
 import Example from '../../components/Example.svelte';
 import ComposableMenu from './ComposableMenu.svelte';
+import ComponentApiTable from '../../components/ComponentApiTable.svelte';
+import { api, buttonApi, dropdownApi, itemApi } from './api';
 
 let areOptionsVisible = false
 
@@ -100,5 +102,15 @@ function onClose() {
         <ComposableMenu />
     </div>
 </Example>
-
+<div class="component-api">
+    <h2>Component API</h2>
+    <h3>Menu</h3>
+    <ComponentApiTable values={api} />
+    <h3>Menu Button</h3>
+    <ComponentApiTable values={buttonApi} />
+    <h3>Menu Dropdown</h3>
+    <ComponentApiTable values={dropdownApi} />
+    <h3>Menu Item</h3>
+    <ComponentApiTable values={itemApi} />
+</div>
   

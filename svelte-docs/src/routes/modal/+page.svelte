@@ -2,6 +2,8 @@
 import { Modal } from "x-ui-components-svelte";
 import Example from '../../components/Example.svelte'
 import ComposableModal from './ComposableModal.svelte';
+  import ComponentApiTable from "../../components/ComponentApiTable.svelte";
+  import { api, buttonApi } from "./api";
 
 let modalOpen = false
 
@@ -56,3 +58,10 @@ let modalOpen = false
         </div>
     </div>
 </Example>
+<div class="component-api">
+  <h2>Component API</h2>
+  <h3>Modal</h3>
+  <ComponentApiTable values={api} />
+  <h3>Modal Button</h3>
+  <ComponentApiTable values={buttonApi} />
+</div>

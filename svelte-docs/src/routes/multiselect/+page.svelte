@@ -3,6 +3,8 @@ import Example from "../../components/Example.svelte";
 import { Multiselect, SelectOption } from "x-ui-components-svelte"
 import type { Option } from "../../xui/multiselect/types";
 import ComposableMultiselect from "./ComposableMultiselect.svelte";
+import ComponentApiTable from "../../components/ComponentApiTable.svelte";
+import { api, inputApi, itemApi, dropdownApi, optionApi } from "./api";
 
 let expanded = false
 let values: Option[] = []
@@ -25,7 +27,7 @@ const onOptionClick = (option: Option) => {
 
 </script>
 
-<h1 className="main-page-content-title">Select</h1>
+<h1 class="main-page-content-title">Select</h1>
 <p>A dropdown for displaying choices.</p>
 <h2>Examples</h2>
 <h3>Use as a component</h3>
@@ -148,3 +150,16 @@ const onOptionClick = (option: Option) => {
         </div>
     </div>
 </Example>
+<div class="component-api">
+  <h2>Component API</h2>
+  <h3>Multiselect</h3>
+  <ComponentApiTable values={api} />
+  <h3>Multiselect Input</h3>
+  <ComponentApiTable values={inputApi} />
+  <h3>Multiselect Item</h3>
+  <ComponentApiTable values={itemApi} />
+  <h3>Multiselect Dropdown</h3>
+  <ComponentApiTable values={dropdownApi} />
+  <h3>Multiselect Option</h3>
+  <ComponentApiTable values={optionApi} />
+</div>

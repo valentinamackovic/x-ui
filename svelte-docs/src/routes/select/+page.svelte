@@ -3,6 +3,8 @@ import Example from '../../components/Example.svelte'
 import { Select } from "x-ui-components-svelte"
 import type { Option } from '../../xui/select/types';
 import ComposableSelect from './ComposableSelect.svelte';
+import ComponentApiTable from '../../components/ComponentApiTable.svelte';
+import { api, dropdownApi, inputApi, optionApi } from './api';
 
 let open = false
 let selectedOption: Option | undefined = undefined
@@ -88,3 +90,14 @@ const onOptionClick = (option: Option) => {
         </div>
     </div>
 </Example>
+<div class="component-api">
+  <h2>Component API</h2>
+  <h3>Select</h3>
+  <ComponentApiTable values={api} />
+  <h3>Select Input</h3>
+  <ComponentApiTable values={inputApi} />
+  <h3>Select Dropdown</h3>
+  <ComponentApiTable values={dropdownApi} />
+  <h3>Select Option</h3>
+  <ComponentApiTable values={optionApi} />
+</div>
