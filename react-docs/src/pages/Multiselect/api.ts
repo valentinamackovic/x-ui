@@ -130,7 +130,7 @@ export const inputApi: ComponentApiDefinition[] = [
 
 export const itemApi: ComponentApiDefinition[] = [
   {
-    prop: "onCLick",
+    prop: "onClick",
     description: "Triggered when the item is clciked",
     type: "function",
     default: "() => {}",

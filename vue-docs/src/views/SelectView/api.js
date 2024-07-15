@@ -1,6 +1,4 @@
-import { ComponentApiDefinition } from "../../components/ComponentApiTable";
-
-export const api: ComponentApiDefinition[] = [
+export const api = [
   {
     prop: "component",
     description:
@@ -59,7 +57,7 @@ export const api: ComponentApiDefinition[] = [
   },
 ];
 
-export const inputApi: ComponentApiDefinition[] = [
+export const inputApi = [
   {
     prop: "value",
     description: "Selected value",
@@ -80,7 +78,7 @@ export const inputApi: ComponentApiDefinition[] = [
   },
 ];
 
-export const dropdownApi: ComponentApiDefinition[] = [
+export const dropdownApi = [
   {
     prop: "visible",
     description: "Whether the select dropdown is visible or not",
@@ -89,7 +87,7 @@ export const dropdownApi: ComponentApiDefinition[] = [
   },
 ];
 
-export const optionApi: ComponentApiDefinition[] = [
+export const optionApi = [
   {
     prop: "onClick",
     description: "Triggers when the item is clicked",

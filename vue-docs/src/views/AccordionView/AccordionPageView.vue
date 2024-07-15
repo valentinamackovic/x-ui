@@ -1,8 +1,10 @@
 <script setup>
+import ComponentApiTable from "../../components/ComponentApiTable.vue";
 import Example from "../../components/Example.vue";
 import { Accordion } from "x-ui-components-vue";
 import StaticAccordion from "./StaticAccordion.vue";
 import ComposableAccordion from "./ComposableAccordion.vue";
+import { api, buttonApi, contentApi } from "./api.js";
 
 const basicExample = `
 <Accordion title="This is the accordion title" component>
@@ -83,5 +85,14 @@ const withoutTitleExample = `
     <StaticAccordion />
     <h3>Use as a composable</h3>
     <ComposableAccordion />
+    <div className="component-api">
+      <h2>Component API</h2>
+      <h3>Accordion</h3>
+      <ComponentApiTable :values="api" />
+      <h3>Accordion Button</h3>
+      <ComponentApiTable :values="buttonApi" />
+      <h3>Accordion Content</h3>
+      <ComponentApiTable :values="contentApi" />
+    </div>
   </div>
 </template>

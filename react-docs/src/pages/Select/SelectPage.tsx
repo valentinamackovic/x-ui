@@ -256,7 +256,6 @@ export const SelectPage = () => {
         );
         `}
       />
-
       <div className="component-api">
         <h2>Component API</h2>
         <h3>Select</h3>

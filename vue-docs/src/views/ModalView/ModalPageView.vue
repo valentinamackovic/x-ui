@@ -1,8 +1,10 @@
 <script setup>
+import ComponentApiTable from "../../components/ComponentApiTable.vue";
 import Example from "../../components/Example.vue";
 import StaticModal from "./StaticModal.vue";
 import { Modal } from "x-ui-components-vue";
 import ComposableModal from "./ComposableModal.vue";
+import { api } from "./api.js";
 
 import { ref } from "vue";
 
@@ -57,5 +59,10 @@ const basicExample = `
     <StaticModal />
     <h3>Use as a composable</h3>
     <ComposableModal />
+    <div className="component-api">
+      <h2>Component API</h2>
+      <h3>Modal</h3>
+      <ComponentApiTable :values="api" />
+    </div>
   </div>
 </template>

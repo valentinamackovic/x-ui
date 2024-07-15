@@ -1,7 +1,9 @@
 <script setup>
+import ComponentApiTable from "../../components/ComponentApiTable.vue";
 import Example from "../../components/Example.vue";
 import ComposableMenuExample from "./ComposableMenu.vue";
 import { Menu } from "x-ui-components-vue";
+import { api, buttonApi, dropdownApi, itemApi } from "./api.js";
 
 const items = [
   { id: 1, value: "Option 1" },
@@ -135,6 +137,17 @@ const defaultOpenExampleCode = `
     </Example>
     <h3>Use as a composable</h3>
     <ComposableMenuExample />
+    <div className="component-api">
+      <h2>Component API</h2>
+      <h3>Menu</h3>
+      <ComponentApiTable :values="api" />
+      <h3>Menu Button</h3>
+      <ComponentApiTable :values="buttonApi" />
+      <h3>Menu Dropdown</h3>
+      <ComponentApiTable :values="dropdownApi" />
+      <h3>Menu Item</h3>
+      <ComponentApiTable :values="itemApi" />
+    </div>
   </div>
 </template>
 

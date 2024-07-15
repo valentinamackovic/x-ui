@@ -1,8 +1,10 @@
 <script setup>
+import ComponentApiTable from "../../components/ComponentApiTable.vue";
 import Example from "../../components/Example.vue";
 import { Multiselect } from "x-ui-components-vue";
 import StaticMultiselect from "./StaticMultiselect.vue";
 import ComposableMultiselect from "./ComposableMultiselect.vue";
+import { api, inputApi, itemApi, dropdownApi, optionApi } from "./api.js";
 
 const options = [
   { id: "1", value: "Option 1" },
@@ -93,5 +95,18 @@ const onChange = (v) => {
     <StaticMultiselect />
     <h3>Use as a composable</h3>
     <ComposableMultiselect />
+    <div className="component-api">
+      <h2>Component API</h2>
+      <h3>Multiselect</h3>
+      <ComponentApiTable :values="api" />
+      <h3>Multiselect Input</h3>
+      <ComponentApiTable :values="inputApi" />
+      <h3>Multiselect Item</h3>
+      <ComponentApiTable :values="itemApi" />
+      <h3>Multiselect Dropdown</h3>
+      <ComponentApiTable :values="dropdownApi" />
+      <h3>Multiselect Option</h3>
+      <ComponentApiTable :values="optionApi" />
+    </div>
   </div>
 </template>

@@ -11,7 +11,6 @@ const props = defineProps({
   onInputClick: Function,
   component: Boolean,
   isStatic: Boolean,
-  children: Array,
 });
 
 const initialValue = props.options?.find(
