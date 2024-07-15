@@ -1,6 +1,8 @@
 import { useState } from "react";
-import Example from "../components/Example";
+import Example from "../../components/Example";
 import { Modal } from "x-ui-components";
+import { ComponentApiTable } from "../../components/ComponentApiTable";
+import { api } from "./api";
 
 const ModalComponent = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -157,6 +159,8 @@ const ModalPage = () => {
             };
       `}
       />
+      <h2>Components API</h2>
+      <ComponentApiTable values={api} />
     </>
   );
 };

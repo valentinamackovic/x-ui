@@ -1,6 +1,8 @@
 import { useState } from "react";
-import Example from "../components/Example";
+import Example from "../../components/Example";
 import { Menu } from "x-ui-components";
+import { ComponentApiTable } from "../../components/ComponentApiTable";
+import { api } from "./api";
 
 const StaticMenuExample = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -253,6 +255,11 @@ const MenuPage = () => {
         </div>
       `}
       />
+      <br />
+      <br />
+      <h2>Components API</h2>
+      <ComponentApiTable values={api} />
+      <br />
     </>
   );
 };

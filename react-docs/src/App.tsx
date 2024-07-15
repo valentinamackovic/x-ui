@@ -2,11 +2,11 @@ import React from "react";
 import "./shared.css";
 import { Sidebar } from "./components/Sidebar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ModalPage from "./pages/ModalPage";
-import AccordionPage from "./pages/AccordionPage";
-import { SelectPage } from "./pages/SelectPage";
-import MenuPage from "./pages/MenuPage";
-import { MultiselectPage } from "./pages/MultiselectPage";
+import ModalPage from "./pages/Modal/ModalPage";
+import AccordionPage from "./pages/Accordion/AccordionPage";
+import { SelectPage } from "./pages/Select/SelectPage";
+import MenuPage from "./pages/Menu/MenuPage";
+import { MultiselectPage } from "./pages/Multiselect/MultiselectPage";
 import OverviewPage from "./pages/OverviewPage";
 import { FaArrowLeft } from "react-icons/fa";
 
