@@ -82,3 +82,87 @@ export const api: ComponentApiDefinition[] = [
     default: "undefined",
   },
 ];
+
+export const inputApi: ComponentApiDefinition[] = [
+  {
+    prop: "onInputClick",
+    description: "Triggers when the input is clicked",
+    type: "function",
+    default: "() => {}",
+  },
+  {
+    prop: "disabled",
+    description: "Whether the input is disabled",
+    type: "boolean",
+    default: "false",
+  },
+  {
+    prop: "enableSearch",
+    description: "Whether searching the options is enabled",
+    type: "boolean",
+    default: "false",
+  },
+  {
+    prop: "onSearch",
+    description: "Triggers on each search input change",
+    type: "function",
+    default: "(value: string) => {}",
+  },
+  {
+    prop: "searchValue",
+    description: "Search value",
+    type: "string",
+    default: "",
+  },
+  {
+    prop: "onClearAll",
+    description: "Triggered when clear button is clicked",
+    type: "function",
+    default: "() => {}",
+  },
+  {
+    prop: "clearAll",
+    description: "Whether clear all selected options is enabled",
+    type: "boolean",
+    default: "false",
+  },
+];
+
+export const itemApi: ComponentApiDefinition[] = [
+  {
+    prop: "onCLick",
+    description: "Triggered when the item is clciked",
+    type: "function",
+    default: "() => {}",
+  },
+];
+
+export const dropdownApi: ComponentApiDefinition[] = [
+  {
+    prop: "areOptionsVisible",
+    description: "Whether the options are visible",
+    type: "boolean",
+    default: "false",
+  },
+];
+
+export const optionApi: ComponentApiDefinition[] = [
+  {
+    prop: "disabled",
+    description: "Whether the input is disabled",
+    type: "boolean",
+    default: "false",
+  },
+  {
+    prop: "selected",
+    description: "Whether the input is selected",
+    type: "boolean",
+    default: "false",
+  },
+  {
+    prop: "onClick",
+    description: "triggered when the option is clicked",
+    type: "funtion",
+    default: "() => {}",
+  },
+];

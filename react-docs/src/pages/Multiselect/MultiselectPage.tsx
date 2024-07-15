@@ -2,7 +2,7 @@ import { useState } from "react";
 import Example from "../../components/Example";
 import { Multiselect } from "x-ui-components";
 import { ComponentApiTable } from "../../components/ComponentApiTable";
-import { api } from "./api";
+import { api, dropdownApi, inputApi, itemApi, optionApi } from "./api";
 
 const MultiselectStaticExample = () => {
   const [open, setOpen] = useState(false);
@@ -366,8 +366,19 @@ export const MultiselectPage = () => {
         }
         codeContent={`as`}
       />
-      <h2 style={{ marginTop: "54px" }}>Components API</h2>
-      <ComponentApiTable values={api} />
+      <div className="component-api">
+        <h2>Component API</h2>
+        <h3>Multiselect</h3>
+        <ComponentApiTable values={api} />
+        <h3>Multiselect Input</h3>
+        <ComponentApiTable values={inputApi} />
+        <h3>Multiselect Item</h3>
+        <ComponentApiTable values={itemApi} />
+        <h3>Multiselect Dropdown</h3>
+        <ComponentApiTable values={dropdownApi} />
+        <h3>Multiselect Option</h3>
+        <ComponentApiTable values={optionApi} />
+      </div>
     </>
   );
 };

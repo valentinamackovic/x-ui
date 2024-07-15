@@ -52,3 +52,41 @@ export const api: ComponentApiDefinition[] = [
     default: "() => {}",
   },
 ];
+
+export const buttonApi: ComponentApiDefinition[] = [
+  {
+    prop: "onMenuButtonClick",
+    description: "Triggers when the button is clicked",
+    type: "function",
+    default: "() => {}",
+  },
+];
+
+export const dropdownApi: ComponentApiDefinition[] = [
+  {
+    prop: "open",
+    description: "Whether or not the dropdown is visible",
+    type: "boolean",
+    default: "false",
+  },
+];
+export const itemApi: ComponentApiDefinition[] = [
+  {
+    prop: "item",
+    description: "Menu item",
+    type: "{ id: number | string, value: string }",
+    default: "/ (required)",
+  },
+  {
+    prop: "isDisabled",
+    description: "Whether the item is disabled",
+    type: "boolean",
+    default: "false",
+  },
+  {
+    prop: "onClick",
+    description: "Triggers when the item is clicked",
+    type: "function",
+    default: "(id: string | number) => {}",
+  },
+];

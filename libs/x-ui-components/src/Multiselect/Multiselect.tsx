@@ -27,7 +27,6 @@ export interface MultiselectProps extends ReactChildren {
 }
 
 export interface MultiselectInputProps extends ReactChildren {
-  areOptionsVisible: boolean;
   onInputClick: () => void;
   onClearAllClick?: () => void;
   enableSearch?: boolean;

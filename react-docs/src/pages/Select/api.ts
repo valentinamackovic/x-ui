@@ -58,3 +58,48 @@ export const api: ComponentApiDefinition[] = [
     default: "() => {}",
   },
 ];
+
+export const inputApi: ComponentApiDefinition[] = [
+  {
+    prop: "value",
+    description: "Selected value",
+    type: "{ id: string | number, value: string }",
+    default: "undefined",
+  },
+  {
+    prop: "onClick",
+    description: "Triggers when the input is clicked",
+    type: "function",
+    default: "() => {}",
+  },
+  {
+    prop: "disabled",
+    description: "Whether the select is disabled",
+    type: "boolean",
+    default: "false",
+  },
+];
+
+export const dropdownApi: ComponentApiDefinition[] = [
+  {
+    prop: "visible",
+    description: "Whether the select dropdown is visible or not",
+    type: "boolean",
+    default: "false",
+  },
+];
+
+export const optionApi: ComponentApiDefinition[] = [
+  {
+    prop: "onInputClick",
+    description: "Triggers when the item is clicked",
+    type: "function",
+    default: "() => {}",
+  },
+  {
+    prop: "selected",
+    description: "Whether the option is selected",
+    type: "boolean",
+    default: "false",
+  },
+];

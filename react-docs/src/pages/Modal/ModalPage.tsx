@@ -2,7 +2,7 @@ import { useState } from "react";
 import Example from "../../components/Example";
 import { Modal } from "x-ui-components";
 import { ComponentApiTable } from "../../components/ComponentApiTable";
-import { api } from "./api";
+import { api, buttonApi } from "./api";
 
 const ModalComponent = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -159,8 +159,13 @@ const ModalPage = () => {
             };
       `}
       />
-      <h2 style={{ marginTop: "54px" }}>Components API</h2>
-      <ComponentApiTable values={api} />
+      <div className="component-api">
+        <h2>Component API</h2>
+        <h3>Modal</h3>
+        <ComponentApiTable values={api} />
+        <h3>Modal Button</h3>
+        <ComponentApiTable values={buttonApi} />
+      </div>
     </>
   );
 };

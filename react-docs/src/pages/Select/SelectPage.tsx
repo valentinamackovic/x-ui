@@ -2,7 +2,7 @@ import { useState } from "react";
 import Example from "../../components/Example";
 import { Select } from "x-ui-components";
 import { ComponentApiTable } from "../../components/ComponentApiTable";
-import { api } from "./api";
+import { api, dropdownApi, inputApi, optionApi } from "./api";
 
 const SelectComposableExample = () => {
   const [areOptionsVisible, setAreOptionsVisible] = useState(false);
@@ -256,8 +256,18 @@ export const SelectPage = () => {
         );
         `}
       />
-      <h2 style={{ marginTop: "54px" }}>Components API</h2>
-      <ComponentApiTable values={api} />
+
+      <div className="component-api">
+        <h2>Component API</h2>
+        <h3>Select</h3>
+        <ComponentApiTable values={api} />
+        <h3>Select Input</h3>
+        <ComponentApiTable values={inputApi} />
+        <h3>Select Dropdown</h3>
+        <ComponentApiTable values={dropdownApi} />
+        <h3>Select Option</h3>
+        <ComponentApiTable values={optionApi} />
+      </div>
     </>
   );
 };

@@ -34,3 +34,21 @@ export const api: ComponentApiDefinition[] = [
     default: "() => {}",
   },
 ];
+
+export const buttonApi: ComponentApiDefinition[] = [
+  {
+    prop: "onClick",
+    description: "Triggers when the title is clicked",
+    type: "function",
+    default: "() => {}",
+  },
+];
+
+export const contentApi: ComponentApiDefinition[] = [
+  {
+    prop: "visible",
+    description: "Whether the content is visible",
+    type: "boolean",
+    default: "false",
+  },
+];

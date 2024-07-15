@@ -34,3 +34,12 @@ export const api: ComponentApiDefinition[] = [
     default: "() => {}",
   },
 ];
+
+export const buttonApi: ComponentApiDefinition[] = [
+  {
+    prop: "onClick",
+    description: "Triggers when the button is clicked",
+    type: "function",
+    default: "() => {}",
+  },
+];
