@@ -256,7 +256,7 @@ export const SelectPage = () => {
         );
         `}
       />
-      <h2>Components API</h2>
+      <h2 style={{ marginTop: "54px" }}>Components API</h2>
       <ComponentApiTable values={api} />
     </>
   );
