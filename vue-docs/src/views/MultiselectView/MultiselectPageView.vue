@@ -4,7 +4,7 @@ import Example from "../../components/Example.vue";
 import { Multiselect } from "x-ui-components-vue";
 import StaticMultiselect from "./StaticMultiselect.vue";
 import ComposableMultiselect from "./ComposableMultiselect.vue";
-import { api, inputApi, itemApi, dropdownApi, optionApi } from "./api.js";
+import { api, inputApi, dropdownApi, optionApi } from "./api.js";
 
 const options = [
   { id: "1", value: "Option 1" },
