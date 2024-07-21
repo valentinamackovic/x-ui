@@ -1,65 +1,70 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
+const router = useRouter();
 
 const activeItem = computed(() => {
   return route.path || "/";
 });
+
+function goToRoute(route) {
+  router.push(route);
+}
 </script>
 
 <template>
   <div className="sidebar">
     <div className="sidebar-content">
-      <a
+      <div
         class="sidebar-item"
         :class="{ 'sidebar-item-active': activeItem === '/overview' }"
-        href="/overview"
+        @click="goToRoute('/overview')"
       >
         Overview
-      </a>
-      <a
+      </div>
+      <div
         class="sidebar-item"
         :class="{ 'sidebar-item-active': activeItem === '/menu' }"
-        href="/menu"
+        @click="goToRoute('/menu')"
       >
         Menu
-      </a>
-      <a
+      </div>
+      <div
         class="sidebar-item"
         :class="{ 'sidebar-item-active': activeItem === '/select' }"
-        href="/select"
+        @click="goToRoute('/select')"
       >
         Select
-      </a>
-      <a
+      </div>
+      <div
         class="sidebar-item"
         :class="{ 'sidebar-item-active': activeItem === '/accordion' }"
-        href="/accordion"
+        @click="goToRoute('/accordion')"
       >
         Accordion
-      </a>
-      <a
+      </div>
+      <div
         class="sidebar-item"
         :class="{ 'sidebar-item-active': activeItem === '/modal' }"
-        href="/modal"
+        @click="goToRoute('/modal')"
       >
         Modal
-      </a>
-      <a
+      </div>
+      <div
         class="sidebar-item"
         :class="{ 'sidebar-item-active': activeItem === '/multiselect' }"
-        href="/multiselect"
+        @click="goToRoute('/multiselect')"
       >
         Multiselect
-      </a>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-a {
+.sidebar-item-active div {
   text-decoration: none;
   color: #cbd5e1;
   display: flex;
