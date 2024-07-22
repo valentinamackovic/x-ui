@@ -20,10 +20,9 @@ const config = {
       precompress: false,
       strict: true,
       fallback: "200.html",
+      trailingSlash: "always",
     }),
   },
 };
-
-export const prerender = true;
 
 export default config;
