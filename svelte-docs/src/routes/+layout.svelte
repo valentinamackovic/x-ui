@@ -9,6 +9,8 @@ const arrowIcon = icon(faArrowLeft).html;
 </script>
   
 <style>
+@import '../shared.css';
+
 .title a {
     position: absolute;
     left: 14px;
