@@ -2,6 +2,7 @@
 import Sidebar from '../components/Sidebar.svelte';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { icon } from '@fortawesome/fontawesome-svg-core';
+import '../shared.css'
 
 // Generate the Font Awesome icon SVG
 const arrowIcon = icon(faArrowLeft).html;
