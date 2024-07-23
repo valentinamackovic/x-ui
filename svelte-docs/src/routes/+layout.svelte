@@ -8,7 +8,7 @@ import '../shared.css'
 const arrowIcon = icon(faArrowLeft).html;
 </script>
   
-<style>
+<style global>
 .title a {
     position: absolute;
     left: 14px;
@@ -20,6 +20,209 @@ const arrowIcon = icon(faArrowLeft).html;
     width: 100%;
     box-sizing: border-box;
 }
+
+* {
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+body {
+  margin: 0;
+  background-color: #1e293b;
+  color: #cbd5e1;
+}
+
+/* Header */
+.title {
+  font-size: 48px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 0;
+  position: sticky;
+  top: 0;
+  background-color: #1e293b;
+  border-bottom: 2px solid #334155;
+  z-index: 2000;
+}
+.divider {
+  min-height: 2px;
+  width: 100vw;
+  background: #334155;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 20%;
+  height: calc(100vh - 103px);
+  position: sticky;
+  bottom: 0px;
+  left: 0px;
+  border-right: 1px solid #334155;
+  position: sticky;
+  top: 102px;
+  left: 0;
+}
+.sidebar-content {
+  padding: 20px 14px;
+}
+.sidebar-item {
+  border-radius: 4px;
+  padding: 8px 6px;
+  margin: 4px 0;
+}
+.sidebar-item:hover {
+  background-color: #334155;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+}
+.sidebar-item-active {
+  background-color: #475569;
+}
+
+/* General */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.column {
+  flex-direction: column;
+}
+
+/* Content */
+.main-page-wrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+}
+.main-page-content {
+  padding: 20px 14px;
+  width: 100%;
+}
+.main-page-content-title {
+  margin-top: 0;
+}
+.example-box {
+  min-height: 200px;
+  background-color: rgb(1, 22, 39);
+  color: #cbd5e1;
+  border-radius: 20px;
+  padding: 10px 22px;
+}
+.example-box-buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.btn {
+  background-color: #475569;
+  color: #cbd5e1;
+  border: none;
+  font-size: 14px;
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: 80%;
+}
+.btn-switch {
+  background-color: transparent;
+  border: none;
+  padding: 4px 10px;
+  color: inherit;
+}
+.btn-switch:hover {
+  opacity: 70%;
+}
+
+/* Overview */
+.overview-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.overview-item {
+  width: 380px;
+  border-radius: 1em;
+  border: 1px solid rgb(1, 22, 39);
+}
+.overview-image {
+  height: 300px;
+  max-width: 100%;
+  object-fit: scale-down;
+}
+.overview-item:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.overview-item div {
+  background-color: rgb(1, 22, 39);
+  border-bottom-right-radius: 1em;
+  border-bottom-left-radius: 1em;
+}
+.overview-item h3 {
+  border-bottom: 1px solid rgb(1, 22, 39);
+  padding: 14px 10px;
+  margin: 0;
+}
+
+/* Component API Table */
+.table-component {
+  overflow: auto;
+  width: 100%;
+}
+
+.table-component table {
+  height: 100%;
+  width: 100%;
+  min-width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 1px;
+  text-align: left;
+}
+
+.table-component caption {
+  caption-side: top;
+  text-align: left;
+}
+
+.table-component th {
+  padding: 10px 6px;
+  font-weight: bold;
+}
+
+.table-component td {
+  padding: 12px 6px;
+}
+
+.table-component .prop {
+  font-weight: 600;
+}
+.table-component .description {
+  font-weight: lighter;
+}
+
+.table-component tr + tr {
+  border-top: 1px solid #334155;
+}
+
+.table-component thead {
+  border-bottom: 1px solid #334155;
+}
+
+.component-api h2 {
+  margin-top: 54px;
+}
+
+.component-api h3 {
+  margin-top: 28px;
+}
+
 </style>
 
 <title class="title">

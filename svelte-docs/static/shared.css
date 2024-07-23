@@ -146,3 +146,56 @@ body {
   padding: 14px 10px;
   margin: 0;
 }
+
+/* Component API Table */
+.table-component {
+  overflow: auto;
+  width: 100%;
+}
+
+.table-component table {
+  height: 100%;
+  width: 100%;
+  min-width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 1px;
+  text-align: left;
+}
+
+.table-component caption {
+  caption-side: top;
+  text-align: left;
+}
+
+.table-component th {
+  padding: 10px 6px;
+  font-weight: bold;
+}
+
+.table-component td {
+  padding: 12px 6px;
+}
+
+.table-component .prop {
+  font-weight: 600;
+}
+.table-component .description {
+  font-weight: lighter;
+}
+
+.table-component tr + tr {
+  border-top: 1px solid #334155;
+}
+
+.table-component thead {
+  border-bottom: 1px solid #334155;
+}
+
+.component-api h2 {
+  margin-top: 54px;
+}
+
+.component-api h3 {
+  margin-top: 28px;
+}
