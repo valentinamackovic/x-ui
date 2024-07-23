@@ -1,4 +1,5 @@
 <script lang="ts">
+import '../../shared.css'
 </script>
 
 <main>
