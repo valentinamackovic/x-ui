@@ -1,9 +1,4 @@
 <script lang="ts">
-import { goto } from '$app/navigation';
-
-function goTo(route: string) {
-  goto(route);
-}
 </script>
 
 <main>

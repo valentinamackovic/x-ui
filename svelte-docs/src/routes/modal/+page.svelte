@@ -2,8 +2,8 @@
 import { Modal } from "x-ui-components-svelte";
 import Example from '../../components/Example.svelte'
 import ComposableModal from './ComposableModal.svelte';
-  import ComponentApiTable from "../../components/ComponentApiTable.svelte";
-  import { api, buttonApi } from "./api";
+import ComponentApiTable from "../../components/ComponentApiTable.svelte";
+import { api, buttonApi } from "./api";
 
 let modalOpen = false
 

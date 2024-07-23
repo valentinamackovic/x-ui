@@ -2,8 +2,8 @@
 import Example from "../../components/Example.svelte";
 import { Accordion } from "x-ui-components-svelte";
 import ComposableAccordion from "./ComposableAccordion.svelte";
-  import ComponentApiTable from "../../components/ComponentApiTable.svelte";
-  import { api, buttonApi, contentApi } from "./api";
+import ComponentApiTable from "../../components/ComponentApiTable.svelte";
+import { api, buttonApi, contentApi } from "./api";
 
 let expanded = false
 
