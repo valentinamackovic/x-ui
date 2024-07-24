@@ -9,8 +9,6 @@ const arrowIcon = icon(faArrowLeft).html;
 </script>
   
 <style global>
- @import '../shared.css';
-
 .title a {
     position: absolute;
     left: 14px;
@@ -23,6 +21,10 @@ const arrowIcon = icon(faArrowLeft).html;
     box-sizing: border-box;
 }
 </style>
+
+<svelte:head>
+    <link rel="stylesheet" href="/shared.css">
+</svelte:head>
 
 <title class="title">
     <a href="http://localhost:3000">
