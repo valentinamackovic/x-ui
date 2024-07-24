@@ -8,7 +8,9 @@ import '../shared.css'
 const arrowIcon = icon(faArrowLeft).html;
 </script>
   
-<style>
+<style global>
+ @import '../../static/shared.css';
+
 .title a {
     position: absolute;
     left: 14px;
