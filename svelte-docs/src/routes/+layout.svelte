@@ -2,7 +2,6 @@
 import Sidebar from '../components/Sidebar.svelte';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { icon } from '@fortawesome/fontawesome-svg-core';
-import '../shared.css'
 
 // Generate the Font Awesome icon SVG
 const arrowIcon = icon(faArrowLeft).html;
@@ -21,10 +20,6 @@ const arrowIcon = icon(faArrowLeft).html;
     box-sizing: border-box;
 }
 </style>
-
-<svelte:head>
-    <link rel="stylesheet" href="/shared.css">
-</svelte:head>
 
 <title class="title">
     <a href="http://localhost:3000">
