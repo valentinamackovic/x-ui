@@ -7,7 +7,7 @@ This library provides a suite of UI components specifically designed for React. 
 To integrate these components into your project, use the following command to install:
 
 ```bash
-npm install x-ui-components
+npm install x-ui-components-react
 ```
 
 ### Components
@@ -20,7 +20,7 @@ Below is a simple example demonstrating how to use the Menu component:
 
 ```jsx
 import { useState } from "react";
-import { Menu } from "x-ui-components";
+import { Menu } from "x-ui-components-react";
 
 const MenuExample = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,7 +70,7 @@ const MenuExample = () => {
 | :--------- | :----------- | :---- | :------- |
 | `visible` | Whether the content is visible | `boolean` | `false` |
 
-#### Menu
+### Menu
 
 | Prop Name | Description | Type | Default |
 | :--------- | :----------- | :---- | :------- |
@@ -83,20 +83,20 @@ const MenuExample = () => {
 | `onItemClick`   | Triggers when a menu item is clicked                                       | `function`    | `(id: string               | number) => {}` |
 | `onButtonClick` | Triggers when the menu button is clicked                                   | `function`    | `() => {}`                 |
 
-#### Menu Button
+### Menu Button
 
 | Prop Name | Description | Type | Default |
 | :--------- | :----------- | :---- | :------- |
 |`onMenuButtonClick` | Triggers when the button is clicked | `function` | `() => {}` |
 
-#### Menu Dropdown
+### Menu Dropdown
 
 | Prop Name | Description | Type | Default |
 | :--------- | :----------- | :---- | :------- |
 |`open` | Whether or not the dropdown is visible | `boolean` |`false`|
 
 
-#### Menu Item
+### Menu Item
 
 | Prop Name | Description | Type | Default |
 | :--------- | :----------- | :---- | :------- |
