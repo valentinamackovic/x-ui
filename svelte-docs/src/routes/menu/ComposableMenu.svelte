@@ -12,7 +12,7 @@
       isOpen = false; // Close the dropdown on item click
       window.alert('Item clicked ' + item.value)
     }
-  </script>
+</script>
   
   <div class="center">
     <Menu>

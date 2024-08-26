@@ -20,6 +20,143 @@ const onOptionClick = (option: Option) => {
         selectedOption = option 
         open = false
     } 
+
+const basicExample = `
+<script lang="ts">
+    import { Select } from "x-ui-components-svelte"
+
+    const items = [
+        { id: 1, value: 'Item 1' },
+        { id: 2, value: 'Item 2' },
+        { id: 3, value: 'Item 3' }
+    ];
+<\/script>
+
+<Select options={items} component={true}/>
+`
+
+const initialOpenExample = `
+<script lang="ts">
+    import { Select } from "x-ui-components-svelte"
+
+    const items = [
+        { id: 1, value: 'Item 1' },
+        { id: 2, value: 'Item 2' },
+        { id: 3, value: 'Item 3' }
+    ];
+<\/script>
+
+<Select options={items} component={true} open={true}/>
+`
+
+const initialValueToFirstOptionExample = `
+<script lang="ts">
+    import { Select } from "x-ui-components-svelte"
+
+    const items = [
+        { id: 1, value: 'Item 1' },
+        { id: 2, value: 'Item 2' },
+        { id: 3, value: 'Item 3' }
+    ];
+<\/script>
+
+<Select options={items} defaultValue={1} component={true}/>
+`
+
+const disabledExample = `
+<script lang="ts">
+    import { Select } from "x-ui-components-svelte"
+
+    const items = [
+        { id: 1, value: 'Item 1' },
+        { id: 2, value: 'Item 2' },
+        { id: 3, value: 'Item 3' }
+    ];
+<\/script>
+
+<Select options={items} component={true} disabled={true}/>
+`
+
+const onChangeExample = `
+<script lang="ts">
+    import { Select } from "x-ui-components-svelte"
+
+    const items = [
+        { id: 1, value: 'Item 1' },
+        { id: 2, value: 'Item 2' },
+        { id: 3, value: 'Item 3' }
+    ];
+<\/script>
+
+<Select options={items} component={true} onChange={(v)=> window.alert('Changed ' + v.value)}/>
+`
+
+
+const staticExample = `
+<script lang="ts">
+    import { Select } from "x-ui-components-svelte"
+
+    let open = false
+    let selectedOption: Option | undefined = undefined
+
+    const items = [
+        { id: 1, value: 'Item 1' },
+        { id: 2, value: 'Item 2' },
+        { id: 3, value: 'Item 3' }
+    ];
+
+    const onInputClick = () => { open =! open }
+    const onOptionClick = (option: Option) => { 
+        selectedOption = option 
+        open = false
+    } 
+<\/script>
+
+ <Select 
+    open={open}
+    onInputClick={onInputClick}
+    options={items} 
+    valueProp={selectedOption}
+    onChange={onOptionClick} 
+    component={true} 
+    isStatic={true}
+/>
+`
+
+const composableExample = `
+<script lang="ts">
+    import { Select, SelectDropdown, SelectInput, SelectOption } from "x-ui-components-svelte"
+    import type { Option } from '../../xui/select/types';
+
+    let areOptionsVisible = false;
+    let value: Option | undefined = undefined;
+
+    function toggleDropdown() {
+        areOptionsVisible = !areOptionsVisible;
+    }
+
+    function selectOption(option: Option) {
+        value = option;
+        areOptionsVisible = false; 
+    } 
+<\/script>
+
+<Select>
+    <SelectInput
+        onClick={toggleDropdown}
+        value={value}
+    >
+        {value?.value}
+    </SelectInput>
+    <SelectDropdown open={areOptionsVisible}>
+        <SelectOption
+            onClick={() => selectOption({ value: "Option 1", id: "1" })}
+        >
+            Option 1
+        </SelectOption>
+    </SelectDropdown>
+</Select>
+`
 </script>
 
 <h1 class="main-page-content-title">Select</h1>
@@ -27,7 +164,7 @@ const onOptionClick = (option: Option) => {
 <h2>Examples</h2>
 <h3>Use as a component</h3>
 <p>Basic example</p>
-<Example codeContent="g">
+<Example codeContent={basicExample}>
     <div slot="exampleContent">
         <div class="center">
             <Select options={items} component={true}/>
@@ -35,7 +172,7 @@ const onOptionClick = (option: Option) => {
     </div>
 </Example>
 <p>Initial state set to open</p>
-<Example codeContent="g">
+<Example codeContent={initialOpenExample}>
     <div slot="exampleContent">
         <div class="center">
             <Select options={items} component={true} open={true}/>
@@ -43,7 +180,7 @@ const onOptionClick = (option: Option) => {
     </div>
 </Example>
 <p>Initial value set to the first option</p>
-<Example codeContent="g">
+<Example codeContent={initialValueToFirstOptionExample}>
     <div slot="exampleContent">
         <div class="center">
             <Select options={items} defaultValue={1} component={true}/>
@@ -51,7 +188,7 @@ const onOptionClick = (option: Option) => {
     </div>
 </Example>
 <p>Disabled example</p>
-<Example codeContent="g">
+<Example codeContent={disabledExample}>
     <div slot="exampleContent">
         <div class="center">
             <Select options={items} component={true} disabled={true}/>
@@ -59,7 +196,7 @@ const onOptionClick = (option: Option) => {
     </div>
 </Example>
 <p>Trigger an alert on value change</p>
-<Example codeContent="g">
+<Example codeContent={onChangeExample}>
     <div slot="exampleContent">
         <div class="center">
             <Select options={items} component={true} onChange={(v)=> window.alert('Changed ' + v.value)}/>
@@ -67,7 +204,7 @@ const onOptionClick = (option: Option) => {
     </div>
 </Example>
 <p>Ignore the internal logic with static property</p>
-<Example codeContent="g">
+<Example codeContent={staticExample}>
     <div slot="exampleContent">
         <div class="center">
             <Select 
@@ -83,7 +220,7 @@ const onOptionClick = (option: Option) => {
     </div>
 </Example>
 <h3>Use as a composable</h3>
-<Example codeContent="g">
+<Example codeContent={composableExample}>
     <div slot="exampleContent">
         <div class="center">
             <ComposableSelect />

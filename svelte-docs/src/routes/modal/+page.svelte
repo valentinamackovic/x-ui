@@ -7,6 +7,80 @@ import { api, buttonApi } from "./api";
 
 let modalOpen = false
 
+const basicExample = `
+<script lang="ts">
+    import { Modal } from "x-ui-components-svelte";
+
+    let modalOpen = false
+<\/script>
+
+<button class="btn" on:click={() => modalOpen=true}>
+    Open modal
+</button>
+<Modal 
+    title="Modal title"
+    isOpen={modalOpen}
+    onClose={() => modalOpen = false}
+    component={true}
+>
+    Modal
+</Modal>
+`
+
+const staticExample = `
+<script lang="ts">
+    import { Modal } from "x-ui-components-svelte";
+
+    let modalOpen = false
+<\/script>
+
+<button class="btn" on:click={() => modalOpen=true}>
+    Open modal
+</button>
+<Modal 
+    title="Modal title"
+    isOpen={modalOpen}
+    onClose={() => modalOpen = false}
+    component={true}
+    isStatic={true}
+>
+    Modal
+</Modal>
+`
+
+const composableExample = `
+<script lang="ts">
+    import { Modal, ModalButton, ModalContent } from "x-ui-components-svelte";
+
+    let modalOpen = false;
+
+    function openModal() {
+        modalOpen = true;
+    }
+
+    function closeModal() {
+        modalOpen = false;
+    }
+<\/script>
+
+<Modal isOpen={modalOpen} onClose={closeModal}>
+    <ModalContent>
+        <p>Example modal content.</p>
+        <ModalButton onButtonClick={closeModal}>
+            Customisable Button
+        </ModalButton>
+        <ModalButton onButtonClick={closeModal}>
+            OK
+        </ModalButton>
+    </ModalContent>
+</Modal>
+
+<div class="center">
+    <button class="btn" on:click={openModal}>
+        Open modal
+    </button>
+</div>
+`
 </script>
 
 <h1 class="main-page-content-title">Modal</h1>
@@ -14,7 +88,7 @@ let modalOpen = false
 <h2>Examples</h2>
 <h3>Use as a component</h3>
 <p>Setting component prop to true will apply default styles.</p>
-<Example codeContent="g">
+<Example codeContent={basicExample}>
     <div slot="exampleContent">
         <div class="center">
             <button class="btn" on:click={() => modalOpen=true}>
@@ -32,7 +106,7 @@ let modalOpen = false
     </div>
 </Example>
 <p>Ignore the internal logic with static property</p>
-<Example codeContent="g">
+<Example codeContent={staticExample}>
     <div slot="exampleContent">
         <div class="center">
             <button class="btn" on:click={() => modalOpen=true}>
@@ -51,7 +125,7 @@ let modalOpen = false
     </div>
 </Example>
 <h3>Use as a composable</h3>
-<Example codeContent="g">
+<Example codeContent={composableExample}>
     <div slot="exampleContent">
         <div class="center">
             <ComposableModal />
