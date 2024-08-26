@@ -14,6 +14,84 @@ const options = [
 const onChange = (option) => {
   window.alert("Changed " + option.value);
 };
+
+const basicExample = `
+<script setup>
+  import { Select } from "x-ui-components-vue";
+
+  const options = [
+    { id: "1", value: "Option 1" },
+    { id: "2", value: "Option 2" },
+  ];
+<\/script>
+
+<template>
+  <Select :options="options" component />
+</template>
+`;
+
+const initialStateToOpenExample = `
+<script setup>
+  import { Select } from "x-ui-components-vue";
+  
+  const options = [
+    { id: "1", value: "Option 1" },
+    { id: "2", value: "Option 2" },
+  ];
+<\/script>
+
+<template>
+  <Select :options="options" :open="true" component />
+</template>
+`;
+const initialValueToFirstOptionExample = `
+<script setup>
+  import { Select } from "x-ui-components-vue";
+  
+  const options = [
+    { id: "1", value: "Option 1" },
+    { id: "2", value: "Option 2" },
+  ];
+<\/script>
+
+<template>
+  <Select :options="options" defaultValue="1" component />
+</template>
+`;
+
+const disabledExample = `
+<script setup>
+  import { Select } from "x-ui-components-vue";
+  
+  const options = [
+    { id: "1", value: "Option 1" },
+    { id: "2", value: "Option 2" },
+  ];
+<\/script>
+
+<template>
+  <Select :options="options" defaultValue="1" disabled component />
+</template>
+`;
+
+const onChangeExample = `
+<script setup>
+  import { Select } from "x-ui-components-vue";
+  
+  const options = [
+    { id: "1", value: "Option 1" },
+    { id: "2", value: "Option 2" },
+  ];
+
+  const onChange = (option) => {
+    window.alert("Changed " + option.value);
+  };
+<\/script>
+
+<template>
+  <Select :options="options" :onChange="onChange" component />
+</template>
+`;
 </script>
 
 <template>
@@ -22,7 +100,7 @@ const onChange = (option) => {
   <h2>Examples</h2>
   <h3>Use as a component</h3>
   <p>Basic example</p>
-  <Example codeContent="s">
+  <Example :codeContent="basicExample">
     <template v-slot:exampleContent>
       <div class="center">
         <Select :options="options" component />
@@ -30,7 +108,7 @@ const onChange = (option) => {
     </template>
   </Example>
   <p>Initial state set to open</p>
-  <Example codeContent="s">
+  <Example :codeContent="initialStateToOpenExample">
     <template v-slot:exampleContent>
       <div class="center">
         <Select :options="options" :open="true" component />
@@ -38,7 +116,7 @@ const onChange = (option) => {
     </template>
   </Example>
   <p>Initial value set to the first option</p>
-  <Example codeContent="s">
+  <Example :codeContent="initialValueToFirstOptionExample">
     <template v-slot:exampleContent>
       <div class="center">
         <Select :options="options" defaultValue="1" component />
@@ -46,7 +124,7 @@ const onChange = (option) => {
     </template>
   </Example>
   <p>Disabled example</p>
-  <Example codeContent="s">
+  <Example :codeContent="disabledExample">
     <template v-slot:exampleContent>
       <div class="center">
         <Select :options="options" defaultValue="1" disabled component />
@@ -54,7 +132,7 @@ const onChange = (option) => {
     </template>
   </Example>
   <p>Trigger an alert on value change</p>
-  <Example codeContent="s">
+  <Example :codeContent="onChangeExample">
     <template v-slot:exampleContent>
       <div class="center">
         <Select :options="options" :onChange="onChange" component />

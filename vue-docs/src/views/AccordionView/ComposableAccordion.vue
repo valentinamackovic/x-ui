@@ -15,17 +15,35 @@ const handleClick = () => {
 };
 
 const example = `
-<Accordion>
+<script setup>
+  import {
+    Accordion,
+    AccordionButton,
+    AccordionContent,
+  } from "x-ui-components-vue";
+
+  import { ref } from "vue";
+
+  const expanded = ref(false);
+
+  const handleClick = () => {
+    expanded.value = !expanded.value;
+  };
+<\/script>
+
+<template>
+  <Accordion>
     <AccordionButton :onTitleClick="handleClick">
-        Accordion title
+      Accordion title
     </AccordionButton>
     <AccordionContent :expanded="expanded">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quos
-        unde suscipit quisquam tenetur, autem dolore labore sapiente explicabo
-        omnis iusto amet repudiandae dignissimos dolores ex tempora fugit eum
-        maiores.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quos
+      unde suscipit quisquam tenetur, autem dolore labore sapiente explicabo
+      omnis iusto amet repudiandae dignissimos dolores ex tempora fugit eum
+      maiores.
     </AccordionContent>
-</Accordion>
+  </Accordion>
+</template>
 `;
 </script>
 

@@ -17,6 +17,144 @@ const initialValue = ["1", "2"];
 const onChange = (v) => {
   window.alert("Changed: ", v.value);
 };
+
+const basicExample = `
+<script setup>
+  import { Multiselect } from "x-ui-components-vue";
+
+  const options = [
+    { id: "1", value: "Option 1" },
+    { id: "2", value: "Option 2" },
+    { id: "3", value: "Option 3" },
+  ];
+<\/script>
+
+<template>
+  <Multiselect :options="options" component />
+</template>
+`;
+
+const initialStateOpenExample = `
+<script setup>
+  import { Multiselect } from "x-ui-components-vue";
+
+  const options = [
+    { id: "1", value: "Option 1" },
+    { id: "2", value: "Option 2" },
+    { id: "3", value: "Option 3" },
+  ];
+<\/script>
+
+<template>
+  <Multiselect :options="options" component open />
+</template>
+`;
+
+const initialStateToFirstTwoOptionsExample = `
+<script setup>
+  import { Multiselect } from "x-ui-components-vue";
+
+  const options = [
+    { id: "1", value: "Option 1" },
+    { id: "2", value: "Option 2" },
+    { id: "3", value: "Option 3" },
+  ];
+
+  const initialValue = ["1", "2"];
+<\/script>
+
+<template>
+  <Multiselect
+    :options="options"
+    :defaultValue="initialValue"
+    component
+  />
+</template>
+`;
+
+const disabledExample = `
+<script setup>
+  import { Multiselect } from "x-ui-components-vue";
+
+  const options = [
+    { id: "1", value: "Option 1" },
+    { id: "2", value: "Option 2" },
+    { id: "3", value: "Option 3" },
+  ];
+<\/script>
+
+<template>
+  <Multiselect :options="options" disabled component />
+</template>
+`;
+
+const onChangeFunctionExample = `
+<script setup>
+  import { Multiselect } from "x-ui-components-vue";
+
+  const options = [
+    { id: "1", value: "Option 1" },
+    { id: "2", value: "Option 2" },
+    { id: "3", value: "Option 3" },
+  ];
+
+  const onChange = (v) => {
+    window.alert("Changed: ", v.value);
+  };
+<\/script>
+
+<template>
+  <Multiselect :options="options" :onChange="onChange" component />
+</template>
+`;
+
+const searchEnabledExample = `
+<script setup>
+  import { Multiselect } from "x-ui-components-vue";
+
+  const options = [
+    { id: "1", value: "Option 1" },
+    { id: "2", value: "Option 2" },
+    { id: "3", value: "Option 3" },
+  ];
+<\/script>
+
+<template>
+  <Multiselect :options="options" enableSearch component />
+</template>
+`;
+
+const clearAllEnabledExample = `
+<script setup>
+  import { Multiselect } from "x-ui-components-vue";
+
+  const options = [
+    { id: "1", value: "Option 1" },
+    { id: "2", value: "Option 2" },
+    { id: "3", value: "Option 3" },
+  ];
+<\/script>
+
+<template>
+  <Multiselect :options="options" clearAll component />
+</template>
+`;
+
+const maxItemsExample = `
+<script setup>
+  import { Multiselect } from "x-ui-components-vue";
+
+  const options = [
+    { id: "1", value: "Option 1" },
+    { id: "2", value: "Option 2" },
+    { id: "3", value: "Option 3" },
+  ];
+<\/script>
+
+<template>
+  <Multiselect :options="options" :maxSelectedItems="1" component />
+</template>
+`;
 </script>
 
 <template>
@@ -26,13 +164,13 @@ const onChange = (v) => {
     <h2>Examples</h2>
     <h3>Use as a component</h3>
     <p>Basic example</p>
-    <Example codeContent="j">
+    <Example :codeContent="basicExample">
       <template v-slot:exampleContent>
         <div class="center"><Multiselect :options="options" component /></div>
       </template>
     </Example>
     <p>Initial state set to open</p>
-    <Example codeContent="j">
+    <Example :codeContent="initialStateOpenExample">
       <template v-slot:exampleContent>
         <div class="center">
           <Multiselect :options="options" component open />
@@ -40,7 +178,7 @@ const onChange = (v) => {
       </template>
     </Example>
     <p>Initial value set to the first two options</p>
-    <Example codeContent="j">
+    <Example :codeContent="initialStateToFirstTwoOptionsExample">
       <template v-slot:exampleContent>
         <div class="center">
           <Multiselect
@@ -52,7 +190,7 @@ const onChange = (v) => {
       </template>
     </Example>
     <p>Disabled example</p>
-    <Example codeContent="j">
+    <Example :codeContent="disabledExample">
       <template v-slot:exampleContent>
         <div class="center">
           <Multiselect :options="options" disabled component />
@@ -60,7 +198,7 @@ const onChange = (v) => {
       </template>
     </Example>
     <p>Trigger an alert on value change</p>
-    <Example codeContent="j">
+    <Example :codeContent="onChangeFunctionExample">
       <template v-slot:exampleContent>
         <div class="center">
           <Multiselect :options="options" :onChange="onChange" component />
@@ -68,7 +206,7 @@ const onChange = (v) => {
       </template>
     </Example>
     <p>Enable searching the options</p>
-    <Example codeContent="j">
+    <Example :codeContent="searchEnabledExample">
       <template v-slot:exampleContent>
         <div class="center">
           <Multiselect :options="options" enableSearch component />
@@ -76,7 +214,7 @@ const onChange = (v) => {
       </template>
     </Example>
     <p>Enable clearing all of the selected options with clear all button</p>
-    <Example codeContent="j">
+    <Example :codeContent="clearAllEnabledExample">
       <template v-slot:exampleContent>
         <div class="center">
           <Multiselect :options="options" clearAll component />
@@ -84,7 +222,7 @@ const onChange = (v) => {
       </template>
     </Example>
     <p>Set the maximum number of selected items</p>
-    <Example codeContent="j">
+    <Example :codeContent="maxItemsExample">
       <template v-slot:exampleContent>
         <div class="center">
           <Multiselect :options="options" :maxSelectedItems="1" component />

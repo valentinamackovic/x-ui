@@ -7,34 +7,52 @@ import ComposableAccordion from "./ComposableAccordion.vue";
 import { api, buttonApi, contentApi } from "./api.js";
 
 const basicExample = `
-<Accordion title="This is the accordion title" component>
+<script setup>
+  import { Accordion } from "x-ui-components-vue";
+<\/script>
+
+<template>
+  <Accordion title="This is the accordion title" component>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quos
     unde suscipit quisquam tenetur, autem dolore labore sapiente explicabo
     omnis iusto amet repudiandae dignissimos dolores ex tempora fugit eum
     maiores.
-</Accordion>
+  </Accordion>
+</template>
 `;
 
 const initialExpandedExample = `
-<Accordion
+<script setup>
+  import { Accordion } from "x-ui-components-vue";
+<\/script>
+
+<template>
+  <Accordion
     title="This is the accordion title"
     :expanded="true"
     component
->
+  >
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quos
     unde suscipit quisquam tenetur, autem dolore labore sapiente explicabo
     omnis iusto amet repudiandae dignissimos dolores ex tempora fugit eum
     maiores.
-</Accordion>
+  </Accordion>
+</template
 `;
 
 const withoutTitleExample = `
-<Accordion component>
+<script setup>
+  import { Accordion } from "x-ui-components-vue";
+<\/script>
+
+<template>
+  <Accordion component>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quos
     unde suscipit quisquam tenetur, autem dolore labore sapiente explicabo
     omnis iusto amet repudiandae dignissimos dolores ex tempora fugit eum
     maiores.
-</Accordion>
+  </Accordion>
+</template>
 `;
 </script>
 

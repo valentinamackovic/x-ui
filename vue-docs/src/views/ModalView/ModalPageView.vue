@@ -19,17 +19,23 @@ const onClose = () => {
 };
 
 const basicExample = `
-<div class="center">
+<script setup>
+  import { Modal } from "x-ui-components-vue";
+<\/script>
+
+<template>
+  <div class="center">
     <Modal :isOpen="modalOpen" :onClose="onClose" title="Title" component>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quos
-        unde suscipit quisquam tenetur, autem dolore labore sapiente
-        explicabo omnis iusto amet repudiandae dignissimos dolores ex
-        tempora fugit eum maiores.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quos
+      unde suscipit quisquam tenetur, autem dolore labore sapiente
+      explicabo omnis iusto amet repudiandae dignissimos dolores ex
+      tempora fugit eum maiores.
     </Modal>
     <div className="center">
-        <button className="btn" @click="toggleModal">Open modal</button>
+      <button className="btn" @click="toggleModal">Open modal</button>
     </div>
-</div>
+  </div>
+</template>
 `;
 </script>
 

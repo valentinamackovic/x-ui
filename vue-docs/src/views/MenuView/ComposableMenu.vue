@@ -15,28 +15,43 @@ const handleItemClick = (item) => {
 };
 
 const exampleCode = `
-<div class="center">
-    <Menu>
-        <MenuButton :onMenuButtonClick="toggleMenu">
-        <template v-slot:default> Click me to open menu </template>
-        </MenuButton>
+<script setup>
+import { ref } from "vue";
+import { Menu, MenuButton, MenuDropdown, MenuItem } from "x-ui-components-vue";
 
-        <MenuDropdown :open="isOpen">
-        <MenuItem
-            :item="{ id: '1', value: 'Action 1' }"
-            @click="handleItemClick"
-        >
-            First Action
-        </MenuItem>
-        <MenuItem
-            :item="{ id: '2', value: 'Action 2' }"
-            @click="handleItemClick"
-        >
-            Second Action
-        </MenuItem>
-        </MenuDropdown>
-    </Menu>
-</div>
+const isOpen = ref(false);
+
+const toggleMenu = () => {
+  isOpen.value = !isOpen.value;
+};
+
+const handleItemClick = (item) => {
+  window.alert("item was clicked: " + item.value);
+};
+<\/script>
+
+<template>
+  <Menu>
+    <MenuButton :onMenuButtonClick="toggleMenu">
+      <template v-slot:default> Click me to open menu </template>
+    </MenuButton>
+
+    <MenuDropdown :open="isOpen">
+      <MenuItem
+          :item="{ id: '1', value: 'Action 1' }"
+          @click="handleItemClick"
+      >
+          First Action
+      </MenuItem>
+      <MenuItem
+          :item="{ id: '2', value: 'Action 2' }"
+          @click="handleItemClick"
+      >
+          Second Action
+      </MenuItem>
+    </MenuDropdown>
+  </Menu>
+</template>
 `;
 </script>
 

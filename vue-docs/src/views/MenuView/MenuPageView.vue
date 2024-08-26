@@ -20,33 +20,47 @@ const onClose = () => {
 const handleItemClick = () => window.alert("Clicked");
 
 const basicExampleCode = `
-<Menu :items="items" :onItemClick="handleItemClick" component>
+<script setup>
+  import { Menu } from "x-ui-components-vue";
+<\/script>
+
+<template>
+  <Menu :items="items" :onItemClick="handleItemClick" component>
     <template v-slot:default> Click me to open menu </template>
-</Menu>
+  </Menu>
+</template>
 `;
 const disabledItemsExampleCode = `
-<div class="center">
-    <Menu
-        :items="items"
-        :onItemClick="handleItemClick"
-        :disabledItems="disabledItems"
-        component
-    >
-        <template v-slot:default> Click me to open menu </template>
-    </Menu>
-</div>
+<script setup>
+  import { Menu } from "x-ui-components-vue";
+<\/script>
+
+<template>
+  <Menu
+      :items="items"
+      :onItemClick="handleItemClick"
+      :disabledItems="disabledItems"
+      component
+  >
+      <template v-slot:default> Click me to open menu </template>
+  </Menu>
+</template>
 `;
 const defaultOpenExampleCode = `
-<div class="center">
-    <Menu
-        :items="items"
-        :onItemClick="handleItemClick"
-        :open="true"
-        component
-    >
-        <template v-slot:default> Click me to open menu </template>
-    </Menu>
-</div>
+<script setup>
+  import { Menu } from "x-ui-components-vue";
+<\/script>
+
+<template>
+  <Menu
+      :items="items"
+      :onItemClick="handleItemClick"
+      :open="true"
+      component
+  >
+      <template v-slot:default> Click me to open menu </template>
+  </Menu>
+</template>
 `;
 </script>
 
