@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Example from "../../components/Example";
-import { Multiselect } from "x-ui-components";
+import { Multiselect } from "x-ui-components-react";
 import { ComponentApiTable } from "../../components/ComponentApiTable";
 import { api, dropdownApi, inputApi, itemApi, optionApi } from "./api";
 
@@ -47,10 +47,7 @@ const MultiselectComposableExample = () => {
 
   return (
     <Multiselect>
-      <Multiselect.Input
-        onInputClick={() => setOpen(!open)}
-        areOptionsVisible={open}
-      >
+      <Multiselect.Input onInputClick={() => setOpen(!open)}>
         {values.map((v) => (
           <Multiselect.Item onClick={() => onOptionClick(v)} key={v.id}>
             {v.value}

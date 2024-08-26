@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Example from "../../components/Example";
-import { Accordion } from "x-ui-components";
+import { Accordion } from "x-ui-components-react";
 import { ComponentApiTable } from "../../components/ComponentApiTable";
 import { api, buttonApi, contentApi } from "./api";
 

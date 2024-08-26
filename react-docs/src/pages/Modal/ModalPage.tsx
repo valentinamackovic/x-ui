@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Example from "../../components/Example";
-import { Modal } from "x-ui-components";
+import { Modal } from "x-ui-components-react";
 import { ComponentApiTable } from "../../components/ComponentApiTable";
 import { api, buttonApi } from "./api";
 
