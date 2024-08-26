@@ -70,15 +70,21 @@ export const SelectPage = () => {
           </div>
         }
         codeContent={`
-        <div className="center">
-          <Select
-            options={[
-              { id: "1", value: "Option 1" },
-              { id: "2", value: "Option 2" },
-            ]}
-            component
-          />
-        </div>
+          import { Select } from "x-ui-components-react"
+
+          export default function Example() {
+            return (
+              <div className="center">
+                <Select
+                  options={[
+                    { id: "1", value: "Option 1" },
+                    { id: "2", value: "Option 2" },
+                  ]}
+                  component
+                />
+              </div>
+            )
+          }
         `}
       />
       <p>Initial state set to open</p>
@@ -96,16 +102,22 @@ export const SelectPage = () => {
           </div>
         }
         codeContent={`
-          <div className="center">
-            <Select
-              open
-              options={[
-                { id: "1", value: "Option 1" },
-                { id: "2", value: "Option 2" },
-              ]}
-              component
-            />
-          </div>
+        import { Select } from "x-ui-components-react"
+
+        export default function Example() {
+          return ( 
+            <div className="center">
+              <Select
+                open
+                options={[
+                  { id: "1", value: "Option 1" },
+                  { id: "2", value: "Option 2" },
+                ]}
+                component
+              />
+            </div>
+          )
+        }
         `}
       />
       <p>Initial value set to the first option</p>
@@ -123,16 +135,22 @@ export const SelectPage = () => {
           </div>
         }
         codeContent={`
-        <div className="center">
-          <Select
-            defaultValue={{ id: "1", value: "Option 1" }}
-            options={[
-              { id: "1", value: "Option 1" },
-              { id: "2", value: "Option 2" },
-            ]}
-            component
-          />
-        </div>
+        import { Select } from "x-ui-components-react"
+
+        export default function Example() {
+          return ( 
+            <div className="center">
+              <Select
+                defaultValue={{ id: "1", value: "Option 1" }}
+                options={[
+                  { id: "1", value: "Option 1" },
+                  { id: "2", value: "Option 2" },
+                ]}
+                component
+              />
+            </div>
+          )
+        }
         `}
       />
       <p>Disabled example</p>
@@ -151,17 +169,23 @@ export const SelectPage = () => {
           </div>
         }
         codeContent={`
-        <div className="center">
-          <Select
-            disabled
-            defaultValue={{ id: "1", value: "Option 1" }}
-            options={[
-              { id: "1", value: "Option 1" },
-              { id: "2", value: "Option 2" },
-            ]}
-            component
-          />
-        </div>
+        import { Select } from "x-ui-components-react"
+
+        export default function Example() {
+          return ( 
+            <div className="center">
+              <Select
+                disabled
+                defaultValue={{ id: "1", value: "Option 1" }}
+                options={[
+                  { id: "1", value: "Option 1" },
+                  { id: "2", value: "Option 2" },
+                ]}
+                component
+              />
+            </div>
+          )
+        }
         `}
       />
       <p>Trigger an alert on value change</p>
@@ -181,18 +205,24 @@ export const SelectPage = () => {
           </div>
         }
         codeContent={`
-        <div className="center">
-          <Select
-            onChange={(value) =>
-              window.alert(\`id: \${value.id}; value: \${value.value}\`)
-            }
-            options={[
-              { id: "1", value: "Option 1" },
-              { id: "2", value: "Option 2" },
-            ]}
-            component
-          />
-        </div>
+        import { Select } from "x-ui-components-react"
+
+        export default function Example() {
+          return ( 
+            <div className="center">
+              <Select
+                onChange={(value) =>
+                  window.alert(\`id: \${value.id}; value: \${value.value}\`)
+                }
+                options={[
+                  { id: "1", value: "Option 1" },
+                  { id: "2", value: "Option 2" },
+                ]}
+                component
+              />
+            </div>
+          )
+        }
         `}
       />
       <p>Ignore the internal logic with static property</p>
@@ -203,7 +233,9 @@ export const SelectPage = () => {
           </div>
         }
         codeContent={`
-        const SelectStaticExample = () => {
+        import { Select } from "x-ui-components-react"
+
+        export default function Example() {
           const [areOptionsVisible, setAreOptionsVisible] = useState(false);
           const [value, setValue] = useState<any>();
         
@@ -223,8 +255,8 @@ export const SelectPage = () => {
               ]}
               component
             />
-          );
-        };
+          )
+        }
         `}
       />
       <h3>Use as a composable</h3>
@@ -235,25 +267,29 @@ export const SelectPage = () => {
           </div>
         }
         codeContent={`
-        const [areOptionsVisible, setAreOptionsVisible] = useState(false);
-        const [value, setValue] = useState<any>("aajjsk");
-      
-        return (
-          <Select component>
-            <Select.Input
-              onClick={() => setAreOptionsVisible(!areOptionsVisible)}
-              value={value}
-            />
-            <Select.Dropdown visible={areOptionsVisible}>
-              <Select.Option
-                key="1"
-                onClick={() => setValue({ value: "Option 1", id: "1" })}
-              >
-                Option 1
-              </Select.Option>
-            </Select.Dropdown>
-          </Select>
-        );
+        import { Select } from "x-ui-components-react"
+
+        export default function Example() {
+          const [areOptionsVisible, setAreOptionsVisible] = useState(false);
+          const [value, setValue] = useState<any>("aajjsk");
+        
+          return (
+            <Select component>
+              <Select.Input
+                onClick={() => setAreOptionsVisible(!areOptionsVisible)}
+                value={value}
+              />
+              <Select.Dropdown visible={areOptionsVisible}>
+                <Select.Option
+                  key="1"
+                  onClick={() => setValue({ value: "Option 1", id: "1" })}
+                >
+                  Option 1
+                </Select.Option>
+              </Select.Dropdown>
+            </Select>
+          )
+        }
         `}
       />
       <div className="component-api">

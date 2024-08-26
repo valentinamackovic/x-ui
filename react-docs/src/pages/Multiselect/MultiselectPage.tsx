@@ -88,17 +88,23 @@ export const MultiselectPage = () => {
           </div>
         }
         codeContent={`
-        <div className="center">
-          <Multiselect
-            component
-            options={[
-              { id: "1", value: "Option 1" },
-              { id: "2", value: "Option 2" },
-              { id: "3", value: "Option 3" },
-              { id: "4", value: "Option 4" },
-            ]}
-          />
-        </div>
+        import { Multiselect } from "x-ui-components-react"
+
+        export default function Example() {
+          return (
+            <div className="center">
+              <Multiselect
+                component
+                options={[
+                  { id: "1", value: "Option 1" },
+                  { id: "2", value: "Option 2" },
+                  { id: "3", value: "Option 3" },
+                  { id: "4", value: "Option 4" },
+                ]}
+              />
+            </div>
+          )
+        }
         `}
       />
       <p>Initial state set to open</p>
@@ -117,17 +123,23 @@ export const MultiselectPage = () => {
           </div>
         }
         codeContent={`
-        <div className="center">
-            <Multiselect
-              open
-              component
-              options={[
-                { id: "1", value: "Option 1" },
-                { id: "2", value: "Option 2" },
-                { id: "3", value: "Option 3" },
-              ]}
-            />
-          </div>
+        import { Multiselect } from "x-ui-components-react"
+
+        export default function Example() {
+          return (
+            <div className="center">
+              <Multiselect
+                open
+                component
+                options={[
+                  { id: "1", value: "Option 1" },
+                  { id: "2", value: "Option 2" },
+                  { id: "3", value: "Option 3" },
+                ]}
+              />
+            </div>
+          )
+        }
         `}
       />
       <p>Initial value set to the first two options</p>
@@ -147,21 +159,27 @@ export const MultiselectPage = () => {
           </div>
         }
         codeContent={`
-        <div className="center">
-            <Multiselect
-              component
-              options={[
-                { id: "1", value: "Option 1" },
-                { id: "2", value: "Option 2" },
-                { id: "3", value: "Option 3" },
-                { id: "4", value: "Option 4" },
-              ]}
-              defaultValue={[
-                { id: "1", value: "Option 1" },
-                { id: "2", value: "Option 2" },
-              ]}
-            />
-          </div>
+        import { Multiselect } from "x-ui-components-react"
+
+        export default function Example() {
+          return (
+            <div className="center">
+              <Multiselect
+                component
+                options={[
+                  { id: "1", value: "Option 1" },
+                  { id: "2", value: "Option 2" },
+                  { id: "3", value: "Option 3" },
+                  { id: "4", value: "Option 4" },
+                ]}
+                defaultValue={[
+                  { id: "1", value: "Option 1" },
+                  { id: "2", value: "Option 2" },
+                ]}
+              />
+            </div>
+          )
+        }
         `}
       />
       <p>Disabled example</p>
@@ -181,18 +199,24 @@ export const MultiselectPage = () => {
           </div>
         }
         codeContent={`
-        <div className="center">
-            <Multiselect
-              disabled
-              component
-              options={[
-                { id: "1", value: "Option 1" },
-                { id: "2", value: "Option 2" },
-                { id: "3", value: "Option 3" },
-              ]}
-              defaultValue={[{ id: "1", value: "Option 1" }]}
-            />
-          </div>
+        import { Multiselect } from "x-ui-components-react"
+
+        export default function Example() {
+          return (
+            <div className="center">
+              <Multiselect
+                disabled
+                component
+                options={[
+                  { id: "1", value: "Option 1" },
+                  { id: "2", value: "Option 2" },
+                  { id: "3", value: "Option 3" },
+                ]}
+                defaultValue={[{ id: "1", value: "Option 1" }]}
+              />
+            </div>
+          )
+        }
         `}
       />
       <p>Trigger an alert on value change</p>
@@ -218,24 +242,30 @@ export const MultiselectPage = () => {
           </div>
         }
         codeContent={`
-        <div className="center">
-            <Multiselect
-              component
-              onChange={(value) =>
-                window.alert(
-                  \`New value: \${value.map(
-                    (v) => \`id: \${v.id}, name: \${v.value} \`
-                  )}\`
-                )
-              }
-              options={[
-                { id: "1", value: "Option 1" },
-                { id: "2", value: "Option 2" },
-                { id: "3", value: "Option 3" },
-                { id: "4", value: "Option 4" },
-              ]}
-            />
-          </div>
+        import { Multiselect } from "x-ui-components-react"
+
+        export default function Example() {
+          return (
+            <div className="center">
+              <Multiselect
+                component
+                onChange={(value) =>
+                  window.alert(
+                    \`New value: \${value.map(
+                      (v) => \`id: \${v.id}, name: \${v.value} \`
+                    )}\`
+                  )
+                }
+                options={[
+                  { id: "1", value: "Option 1" },
+                  { id: "2", value: "Option 2" },
+                  { id: "3", value: "Option 3" },
+                  { id: "4", value: "Option 4" },
+                ]}
+              />
+            </div>
+          )
+        }
         `}
       />
       <p>Enable searching the options</p>
@@ -255,18 +285,24 @@ export const MultiselectPage = () => {
           </div>
         }
         codeContent={`
-        <div className="center">
-            <Multiselect
-              enableSearch
-              component
-              options={[
-                { id: "1", value: "Option 1" },
-                { id: "2", value: "Option 2" },
-                { id: "3", value: "Option 3" },
-                { id: "4", value: "Option 4" },
-              ]}
-            />
-          </div>
+        import { Multiselect } from "x-ui-components-react"
+
+        export default function Example() {
+          return (
+            <div className="center">
+              <Multiselect
+                enableSearch
+                component
+                options={[
+                  { id: "1", value: "Option 1" },
+                  { id: "2", value: "Option 2" },
+                  { id: "3", value: "Option 3" },
+                  { id: "4", value: "Option 4" },
+                ]}
+              />
+            </div>
+          )
+        }
         `}
       />
       <p>Enable clearing all of the selected options with clear all button</p>
@@ -286,18 +322,24 @@ export const MultiselectPage = () => {
           </div>
         }
         codeContent={`
-        <div className="center">
-            <Multiselect
-              clearAll
-              component
-              options={[
-                { id: "1", value: "Option 1" },
-                { id: "2", value: "Option 2" },
-                { id: "3", value: "Option 3" },
-                { id: "4", value: "Option 4" },
-              ]}
-            />
-          </div>
+        import { Multiselect } from "x-ui-components-react"
+
+        export default function Example() {
+          return (
+            <div className="center">
+              <Multiselect
+                clearAll
+                component
+                options={[
+                  { id: "1", value: "Option 1" },
+                  { id: "2", value: "Option 2" },
+                  { id: "3", value: "Option 3" },
+                  { id: "4", value: "Option 4" },
+                ]}
+              />
+            </div>
+          )
+        }
         `}
       />
       <p>Set the maximum number of selected items</p>
@@ -317,18 +359,24 @@ export const MultiselectPage = () => {
           </div>
         }
         codeContent={`
-        <div className="center">
-            <Multiselect
-              component
-              maxSelectedItems={2}
-              options={[
-                { id: "1", value: "Option 1" },
-                { id: "2", value: "Option 2" },
-                { id: "3", value: "Option 3" },
-                { id: "4", value: "Option 4" },
-              ]}
-            />
-          </div>
+        import { Multiselect } from "x-ui-components-react"
+
+        export default function Example() {
+          return (
+            <div className="center">
+              <Multiselect
+                component
+                maxSelectedItems={2}
+                options={[
+                  { id: "1", value: "Option 1" },
+                  { id: "2", value: "Option 2" },
+                  { id: "3", value: "Option 3" },
+                  { id: "4", value: "Option 4" },
+                ]}
+              />
+            </div>
+          )
+        }
         `}
       />
       <p>Ignore the internal logic with static property</p>
@@ -339,19 +387,25 @@ export const MultiselectPage = () => {
           </div>
         }
         codeContent={`
-        <Multiselect
-          isStatic
-          component
-          onChange={(newValue) => setValue(newValue)}
-          onInputClick={() => setOpen(!open)}
-          value={value}
-          open={open}
-          options={[
-            { id: "1", value: "Option 1" },
-            { id: "2", value: "Option 2" },
-            { id: "3", value: "Option 3" },
-          ]}
-        />
+        import { Multiselect } from "x-ui-components-react"
+
+        export default function Example() {
+          return (
+            <Multiselect
+              isStatic
+              component
+              onChange={(newValue) => setValue(newValue)}
+              onInputClick={() => setOpen(!open)}
+              value={value}
+              open={open}
+              options={[
+                { id: "1", value: "Option 1" },
+                { id: "2", value: "Option 2" },
+                { id: "3", value: "Option 3" },
+              ]}
+            />
+          )
+        }
         `}
       />
       <h3>Use as a composable</h3>

@@ -82,81 +82,89 @@ const ModalPage = () => {
       <Example
         exampleContent={<ModalComponent />}
         codeContent={`
-        const ModalComponent = () => {
-        const [componentModalOpen, setComponentModalOpen] = useState(false);
-        
-        return (
-            <>
+        import { Modal } from "x-ui-components-react"
+
+        export default function Example() {
+          const [componentModalOpen, setComponentModalOpen] = useState(false);
+          
+          return (
+              <>
                 <Modal
                     component
                     title="Title"
                     isOpen={componentModalOpen}
                     onClose={() => setComponentModalOpen(false)}
                 >
-                    Example modal content.
+                  Example modal content.
                 </Modal>
                 <div className="center">
-                <button className="btn" onClick={() => setComponentModalOpen(true)}>
+                  <button className="btn" onClick={() => setComponentModalOpen(true)}>
                     Open modal
-                </button>
+                  </button>
                 </div>
-            </>
-            );
-        };
-          `}
+              </>
+            )
+          }
+        `}
       />
       <p>Ignore the internal logic with static property</p>
       <Example
         exampleContent={<ModalStatic />}
         codeContent={`
-        const [modalOpen, setModalOpen] = useState(false);
+        import { Modal } from "x-ui-components-react"
 
-        return (
-          <>
-            <Modal
-              component
-              title="Title"
-              isOpen={modalOpen}
-              onClose={() => setModalOpen(false)}
-              isStatic
-            >
-              Example modal content.
-            </Modal>
-            <div className="center">
-              <button className="btn" onClick={() => setModalOpen(true)}>
-                Open modal
-              </button>
-            </div>
-          </>
-        );
+        export default function Example() {
+          const [modalOpen, setModalOpen] = useState(false);
+
+          return (
+            <>
+              <Modal
+                component
+                title="Title"
+                isOpen={modalOpen}
+                onClose={() => setModalOpen(false)}
+                isStatic
+              >
+                Example modal content.
+              </Modal>
+              <div className="center">
+                <button className="btn" onClick={() => setModalOpen(true)}>
+                  Open modal
+                </button>
+              </div>
+            </>
+          )
+        }
       `}
       />
       <h3>Use as a composable</h3>
       <Example
         exampleContent={<ModalComposable />}
         codeContent={`
-            const ModalComposable = () => {
-                const [componentModalOpen, setComponentModalOpen] = useState(false);
-            
-                return (
-                <>
-                    <Modal
-                        isOpen={componentModalOpen}
-                        onClose={() => setComponentModalOpen(false)}
-                        >
-                        <Modal.Content>
-                            <p>Example modal content.</p>
-                            <Modal.Button onClick={() => setComponentModalOpen(false)}>Customisable Button</Modal.Button>
-                        </Modal.Content>
-                    </Modal>
-                    <div className="center">
-                        <button className="btn" onClick={() => setComponentModalOpen(true)}>
-                            Open modal
-                        </button>
-                    </div>
-                </>
-                );
-            };
+        import { Modal } from "x-ui-components-react"
+
+        export default function Example() {
+          const [componentModalOpen, setComponentModalOpen] = useState(false);
+      
+          return (
+            <>
+              <Modal
+                  isOpen={componentModalOpen}
+                  onClose={() => setComponentModalOpen(false)}
+                  >
+                  <Modal.Content>
+                      <p>Example modal content.</p>
+                      <Modal.Button onClick={() => setComponentModalOpen(false)}>Customisable Button</Modal.Button>
+                  </Modal.Content>
+              </Modal>
+              <div className="center">
+                  <button className="btn" onClick={() => setComponentModalOpen(true)}>
+                      Open modal
+                  </button>
+              </div>
+            </>
+          )
+        }
       `}
       />
       <div className="component-api">
